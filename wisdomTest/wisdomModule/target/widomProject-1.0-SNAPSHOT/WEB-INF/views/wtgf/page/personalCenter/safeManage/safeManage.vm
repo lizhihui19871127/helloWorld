@@ -1,0 +1,54 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+#block("page_var")
+#set($currentNav="usercenter")
+#set($GF_VIEWINFO.mainNav='r6')
+#set($GF_VIEWINFO.subNav='c63')
+#end
+#block("content_main")
+#widget("wtgf:widget/modal/modal.vm")
+<div class="content-main setUp">
+    <div class="pageMain">
+        <dl>
+            <dt><img src="/static/wtgf/img/personalCenter/personal_icon03.png" alt="" />登录密码</dt>
+            <dd class="has_one_content">
+                <p>登录广发基金账户时需要输入的密码</p>
+                <a href="/main/personalCenter/toUpdateLoginPwd">修改</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt><img src="/static/wtgf/img/personalCenter/personal_icon03.png" alt="" />交易密码</dt>
+            <dd class="has_one_content">
+                <p>进行基金交易时需要输入的密码</p>
+                <a href="/main/personalCenter/toUpdateTradePwd">修改</a>
+            </dd>
+        </dl>
+        <dl class="other_set">
+            <dt><img src="/static/wtgf/img/personalCenter/personal_icon03.png" alt="" />其他设置</dt>
+            <dd>
+                <div>
+                    <span>预留验证信息</span>
+                    <p>$!{welcomeWord}</p>
+                    <input class="change_this_txt" style="display: none" type="text" id="welcomeWord" name="welcomeWord" value="$!{welcomeWord}" />
+                    <a class="xiugai toInput" href="javascript:;">修改</a>
+                    <a class="xiugai save" style="display: none" id="changeWelcomeword" href="javascript:;">保存</a>
+                    <a class="xiugai cancel" style="display: none" href="javascript:;">取消</a>
+                </div>
+                <div>
+                    <span>安全保护问题</span>
+                    <p>用于找回登录密码、修改手机号码 </p>
+                    <a class="xiugai" href="#">设置</a>
+                </div>
+                <div>
+                    <span style="height: 36px;"></span>
+                    <p style="height: 36px;"> </p>
+                    <a class="xiugai" href="#">更多设置</a>
+                </div>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+#end
+#require("wtgf:page/personalCenter/safeManage/safeManage.vm")
+
+#end

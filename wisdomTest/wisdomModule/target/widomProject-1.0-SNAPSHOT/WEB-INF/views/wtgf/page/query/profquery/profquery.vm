@@ -1,0 +1,202 @@
+#extends("wtgf:page/layout/layout.vm")
+#block("header_scripts")
+#require("wtgf:static/css/zhcx/zhcx.css")
+#end
+
+#block("page_var")
+#set($currentNav="query")
+#set($currentSubNav="profitInfo")
+#set($GF_VIEWINFO.mainNav='r0')
+#set($GF_VIEWINFO.subNav='c03')
+#set($GF_VIEWINFO.activityUrl=$activityUrl)
+#set($USE_BOOTSTRAP=0)
+#end
+
+#block("content_main")
+<!-- 账户查询-START -->
+<div class="container-vip">
+##<div class="pageMain">
+
+<div class="zhcx-title-tab">
+    <a class="active" href="">盈亏查询</a>
+    <a href="/main/assreport/query">资产报告</a>
+</div>
+
+<div class="vip-zc-main totalProf">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>账户总收益</h3>
+        </div>
+        <div class="zc-item-table">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>持有资产</th>
+                    <th>最近一天收益（元）</th>
+                    <th>最近一天收益率（%）</th>
+                    <th>累计收益（元）</th>
+                    <th>累计收益率（%）</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="vip-jz-head zhcx-head">
+    <form action="">
+        <label for="">
+            基金名称：
+            <input class="in-txt" type="text" readonly="readonly" value="全部">
+	        <input class="hide fundCodeIpt in-val" type="text" value="all">
+            <div class="in-txt-sub fundslt">
+                <ul>
+                    <li>
+                        <span class="n hide">all</span>
+                        <span class="t">全部</span>
+                    </li>
+                </ul>
+            </div>
+        </label>
+
+        <label for="">
+            期间：
+            <input class="in-txt" type="text" readonly="readonly" value="最近一天">
+	        <input class="hide periodIpt in-val" type="text" value="lastDay">
+            <div class="in-txt-sub1 periodslt">
+                <ul>
+                    <li>
+                        <span class="n hide">lastDay</span>
+                        <span class="t">最近一天</span>
+                    </li>
+                 <li>
+                     <span class="n hide">lastWeek</span>
+                     <span class="t">最近一周</span>
+                 </li>
+                 <li>
+                     <span class="n hide">lastMonth</span>
+                     <span class="t">最近一月</span>
+                 </li>
+                 <li>
+                     <span class="n hide">last3Month</span>
+                     <span class="t">最近三月</span>
+                 </li>
+                 <li>
+                     <span class="n hide">last6Month</span>
+                     <span class="t">最近六月</span>
+                 </li>
+                 <li>
+                     <span class="n hide">lastYear</span>
+                     <span class="t">最近一年</span>
+                 </li>
+                 <li>
+                     <span class="n hide">thisYear</span>
+                     <span class="t">今年以来</span>
+                 </li>
+                 <li>
+                     <span class="n hide">total</span>
+                     <span class="t">累计收益</span>
+                 </li>
+                </ul>
+            </div>
+
+        </label>
+
+        <label for="">
+            <input type="submit" class="skins-btn in-sub" value="查询">
+        </label>
+    </form>
+</div>
+
+
+<div class="vip-zc-main walletPorf">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>钱袋子收益</h3>
+        </div>
+        <div class="zc-item-table">
+            <table class="profdetailtable">
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码</th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="F">期末资产（元）</th>
+                    <th class="sortkey" dtype="F">最近一天收益（元）</th>
+                    <th class="sortkey" dtype="F">收益率（%）</th>
+                </tr>
+            </table>
+
+            <p class="total"><a href="javascript:goToWalletMain();">去钱袋子栏目查看更多&gt;&gt;</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="vip-zc-main normalProf">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>基金产品收益</h3>
+        </div>
+        <div class="zc-item-table">
+            <table class="profdetailtable">
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="F">期末资产（元）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                    <th class="sortkey" dtype="F">最近一天收益（元）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                    <th class="sortkey" dtype="F">收益率（%）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                </tr>
+            </table>
+
+            <p class="show-more hide"><a class="showzero" isshown="false" href="javascript:void(0)">显示期末资产为0的基金</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="vip-zc-main specialProf hide">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>高端理财收益</h3>
+        </div>
+        <div class="zc-item-table">
+            <table class="profdetailtable">
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png" style="width: 10px;height: 15px" alt=""></th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="F">期末资产（元）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                    <th class="sortkey" dtype="F">最近一天收益（元）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                    <th class="sortkey" dtype="F">收益率（%）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                </tr>
+            </table>
+
+            <p class="show-more hide"><a class="showzero" isshown="false" href="javascript:void(0)">显示期末资产为0的基金</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="vip-zc-main usdProf hide">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>美元资产收益</h3>
+        </div>
+        <div class="zc-item-table">
+            <table class="profdetailtable">
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="F">期末资产（元）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                    <th class="sortkey" dtype="F">最近一天收益（元）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                    <th class="sortkey" dtype="F">收益率（%）<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt=""></th>
+                </tr>
+            </table>
+
+            <p class="show-more hide"><a class="showzero" isshown="false" href="javascript:void(0)">显示期末资产为0的基金</a></p>
+        </div>
+    </div>
+</div>
+
+##</div>
+</div>
+<!-- 账户查询-END -->
+#end ##content_main
+
+#require("wtgf:page/query/profquery/profquery.vm")
+
+#end ##extends

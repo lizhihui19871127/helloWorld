@@ -1,0 +1,88 @@
+#extends("wtgf:page/layout/layoutSpecial.vm")
+#block("page_var")
+#set($currentNav="specialshare")
+#set($currentSubNav="index")
+#if(${newsType} == 1)
+    #set($GF_VIEWINFO.subNav='c37')
+#elseif(${newsType} == 2)
+    #set($GF_VIEWINFO.subNav='c38')
+#else
+    #set($GF_VIEWINFO.subNav='c39')
+#end
+#end
+#block("content_main")
+<div class="content-main">
+    <!-- 高端理财-START -->
+    <div class="container-vip wrap" style="margin-left: 0px;">
+        <div class="pageMain" style="padding:0 0 0 0;padding-bottom:2px">
+            <div class="vip-main">
+                <div class="vip-buy-title">
+                    #if(${newsType} == 1)
+                        高端理财<i>&gt;</i>产品公告<i>&gt;</i>产品公开信息
+                    #elseif(${newsType} == 2)
+                        高端理财<i>&gt;</i>产品公告<i>&gt;</i>产品临时公告
+                    #else
+                        高端理财<i>&gt;</i>产品公告<i>&gt;</i>产品定期报告
+                    #end
+                </div>
+                <div class="vip-note-main">
+                    <ul style="margin:0 0 10px 0">
+                        #foreach($newsInfo in ${newsInfo})
+                            <li>
+                                <input type="hidden" name="title" value="${newsInfo.title}" />
+                                <div style="display: none">
+                                    ${newsInfo.content}
+                                </div>
+                                #if(${newsInfo.contenttype}=='20')
+                                    <a href="javascript:void(0)" class="showContent">
+                                        ${newsInfo.title}
+                                    </a>
+                                #elseif(${newsInfo.contenttype}=='30')
+                                    <a href="${newsInfo.content}" target="_blank">${newsInfo.title}</a>
+                                #elseif(${newsInfo.contenttype} == '40')
+                                    <a href="${newsInfo.content}" target="_blank">${newsInfo.title}</a>
+                                #end
+                                <span>${newsInfo.cdate}</span>
+                            </li>
+                        #end
+                    </ul>
+                </div>
+            </div>
+            <form name="queryForm" id="queryForm" action="/main/special/productNews" method="POST" style="margin:0 0 10px;">
+                <input type="hidden" name="newsType" value="${newsType}" />
+                <div class="vip-pages" style="padding: 20px 0 0 20px;">
+                    <div class="btnb">
+                        <a id="home" href="javascript:void(0)" class="tofirst">首页</a>
+                        <a id="before" href="javascript:void(0)" class="toprev">上一页</a>
+                        <a id="next" href="javascript:void(0)" class="tonext">下一页</a>
+                        <a id="last" href="javascript:void(0)" class="tolast">末页</a>
+                    </div>
+                    <input type="hidden" id="lastNo" value="${pageNum}">
+                    <div class="total">总条数：${listCount}&nbsp;&nbsp;&nbsp;&nbsp;总页数：${pageNum}</div>
+                    <div class="num">
+                        <span>当前页</span><input type="text" id="pageNo" name="pageNo" value = "${pageNo}" onkeyup="value=value.replace(/[^\d]/g,'')";><a href="javascript:queryForm.submit()">跳转</a>&nbsp;&nbsp;&nbsp;
+                        <span>每页显示</span>
+                        <input type="text" id="pageSize" name="pageSize" value = "${pageSize}" onkeyup="value=value.replace(/[^\d]/g,'')"/>
+                        <a href="javascript:queryForm.submit()">设置</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- 高端理财-END -->
+</div>
+</div>
+</div>
+
+    <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none">
+        <div class="modal-header" style="height:20px;background-color:#e2e2e2">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <span id="myModalLabel"></span>
+        </div>
+        <div class="modal-body">
+                <span id="content"></span>
+        </div>
+    </div>
+    #end
+    #require("wtgf:page/special/productNews/productNews.vm")
+
+#end

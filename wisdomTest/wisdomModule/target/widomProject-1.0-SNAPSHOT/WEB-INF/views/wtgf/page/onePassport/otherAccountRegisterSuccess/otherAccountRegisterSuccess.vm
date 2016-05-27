@@ -1,0 +1,29 @@
+#extends("wtgf:page/layout/newlayoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="券商、银行、第三方平台用户注册！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+
+#block("content_main")
+<div class="succeed_content">
+    <div class="succeed_content_center">
+        <div class="zhuce_box" style="height: 310px;">
+            <div class="box_top" style="border-bottom: 1px solid #eeeeee;">
+                <h2>恭喜，您已成功完成注册!</h2>
+                <p>
+                    登录名：<span>$!{mobilePhone}</span>
+                    <a href="/main/index" style="margin-left: 10px">立即登录</a>
+                </p>
+            </div>
+            <div class="box_bottom">
+                <img src="/static/wtgf/img/onePassport/gf_erweima.png" alt="" />
+                <span>广发基金APP</span>
+                <p>扫一扫，查账户、买基金 一手掌握</p>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+#require("wtgf:page/onePassport/otherAccountRegisterSuccess/otherAccountRegisterSuccess.vm")
+#end

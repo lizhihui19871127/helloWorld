@@ -1,0 +1,329 @@
+.questionReset_box {
+  min-height: 293px;
+  background: #fff;
+  padding: 40px 0;
+}
+.questionReset_box .progress1 {
+  width: 720px;
+  height: 66px;
+  background: url(../../../img/personalCenter/second_bg.png) no-repeat center 36px;
+  margin: 0 auto;
+  position: relative;
+}
+.questionReset_box .progress1 span {
+  display: inline-block;
+  width: 110px;
+  height: 66px;
+  font-size: 12px;
+  text-align: center;
+  color: #999999;
+  position: absolute;
+  top: 0;
+}
+.questionReset_box .progress1 span.current {
+  color: #eb5406;
+}
+.questionReset_box .progress1 span.one {
+  background: url(../../../img/personalCenter/1.png) no-repeat center 24px;
+  left: 0;
+}
+.questionReset_box .progress1 span.two {
+  background: url(../../../img/personalCenter/2_2.png) no-repeat center 24px;
+  left: 50%;
+  margin-left: -55px;
+}
+.questionReset_box .progress1 span.three {
+  background: url(../../../img/personalCenter/3.png) no-repeat center 24px;
+  right: 0;
+}
+.questionReset_box form {
+  padding: 28px 0 16px 170px;
+}
+.questionReset_box form div.bh_questions {
+  display: block;
+  margin-bottom: 28px;
+}
+.questionReset_box form div.bh_questions > div {
+  overflow: hidden;
+}
+.questionReset_box form div._question {
+  margin-bottom: 8px;
+}
+.questionReset_box form div._question > span {
+  display: inline-block;
+  font-size: 14px;
+  width: 100px;
+  margin-right: 24px;
+  line-height: 27px;
+  text-align: right;
+  float: left;
+}
+.questionReset_box form div._question p {
+  float: left;
+  position: relative;
+  font-size: 14px;
+  color: #737373;
+  line-height: 27px;
+}
+.questionReset_box form div._question p select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 180px;
+  height: 27px;
+  line-height: 21px;
+  border: 1px solid #e1e1e1;
+  outline: none;
+  background: #f7f7f7 url(../../../img/personalCenter/i2.png) no-repeat 155px center;
+  font-size: 14px;
+  padding: 1px 0;
+}
+.questionReset_box form div.answer_question > span {
+  display: inline-block;
+  font-size: 14px;
+  width: 100px;
+  margin-right: 24px;
+  line-height: 27px;
+  text-align: right;
+  float: left;
+}
+.questionReset_box form div.answer_question input {
+  width: 214px;
+  height: 25px;
+  border: 1px solid #e1e1e1;
+  background: #f7f7f7;
+  font-size: 14px;
+  padding: 0 18px;
+  outline: none;
+}
+.questionReset_box form .next_btn {
+  padding-left: 124px;
+}
+.questionReset_box form .next_btn input[type="submit"] {
+  display: inline-block;
+  width: 88px;
+  height: 30px;
+  font-size: 14px;
+  color: #fff;
+  background: #eb5406;
+  border-radius: 3px;
+  text-align: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.questionReset_box form .next_btn a {
+  color: #3384d6;
+  font-size: 12px;
+  text-decoration: none;
+  padding-left: 20px;
+}
+.questionReset_box form label {
+  display: block;
+  margin-bottom: 28px;
+}
+.questionReset_box form label > span {
+  display: inline-block;
+  font-size: 14px;
+  width: 100px;
+  margin-right: 24px;
+  line-height: 27px;
+  text-align: right;
+  float: left;
+}
+.questionReset_box form label > div {
+  float: left;
+  position: relative;
+}
+.questionReset_box form label > div.phoneN {
+  font-size: 14px;
+  color: #737373;
+  line-height: 27px;
+}
+.questionReset_box form label > div input {
+  width: 214px;
+  height: 25px;
+  border: 1px solid #e1e1e1;
+  background: #f7f7f7;
+  font-size: 14px;
+  padding: 2px 6px;
+  outline: none;
+}
+.questionReset_box form label > div p {
+  width: 252px;
+  padding-left: 20px;
+  font-size: 12px;
+  position: absolute;
+  right: -292px;
+  top: 6px;
+}
+.questionReset_box .checkWrap {
+  float: initial;
+  padding-left: 124px;
+  padding-top: 10px;
+}
+.questionReset_box .checkWrap .my-icon {
+  background: url(../../../img/personalCenter/register_icon02.png) no-repeat left center;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+.questionReset_box .checkWrap .my-title {
+  vertical-align: middle;
+  display: inline;
+}
+.questionReset_box form label > div .yanzm {
+  display: inline-block;
+  width: 81px;
+  height: 28px;
+  line-height: 28px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  background: #cecece;
+  border-radius: 1px;
+  padding: 0;
+  margin-top: 0;
+  margin-left: 15px;
+  vertical-align: middle;
+}
+.questionReset_box .resetStyle {
+  float: initial;
+}
+.changeSuccess {
+  text-align: center;
+}
+.changeSuccess h2 {
+  margin-top: 80px;
+}
+.changeSuccess .my-icon {
+  background: url(../../../img/personalCenter/register_icon06.png) no-repeat left center;
+  width: 33px;
+  height: 33px;
+  display: inline-block;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+.changeSuccess .my-title {
+  vertical-align: middle;
+  display: inline;
+  color: #eb5406;
+  font-size: 22px;
+  height: 42px;
+  line-height: 42px;
+}
+.changeSuccess a {
+  display: inline-block;
+  text-decoration: none;
+  width: 110px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  background: #eb5406;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+.questionReset_box .progress2 {
+  background: url(../../../img/personalCenter/second_bg_02.png) no-repeat center 36px;
+}
+.questionReset_box .progress2 span.two {
+  left: 35%;
+  margin-left: -53px;
+}
+.questionReset_box .progress2 span.three {
+  right: 35%;
+  margin-right: -53px;
+}
+.questionReset_box .progress2 span.four {
+  background: url(../../../img/personalCenter/4.png) no-repeat center 24px;
+  right: 0;
+}
+.questionReset_box .progress3 {
+  background: url(../../../img/personalCenter/third_bg_03.png) no-repeat center 36px;
+}
+.questionReset_box .progress3 span.three {
+  background: url(../../../img/personalCenter/3_3.png) no-repeat center 24px;
+  right: 35%;
+  margin-right: -53px;
+}
+.questionReset_box .choose_card {
+  margin: 0 auto;
+  width: 648px;
+}
+.questionReset_box .choose_card ul {
+  width: 100%;
+  border: 1px solid #eeeeed;
+  background: #f7f7f7;
+  border-radius: 3px;
+  overflow: hidden;
+  padding-top: 12px;
+  margin-top: 6px;
+}
+.questionReset_box .choose_card ul li {
+  float: left;
+  width: 190px;
+  height: 50px;
+  border-radius: 3px;
+  border: 1px solid #e2e1e1;
+  background: #fff;
+  text-align: center;
+  line-height: 50px;
+  margin: 0 12px 12px;
+  cursor: pointer;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.questionReset_box .choose_card ul li.current {
+  border: 2px solid #eb5406;
+}
+.questionReset_box .choose_yzway span {
+  line-height: 48px;
+}
+.questionReset_box .choose_yzway ul li {
+  display: inline-block;
+  float: left;
+  width: 188px;
+  height: 48px;
+  text-align: center;
+  border: 1px solid #e6e5e5;
+  margin-right: 22px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+.questionReset_box .choose_yzway ul li img {
+  position: absolute;
+  left: 18px;
+  top: 12px;
+}
+.questionReset_box .choose_yzway ul li p {
+  font-size: 16px;
+  color: #010101;
+  padding-left: 50px;
+  text-align: left;
+  margin-bottom: 0;
+}
+.questionReset_box .choose_yzway ul li em {
+  text-align: left;
+  padding-left: 50px;
+  display: block;
+  font-size: 12px;
+  color: #828282;
+  font-style: normal;
+}
+.questionReset_box .choose_yzway ul li.current {
+  border: 2px solid #eb5406;
+}
+.questionReset_box .choose_yzway ul li.way1 p {
+  line-height: 48px;
+}
+.questionReset_box .choose_yzway ul li.way2 p {
+  line-height: 24px;
+  padding-top: 2px;
+}
+.questionReset_box .resetDiv label div {
+  line-height: 27px;
+}

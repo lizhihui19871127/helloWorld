@@ -1,0 +1,11 @@
+{
+	"errno" : "$errno",
+	"data" : {
+		#foreach($key in $data.keySet())
+			"$key" : "$data.get($key)"
+			#if($velocityCount < $data.size())
+				,
+			#end
+		#end
+	}
+}

@@ -1,0 +1,38 @@
+
+
+/*开户头部*/
+.gflogo1{
+    float:left;width:170px;height:45px;
+    background:url(/static/wtgf/img/account/reg_logo1.png) left center no-repeat;
+}
+.gflogo2{
+    float:left;width:110px;height:45px;
+    background:url(/static/wtgf/img/account/reg_logo2.png) right center no-repeat;
+}
+.gflogo2Text{
+    border-left:1px solid #666261;padding-left:18px;padding-top: 17px;font-size:18px;color:#ff742a;font-family:"Microsoft Yahei";
+}
+
+p.linehead{
+    border-top: 3px solid #FFD099;
+}
+
+/* 步骤指示 */
+.kh-t ul{display: inline-block;*display: inline;*zoom:1;list-style-type:none;}
+.kh-t li{float: left;width: 110px;}
+.kh-t li span{
+    display: block; padding-top: 60px;font-size: 14px;font-weight: bold;color: #999;
+    background: url(/static/wtgf/img/account/kh-icon-14102101.gif) 30px 0px no-repeat;
+    text-align: center;
+}
+.kh-t li.z-sel span{
+    color: #000;background-image: url(/static/wtgf/img/account/kh-icon-14102102.gif);
+    text-align: center;
+}
+.kh-t li .l2{background-position: -78px 0;}
+.kh-t li .l3{background-position: -190px 0;}
+
+form.alignform{margin-left: 50px}
+
+.text-fontsize16{font-size:16px}
+.text-info-tips span {color: #f2641c;padding-right: 10px;font-weight: bold;}

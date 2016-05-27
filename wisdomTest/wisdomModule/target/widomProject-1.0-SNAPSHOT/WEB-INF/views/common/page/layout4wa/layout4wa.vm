@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+#html("common:static/js/mod.js")
+
+#set($PAGE_TITLE="广发基金")
+
+#block("global_var")
+#end
+
+#head()
+    <meta http-equiv="Content-Type" content="text/html;charset=gbk">
+    <title>$PAGE_TITLE</title>
+    <meta name="viewport" content="width=device-width,user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="基金，股票，投资">
+    <meta name="description" content="广发基金管理有限公司">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon-precomposed" href="">
+    #require("common:widget/zepto/zepto.js")
+#end
+
+#body()
+<div id="wrapper">
+    <section id="topBar">
+        #block("topBar")
+        #end
+    </section>
+
+    <header id="pageHeader">
+        #block("header")
+        <!--this is header-->
+        #end
+    </header>
+
+    <section id="pageContent">
+        #block("content")
+        #end
+    </section>
+
+    <footer id="pageFooter">
+        #block("footer")
+        #end
+    </footer>
+</div>
+
+<script type="text/javascript">
+    window.GF_VIEWINFO = {};
+    #block("jsVar")
+
+    #end
+</script>
+
+#require("common:page/layout4wa/layout4wa.vm")
+#end
+#end
+

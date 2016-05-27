@@ -1,0 +1,28 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+#block("page_var")
+#set($GF_VIEWINFO.subNav='c11')
+#end
+#block("content_main")
+<div class="content-main">
+    <!-- 订单支付-START -->
+    <div class="container-pay wrap" style="margin-left: 0px;">
+        <div class="pageMain" style="padding:0 0 0 0;padding-bottom:2px">
+            <div class="pay-main pay-over-main" style="min-height: 350px;">
+                <div class="info-back fail-info-back" style="width: 350px;">
+                    <h3 style="padding-left: 30px;margin-bottom: 20px;">操作失败，可能失败原因：$!{returnmsg}</h3>
+                    <input type="hidden" name="returnmsg" id="returnmsg" value="$!{returnmsg}">
+                    <input type="hidden" name="verifyBusiness" id="verifyBusiness" value="${verifyBusiness}"/>
+                    <div class="" style="padding-left: 30px;">
+                        <span style="padding-left: 5px;font-size: 14px;">请致电我司客服热线：95105828
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 订单支付-END -->
+</div>
+
+#end
+#require("wtgf:page/pay/payFailure/payFailure.vm")
+
+#end

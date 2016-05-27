@@ -1,0 +1,22 @@
+#extends("wtgf:page/layout/newlayoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="重置登录密码！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+#block("content_main")
+<div class="pwReset_content">
+    <div class="pwReset_content_center">
+        <div class="pwReset_box">
+            <div class="pwReset5">
+                <h2>恭喜您，重置登录密码成功!</h2>
+                <p>您现在可使用新密码登录交易系统</p>
+                <a href="/main/index">立即登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+#require("wtgf:page/personalCenter/resetLoginPwd/step5/step5.vm")
+
+#end

@@ -1,0 +1,28 @@
+@import url("/static/wtgf/css/onePassport/onePassport.css");
+@import url("/static/wtgf/css/bindingCard/bindingCard.css");
+.yh {
+  font-family: "Microsoft YaHei";
+}
+.container-bank .in-txt {
+  height: 25px;
+}
+input[type="text"],
+input[type="password"] {
+  padding: 0px 0px;
+  margin-bottom: 0px;
+  box-shadow: none;
+}
+.container-bank .changeDo label em.get_yanzm {
+  width: 120px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border-radius: 1px;
+  background: #eb5406;
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  left: 375px;
+  top: 0;
+  font-style: normal;
+}

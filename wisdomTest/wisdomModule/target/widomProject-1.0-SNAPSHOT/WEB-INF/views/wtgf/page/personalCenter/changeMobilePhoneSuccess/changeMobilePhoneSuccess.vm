@@ -1,0 +1,21 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+#block("page_var")
+#set($currentNav="usercenter")
+#set($GF_VIEWINFO.mainNav='r6')
+#set($GF_VIEWINFO.subNav='c61')
+#end
+#block("content_main")
+#widget("wtgf:widget/modal/modal.vm")
+<div class="content-main">
+    <div class="NumReset_box">
+        <div class="NumReset4">
+            <h2>恭喜您，修改手机号码成功!</h2>
+            <a href="/main/personalCenter/index">返回个人中心</a>
+        </div>
+    </div>
+</div>
+
+#end
+#require("wtgf:page/personalCenter/changeMobilePhoneSuccess/changeMobilePhoneSuccess.vm")
+
+#end

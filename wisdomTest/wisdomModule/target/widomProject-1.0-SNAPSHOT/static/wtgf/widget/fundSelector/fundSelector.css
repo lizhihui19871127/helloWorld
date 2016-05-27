@@ -1,0 +1,260 @@
+.colorTransition {
+  -moz-transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+  -ms-transition: color 0.2s linear;
+  transition: color 0.2s linear;
+}
+.fs {
+  -moz-box-shadow: 0 0 5px #666666;
+  -webkit-box-shadow: 0 0 5px #666666;
+  -ms-box-shadow: 0 0 5px #666666;
+  box-shadow: 0 0 5px #666666;
+  position: absolute;
+  background: white;
+  z-index: 1024;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.fs table {
+  border-collapse: collapse;
+}
+.fs table tr td {
+  border: 1px solid #e0982c;
+  vertical-align: middle;
+}
+.fs table tr td p.more {
+  text-align: right;
+}
+.fs table tr td p.more a {
+  color: #0061CC;
+}
+.fs table tr td.fs-typeName {
+  background: #fcf8f5;
+  width: 33px;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+}
+.fs table tr td.fs-typeName span {
+  display: block;
+  width: 1.5em;
+  margin: 0 auto;
+  line-height: 1.3em;
+}
+.fs table tr td.fs-header {
+  padding: 0px;
+  padding-bottom: 2px;
+  background: #DA9D30;
+  position: relative;
+}
+.fs table tr td.fs-header div {
+  height: 30px;
+  padding: 0px 10px;
+  line-height: 30px;
+  background-color: #fcb501;
+}
+.fs table tr td.fs-header div h1 {
+  /*float:left;*/
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+}
+.fs table tr td.fs-header div p {
+  /*float:right;*/
+  position: absolute;
+  top: 0px;
+  right: 8px;
+  z-index: 2;
+  border: 1px solid #DA9D30;
+  border-radius: 20px;
+  background: white;
+  height: 21px;
+  line-height: 21px;
+  margin-top: 4px;
+  padding-left: 5px;
+}
+.fs table tr td.fs-header div p input.fs-searcher {
+  border-width: 0px;
+  background: url("/static/common/img/icons.png") no-repeat 0 -298px;
+  padding: 0px 7px;
+  padding-left: 17px;
+  height: 21px;
+  line-height: 21px;
+}
+.fs table tr td.fs-header div p input.fs-searcher:focus {
+  outline: none;
+}
+.fs table tr td.fs-typeList {
+  padding: 8px;
+  width: 202px;
+  height: 190px;
+  position: relative;
+}
+.fs table tr td.fs-typeList.newFund {
+  height: auto;
+}
+.fs table tr td.fs-typeList div.typeList-wrapper {
+  max-height: 150px;
+  _height: expression(this.scrollHeight > 150? '150px' : 'auto');
+  display: inline-block;
+  overflow: hidden;
+  background: white;
+}
+.fs table tr td.fs-typeList div.typeList-wrapper ul li {
+  line-height: 25px;
+}
+.fs table tr td.fs-typeList div.typeList-wrapper ul li input {
+  vertical-align: text-bottom;
+}
+.fs table tr td.fs-typeList div.typeList-wrapper ul li label {
+  cursor: pointer;
+}
+.fs table tr td.fs-typeList div.typeList-wrapper ul li label:hover {
+  color: #ff9400;
+}
+.fs table tr td.fs-typeList div.typeList-wrapper.expand {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  top: -1px\9;;
+  left: -1px\9;;
+  top: 0px\0;;
+  max-height: none;
+  height: 190px;
+  width: 100%;
+  border: 1px solid #e0982c\9;
+  z-index: 2;
+}
+.fs table tr td.fs-typeList div.typeList-wrapper.expand ul {
+  margin-left: 8px;
+}
+.fs table tr td.fs-typeList p {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.fs table tr td.fs-typeList p a {
+  color: #0061CC;
+}
+.fs table tr td .rankList {
+  margin: 7px;
+  background: #fcf8f5;
+  border: 1px solid #ccc;
+  padding: 5px 15px;
+}
+.fs table tr td .rankList h1 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.fs table tr td .rankList h1 span {
+  font-weight: normal;
+  color: #999999;
+}
+.fs table tr td .rankList ul li {
+  line-height: 20px;
+  position: relative;
+}
+.fs table tr td .rankList ul li input {
+  vertical-align: text-bottom;
+}
+.fs table tr td .rankList ul li label {
+  cursor: pointer;
+}
+.fs table tr td .rankList ul li label:hover {
+  color: #ff9400;
+}
+.fs table tr td .rankList ul li .rankList-rankNum {
+  position: absolute;
+  left: 190px;
+  top: 3px;
+  width: 15px;
+  zoom: 1;
+  height: 15px;
+  line-height: 15px;
+  color: white;
+  text-align: center;
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  -o-border-radius: 2px 2px 2px 2px;
+  -ms-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+}
+.fs table tr td .rankList ul li .rankList-rankNum.rankNum_1 {
+  background: blue;
+}
+.fs table tr td .rankList ul li .rankList-rankNum.rankNum_2 {
+  background: green;
+}
+.fs table tr td .rankList ul li .rankList-rankNum.rankNum_3 {
+  background: red;
+}
+.fs table tr td .rankList ul li .rankList-rankLine {
+  position: absolute;
+  left: 210px;
+  top: 6px;
+  height: 7px;
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  -o-border-radius: 2px 2px 2px 2px;
+  -ms-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+}
+.fs table tr td .rankList ul li .rankList-rankLine.rankLine_1 {
+  width: 90px;
+  background: blue;
+}
+.fs table tr td .rankList ul li .rankList-rankLine.rankLine_2 {
+  width: 60px;
+  background: green;
+}
+.fs table tr td .rankList ul li .rankList-rankLine.rankLine_3 {
+  width: 30px;
+  background: red;
+}
+.fs .cover {
+  background: #555;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.fs .fs-searchResult {
+  position: absolute;
+  background: white;
+  z-index: 2;
+  border: 1px solid #ccc;
+  display: none;
+  -moz-box-shadow: 0 0 3px #cccccc;
+  -webkit-box-shadow: 0 0 3px #cccccc;
+  -ms-box-shadow: 0 0 3px #cccccc;
+  box-shadow: 0 0 3px #cccccc;
+}
+.fs .fs-searchResult p {
+  text-align: center;
+  margin: 5px;
+}
+.fs .fs-searchResult ul {
+  margin: 0 5px;
+}
+.fs .fs-searchResult ul li {
+  line-height: 30px;
+  border-bottom: 1px dashed #ccc;
+}
+.fs .fs-searchResult ul li.noBorder {
+  border-bottom: none;
+}
+.fs .fs-searchResult ul li:hover {
+  color: #ff9400;
+}
+.fs .fs-searchResult ul li label {
+  cursor: pointer;
+  display: inline-block;
+  _display: inline;
+  height: 30px;
+  line-height: 30px;
+}

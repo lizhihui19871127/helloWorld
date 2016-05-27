@@ -1,0 +1,60 @@
+#extends("wtgf:page/layout/layoutNoNav.vm")
+#block("page_var")
+    #set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+    #set($BOOTSTRAP_CONTAINER="")
+    #set($IS_LOGIN=0)
+#end
+#block("header_scripts")
+<script type="text/javascript">
+    window.WTjson = {
+        "WT.si_n":"银行卡绑定",
+        "WT.si_x":"选择银行卡"
+    }
+</script>
+#end
+#block("content_main")
+    <p class="empty-line"></p>
+    <div class="container">
+        <div class="row">
+            <div class="span8 offset2">
+                <p class="gflogo1"></p><p class="gflogo2Text">添加银行卡</p>
+            </div>
+        </div>
+    </div>
+    <p class="line"></p>
+
+    <div class="container">
+        <div class="row span10 offset1">
+            <form method="post" action="openaccount_step5">
+                <p><strong class="text-red">选择银行卡</strong>&nbsp;&nbsp;
+                    <small class="text-info">仅支持本人储蓄卡，不支持信用卡或他人储蓄卡</small>
+                </p>
+                <div class="khnr2012">
+                    #foreach($bankCard in $bankCardsList)
+                    #if(${velocityCount} %4 == 1)
+                        <div class="Select_card">
+                    #end
+                    <div class="Single">
+                        <label class="radio"  style="background-image:url($bankCard.imgpath);">
+                        <input type="radio" id="bankShowKey" name="bankShowKey" value="$bankCard.showkey"
+                               otype="button" otitle="$bankCard.banknamecn" oarea="银行卡选择"/>
+                        </label>
+                        <input type="text" class="hidden" id="selectedBankImg_$bankCard.showkey"
+                               disabled="true" name="selectedBankImg"  value="$bankCard.imgpath"/>
+                    </div>
+                    #if(${velocityCount} %4 == 0 || !${velocityHasNext})
+                        </div>
+                    #end
+                    #end
+                    <button type="submit" class="btn btn-large btn-warning" id="nextbtn">
+                        &nbsp;&nbsp;下一步&nbsp;&nbsp;
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <p class="empty-line"></p>
+#end
+#require("wtgf:page/account/openaccount/openaccount_step4/openaccount_step4.vm")
+#end

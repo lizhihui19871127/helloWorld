@@ -1,0 +1,27 @@
+#extends("wtgf:page/layout/layout.vm")
+#block("header_scripts")
+#end
+#block("page_var")
+#set($currentNav=$!{mainMenu})
+#set($currentSubNav=$!{subMenu})
+#set($GF_VIEWINFO.mainNav=$!{mainMenuId})
+#set($GF_VIEWINFO.subNav=$!{subMenuId})
+#set($GF_VIEWINFO.activityUrl=$!{activityUrl})
+#set($USE_BOOTSTRAP=0)
+#end
+
+#block("content_main")
+<div class="success" style="height:223px;">
+    <div style="text-align:center;margin:0 10px 0 20px; height: 132px; margin-top: 40px;">
+        <img src="/static/wtgf/img/fail.gif?v=20160330" style="margin:0 12px 0px 0;"/>
+              <span style="font-weight:bold;font-size:14px; margin: 3px 0 0 0;">
+	              $!{returnMsg}
+              </span>
+    </div>
+    <hr align="left" width="400" class="hr_201102" style="margin-left:125px;margin-top:20px;"/>
+    <p style="margin:10px 0 0 122px; font-size:13px;">您的申请提交失败，请重新操作，如始终无法提交申请可联系95105828客服热线!</p>
+</div>
+#end ##content_main
+
+#require("wtgf:page/common/error.vm")
+#end ##extends

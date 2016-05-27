@@ -1,0 +1,424 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+#block("page_var")
+#set($GF_VIEWINFO.subNav='c11')
+#end
+#block("content_main")
+<div class="content-main">
+    <!-- 订单支付-START -->
+    <div class="container-pay wrap" style="margin-left: 0px;">
+        <div class="pageMain" style="padding:0 0 0 0;padding-bottom:2px">
+            <div class="pay-main pay-cz-main pay-order-main">
+
+        <div class="cz-nav">
+            <a class="active" href="">订单确认与支付</a>
+        </div>
+
+        <div class="cz-main">
+        <div class="cz-item">
+        <form id="frm" name="frm" action="" method="" target="">
+            <input type="hidden" name="bankCardNo" id="bankCardNo" value="" />
+            <input type="hidden" name="bankNo" id="bankNo" value="" />
+            <input type="hidden" name="capitalMode" id="capitalMode" value="" />
+            <input type="hidden" name="buyMethod" id="buyMethod" value="" />
+            <input type="hidden" name="tradeAcco" id="tradeAcco" value="" />
+            <input type="hidden" name="perPayLimit" id="perPayLimit" value="" />
+            <input type="hidden" name="isAppreciationShow" id="isAppreciationShow" value="$!{isAppreciationShow}" />
+            <dl>
+                <dt><a class="back-order" href="/main/wallet/order/pre?amount=$!{amount}">&gt;返回修改订单</a></dt>
+                <dd class="order-dd">
+                    <div class="item-table" style="margin-bottom: 5px;">
+                        <table>
+                            <tbody><tr>
+                                <th>基金代码</th>
+                                <th>基金名称</th>
+                                <th>收费方式</th>
+                                <th>交易金额</th>
+                                <th>
+                                    <label class="in-label sub-box">
+                                        预计下单日
+                                        <img src="/static/wtgf/img/pay/pay-i2.png" alt="">
+                                        <div class="sub-tips" style="width: 100px;padding-left: 15px;padding-right: 15px;">
+                                            <i></i>
+                                            <p>下单日是按自然日计算的提交日期（实际下单日以支付时间为准）</p>
+                                        </div>
+                                    </label>
+                                </th>
+                                <th>
+                                    <label class="in-label sub-box">
+                                        预计交易日
+                                        <img src="/static/wtgf/img/pay/pay-i2.png" alt="">
+                                        <div class="sub-tips" style="width: 50px;">
+                                            <i></i>
+                                            <p>交易日是按交易日计算的提交日期。下单时间超过15点，按下一交易日计算（实际交易日以支付时间为准）</p>
+                                        </div>
+                                    </label>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    $!{fundCode}<input type="hidden" id="fundCode" name="fundCode" value="$!{fundCode}" />
+                                    <input type="hidden" id="walletFundCode" name="walletFundCode" value="$!{userInfo.walletFundCode}" />
+                                    <input type="hidden" id="businCode" name="businCode" value="$!{businCode}" />
+                                    <input type="hidden" id="isQdDelay" name="isQdDelay" value="$!{isQdDelay}" />
+                                    <input type="hidden" id="predictTradeDate" name="predictTradeDate" value="$!{predictTradeDate}" />
+                                    <input type="hidden" id="fundName" name="fundName" value="$!{fundName}" />
+                                </td>
+                                <td>$!{fundName}</td>
+                                <td>
+                                    #if(${shareType} == "A")
+                                        前收费
+                                    #elseif(${shareType} == "B")
+                                        后收费
+                                    #elseif(${shareType} == "C")
+                                        C类收费
+                                    #end
+                                    <input type="hidden" id="shareType" name="shareType" value="$!{shareType}" />
+                                </td>
+                                <td>$!{amountShow}
+                                    <input type="hidden" id="amount" name="amount" value="$!{amount}" />
+                                </td>
+                                <td>$!{predictOrderDate}</td>
+                                <td>$!{predictTradeDate}</td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+                    <div class="tips">
+                        <div class="in-label sub-box" style="white-space: nowrap;">
+                            说明:基金交易均遵循“未知价”交易原则
+                            <img src="/static/wtgf/img/pay/pay-i2.png" alt="">
+                            <div class="sub-tips" style="width: 300px;white-space: normal;">
+                                <i></i>
+                                <p>开放式基金当日净值一般在下一交易日才会披露，因此，基金交易通常采取“未知价法”：即投资者提交委托申请时，并不知道其成交净值。申购时按照金额提交申请（申购多少钱的基金）、赎回时按照份额提交申请（赎回多少份的基金）。基金交易以股市收市时间为界，交易日当天15:00之前的交易申请按照当日净值成交，15:00之后以及双休日节假日的交易申请，则顺延到下一交易日，以下一交易日的净值成交。（比如周五15:00之后、以及双休日提交的交易申请，均视为下周一的交易申请，以下周一的基金净值成交）。</p>
+                            </div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt class="set_padding_left">
+                    <ul class="mode_of_payment clearfix">
+                        <li class="current" id="wallet">钱袋子支付</li>
+                        <li id="kjzf">快捷支付</li>
+                        <li>网银支付</li>
+                    </ul>
+                </dt>
+                <dd class="pay-type-dd">
+                    <!-- 钱袋子支付 -->
+                    <div class="pay-type-box pay-qdz current pay-active" id="walletSub">
+                        <div class="pay-type-head">
+                            <span class="tips-btn">前端费率最低4折，支持所有C类收费产品</span>
+                        </div>
+                        <div class="pay-type-main">
+                            <!-- class为list-hide的li默认隐藏，点击展开才显示 -->
+                            <!-- 余额不足时，添加自定义属性data-less，值为还差的金额 -->
+                            <ul id="moneyPayInfo" class="wallet">
+                                <center><img src="/static/wtgf/img/pay/loading.gif" alt="">&nbsp;&nbsp;正在加载，请稍后......</center>
+                            </ul>
+                            <div class="pay-type-btn" id="walletPay_noPayCard" style="display: none">
+                                <p style="padding-left: 0px;">您没有可支付的银行卡，无法继续交易，请</p>
+                                <a class="add" href="javascript:void(0);" style="padding-left: 21px;">添加银行卡</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 快捷支付 -->
+                    <div class="pay-type-box pay_kj pay-active" id="kjzfSub">
+                        <div class="pay-type-head">
+                            <span class="tips-btn">无需跳转网银，一键支付</span>
+                        </div>
+                        <div class="pay-type-main">
+                            <ul id="smgPayInfo" class="smgPayInfo">
+                                <center><img src="/static/wtgf/img/pay/loading.gif" alt="">&nbsp;&nbsp;正在加载，请稍后......</center>
+                            </ul>
+                            <div class="pay-type-btn" id="smgPayInfo_hasPayCard" style="display:none">
+                                <a class="add" href="javascript:void(0)">添加银行卡</a>
+                            </div>
+                            <div class="pay-type-btn" id="smgPayInfo_noPayCard">
+                                <p style="padding-left: 0px;">您没有可支付的银行卡，无法继续交易，请</p>
+                                <a class="add" href="javascript:void(0)" style="padding-left: 21px;">添加银行卡</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 银行卡支付 -->
+                    <div class="pay-type-box pay-yhk pay-active">
+                        <div class="pay-type-head">
+                            <span class="tips-btn">跳转银行网页支付</span>
+                        </div>
+                        <div class="pay-type-main">
+                            <ul id="webPayInfo">
+                                <center><img src="/static/wtgf/img/pay/loading.gif" alt="">&nbsp;&nbsp;正在加载，请稍后......</center>
+                            </ul>
+                            <div class="pay-type-btn" id="webPayInfo_hasPayCard" style="display:none">
+                                <a class="add" href="javascript:void(0);">添加银行卡</a>
+                            </div>
+                            <div class="pay-type-btn" id="webPayInfo_noPayCard">
+                                <p style="padding-left: 0px;">您没有可支付的银行卡，无法继续交易，请</p>
+                                <a class="add" href="javascript:void(0);" style="padding-left: 21px;">添加银行卡</a>
+                            </div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>交易密码</dt>
+                <dd class="only-row">
+                    <span class="in-label">
+                        <input type="text" style="display:none" />
+                        <input class="in-txt" id="tradingpw" name="tradePassWord" type="password" maxlength="8" value="">
+                        <a class="in-pw" href="javascript:void(0);" title="软键盘"><img src="/static/wtgf/img/pay/pay-i15.png" alt="软键盘"></a>
+                        <a class="lost-pw" href="/password/resetpwdinputinfo.jsp" target="_blank" title="忘记密码">忘记密码</a>
+                    </span>
+                </dd>
+            </dl>
+                #if($isAppreciationShow)
+                    <dd class="agreen" id="zzyw" style="display: none">
+                        <input id="agreenInput" name="agreenInput" type="checkbox" checked>
+                        通过钱袋子认购[$!{fundCode}|$!{fundName}]须阅读并同意勾选<a href="http://www.gffunds.com.cn/etrade/fw/jygz/wsjygz/201510/t20151030_48174.htm" target="_blank">《广发基金钱袋子认购资金增值业务规则》</a>
+                    </dd>
+                #end
+            <dd>
+                <input class="skins-btn in-sub" type="button" value="确认并支付" id="pay" otype="button" otitle="确认并支付" oarea="支付">
+            </dd>
+        </form>
+        </div>
+        </div>
+
+        <div id="zzfy" style="display:none">
+            <span class="limit zsfy" >
+            转账费用
+            <div class="limit-tips zsfy-tips">
+                <i></i>
+                <p class="t">上海银联系统收取的跨行转账手续费</p>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>转账金额</td>
+                        <td>跨行转账手续费</td>
+                    </tr>
+                    <tr>
+                        <td>小于等于5千元</td>
+                        <td>2元/笔</td>
+                    </tr>
+                    <tr>
+                        <td>5千元至5万元(含)</td>
+                        <td>3元/笔</td>
+                    </tr>
+                    <tr>
+                        <td>5万元以上至10万元(含)</td>
+                        <td>5元/笔</td>
+                    </tr>
+                    <tr>
+                        <td>10万元以上</td>
+                        <td>8元/笔</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>注意：上海银联 支持的银行卡包括：兴业银行、浦发银行、中信银行、长沙银行、南京银行、上海农商银行、金华银行。客户所持有的上海银联银 行卡（兴业、浦发、中信、长沙、南京、上海农商、金华银行）需要收取“跨行转账费”，请客户务必保证银行卡上留有足额资金 ，否则系统将提示“余额不足，无法进行支付”。例如：如果您持有兴业卡，通过网上交易申购广发聚丰基金，金额为10万元，银 联需收您的跨行转账费5元，则您的兴业银行卡上至少应该存有：100,000+5＝100,005元。否则，该笔交易申请将会失败。</p>
+            </div>
+            </span>
+        </div >
+
+        <!-- 网银支付提醒 -->
+        <div id="modal3" class="modal hide fade pop-bank-fail pop-bank-wyzftx" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span class="specialFont">网上交易提醒</span>
+            </div>
+            <div class="modal-body">
+                <div style="font:'Microsoft YaHei'">
+                    <div class="">
+                        <h3 style="padding-left: 35px;">请在新打开的页面完成操作</h3>
+                        <p>
+                            <a class="skins-btn js-btn-ktwy" id="ktwy" style="margin-right: 65px;">完成</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 银行卡验证弹出框 -->
+        <div id="modal5" class="modal hide fade pop-bank-fail pop-bank-wyzftx" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span class="specialFont">请您在新打开的银行页面完成支付</span>
+            </div>
+            <div class="modal-body">
+                <div style="font:'Microsoft YaHei'">
+                    <div class="pop-content">
+                        <h3 style="padding-left: 35px;">支付完成前请不要关闭此窗口</h3>
+                        <p style="padding-left: 35px;margin-bottom: 10px;">如果窗口未弹出，请取消浏览器拦截设置或点击<a href="/main/order/goBank" target="_blank">这里</a></p>
+                        <p style="padding-left: 35px;margin-bottom: 25px;">支付完后请根据您的情况点击下面的按钮：</p>
+                        <p style="padding-left: 80px;">
+                            <a class="skins-btn" href="javascript:void(0);" id="paySuccess" style="margin: auto;margin-right: 65px;">完成支付</a>
+                            <a class="skins-btn btn-cancel" style="margin: auto;" href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/scjycjwt/index_help.htm" target="_blank">支付遇到问题</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 钱袋子余额不够充值 -->
+        <div id="modal6" class="modal hide fade pop-bank-fail pop-bank-wyzftx" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span class="specialFont">选择支付方式</span>
+            </div>
+            <div class="modal-body walletDiv">
+                <div style="font:'Microsoft YaHei'" class="pop-bank-sel">
+                    <div class="pay-type-main" style="display: block;padding-bottom: 20px;padding-left: 0px;">
+                        <p class="tips" style="color: black;">钱袋子份额不足，将用银行卡充值&nbsp;<span class="orange_color" id="reCharegeMoney">1,200,000.00</span>&nbsp;元</p>
+                        <input type="hidden" name="reCharege_amount" id="reCharege_amount" value="" />
+                        <input type="hidden" name="reCharege_buyMethod" id="reCharege_buyMethod" value="" />
+                        <input type="hidden" name="reCharege_tradeAcco" id="reCharege_tradeAcco" value="" />
+                        <input type="hidden" name="reCharege_bankCardNo" id="reCharege_bankCardNo" value="" />
+                        <input type="hidden" name="reCharege_bankNo" id="reCharege_bankNo" value="" />
+                        <ul id="reChargeBankList">
+                            <center><img src="/static/wtgf/img/pay/loading.gif" alt="">&nbsp;&nbsp;正在加载，请稍后......</center>
+                        </ul>
+                        <div id="setPayStyle" style="margin-top: 10px;color: red;display: none;">请选择支付方式！</div>
+                    </div>
+                    <dl class="jy_password clearfix" style="padding: 0 40px 5px;">
+                        <dt>交易密码</dt>
+                        <dd class="only-row">
+                        <span class="in-label">
+                            <input class="in-txt" id="tradePwd" name="tradePwd" type="password" maxlength="8" value="">
+                            <a class="lost-pw" href="/password/resetpwdinputinfo.jsp" target="_blank" title="忘记密码">忘记密码</a>
+                        </span>
+                        </dd>
+                    </dl>
+                    <div class="qzf" style="padding: 0px;">
+                        <input class="skins-btn in-sub" style="font-family:'Microsoft YaHei'!important;margin: 0px 0 0 200px;" type="button" value="去支付" id="toPay" otype="button" otitle="去支付" oarea="钱袋子余额不足充值">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 支付成功提示 -->
+        <div id="modal7" class="modal hide fade pop-bank-fail pop-bank-wyzftx" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span class="specialFont">提示</span>
+            </div>
+            <div class="modal-body">
+                <div style="font:'Microsoft YaHei'">
+                    <div class="pop-content">
+                        <h3 style="padding-left: 35px;background: url(/static/wtgf/img/pay/pay-i17.jpg) 7px 10px no-repeat;">恭喜，支付成功！</h3>
+                        <p class="tips" style="padding-left: 35px;">点击“完成”返回之前订单，继续操作...</p>
+                        <p>
+                            <a class="skins-btn js-btn-ktwy reChargezfwc" href="javascript:void(0);" style="display: block;  margin: 0 auto; margin-top: 20px;">完成</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 支付失败提示 -->
+        <div id="modal8" class="modal hide fade pop-bank-fail pop-bank-wyzftx" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span class="specialFont">提示</span>
+            </div>
+            <div class="modal-body">
+                <div style="font:'Microsoft YaHei'">
+                    <div class="pop-content">
+                        <h3 style="padding-left: 35px;">支付失败，可能的原因是【<span id="zfsbMsg"></span>】</h3>
+                        <p>
+                            <a class="skins-btn js-btn-ktwy reChargezfwc" href="javascript:void(0);" style="display: block; margin: 0 auto; margin-top: 20px;">完成</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 支付完成提醒 -->
+        <div id="modal9" class="modal hide fade pop-bank-fail pop-bank-wyzftx" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span class="specialFont">请您在新打开的银行页面完成支付</span>
+            </div>
+            <div class="modal-body">
+                <div style="font:'Microsoft YaHei'">
+                    <div class="pop-content">
+                        <h3 style="padding-left: 35px;">支付完成前请不要关闭此窗口</h3>
+                        <p style="padding-left: 35px;margin-bottom: 25px;">如果窗口未弹出，请取消浏览器拦截设置或点击<a href="/main/order/goBank" target="_blank">这里</a></p>
+                        <p>
+                            <a class="skins-btn js-btn-ktwy reChargezfwc" href="javascript:void(0);" style="display: block;  margin: 0 auto; margin-top: 20px;">完成</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 所有错误信息，共用这一个弹出框 -->
+        <div id="modal0" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span id="myModalLabel">温馨提示</span>
+            </div>
+            <div class="modal-body">
+                <div id="showInfoMsg" style="font:12px/1.5em 'Microsoft YaHei'"></div>
+            </div>
+        </div>
+
+        <!-- Qd基金提示弹出框（普通银行卡） -->
+        <div id="modal1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span>温馨提示</span>
+            </div>
+            <div class="modal-body">
+                <div id="alertInfoMsg" style="font:12px/1.5em 'Microsoft YaHei'"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" id="qdToBuy">确认</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" id="qdCancel">取消</button>
+            </div>
+        </div>
+
+        <!-- Qd基金提示弹出框（钱袋子） -->
+        <div id="modal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span>温馨提示</span>
+            </div>
+            <div class="modal-body">
+                <div id="walletInfoMsg" style="font:12px/1.5em 'Microsoft YaHei'"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" id="walletQdToBuy">确认</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" id="walletQdCancel">取消</button>
+            </div>
+        </div>
+
+        <!-- 网银确认去支付 -->
+        <div id="modal11" class="modal hide fade pop-bank-fail pop-bank-wyzftx" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <span class="specialFont">请您在新打开的银行页面完成支付</span>
+            </div>
+            <div class="modal-body">
+                <div style="font:'Microsoft YaHei'">
+                    <div class="pop-content">
+                        <h3 style="padding-left: 35px;">订单已生成，请立即完成支付。</h3>
+                        <p style="padding-left: 35px;margin-bottom: 25px;">如果支付未完成，视为自动放弃该订单。</p>
+                        <p>
+                            <input type="hidden" name="toBankUrlWindow" id="toBankUrlWindow" value=""/>
+                            <a class="skins-btn js-btn-ktwy" id="toBankUrl" href="javascript:void(0);" style="display: block;  margin: 0 auto; margin-top: 20px;">马上去支付</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        #widget("wtgf:widget/verifyDiv/verifyDiv.vm")
+
+        </div>
+        </div>
+    </div>
+    <!-- 订单支付-END -->
+</div>
+
+#end
+#require("wtgf:page/pay/pay/pay.vm")
+
+#end

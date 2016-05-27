@@ -1,0 +1,142 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+    #block("page_var")
+    #set($currentNav="account")
+    #set($GF_VIEWINFO.mainNav='r5')
+    #set($GF_VIEWINFO.subNav='c51')
+    #end
+    #block("content_main")
+    <div class="content-main">
+        <!-- 银行卡-START -->
+        <div class="container-bank wrap" style="margin-left: 0px;">
+            <div class="pageMain" style="padding:0 0 0 0;padding-bottom:2px">
+                <div class="bank-main tsqy-bank-main">
+                    <div class="tsqy-step">
+                        <!-- 步骤相应的class为main-step1、main-step2、main-step3 -->
+                        <div class="step-main main-step1">
+                            <i class="line"></i>
+                            <div class="step step1 active">
+                                <p>确认银行卡信息</p>
+                                <span>1</span>
+                            </div>
+                            <div class="step step2">
+                                <p>验证银行卡</p>
+                                <span>2</span>
+                            </div>
+                            <div class="step step3">
+                                <p>换卡成功</p>
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tsqy-main">
+                        <div class="bank-item item-nobr">
+                            <dl class="clearfix">
+                                <form name="frm" id="frm" action="" method="POST">
+                                    <input type="hidden" name="verifyMethod" id="method" value="$!{verifyRequest.verifyMethod}" />
+                                    <input type="hidden" name="bankNo" id="bankNo" value="$!{verifyRequest.bankNo}" />
+                                    <input type="hidden" name="capitalMode" id="capitalMode" value="$!{verifyRequest.capitalMode}" />
+                                    <input type="hidden" name="tradeAcco" id="tradeAcco" value="$!{tradeAcco}" />
+                                    <input type="hidden" name="verifyToken" id="verifyToken" value="" />
+                                    <input type="hidden" name="verifyBusiness" id="verifyBusiness" value="changeCard" />
+                                    <dd>
+                                        <span class="t">银行名称</span>
+
+                                        <label class="in-label" style="line-height: 48px;">$!{bankName}</label>
+                                    </dd>
+                                    <dd>
+                                        <span class="t">原银行卡号</span>
+                                        <input id="oldBankCardNo" name="oldBankCardNo" type="hidden" value="$!{bankCardNo}">
+                                        <label class="in-label" style="line-height: 48px;">$!{bankCardNo}</label>
+                                    </dd>
+                                    <dd>
+                                        <span class="t">新银行卡号</span>
+                                        <label class="in-label" for="">
+                                            #if($newBankCardNo != "")
+                                                <input class="in-txt in-card-num" id="newBankCardNo" name="bankCardNo" type="text" value="$!{newBankCardNo}" readonly="readonly">
+                                            #else
+                                                <input class="in-txt in-card-num" id="newBankCardNo" name="bankCardNo" type="text" value="$!{newBankCardNo}">
+                                            #end
+                                            <div class="bank-card-num"></div>
+                                        </label>
+
+                                        <span class="tips err" style="display:none">
+                                            <img src="/static/wtgf/img/bindingCard/i3.gif" alt="">输入信息有误,请填写正确的银行卡卡号
+                                        </span>
+                                    </dd>
+                                    #if($verifyRequest.verifyMethod == "D")
+                                        <!-- 如果是快捷支付换卡，此段需要展示-->
+                                        <dd>
+                                            <span class="t">手机号码</span>
+
+                                            <label class="in-label" for="">
+                                                <input class="in-txt" id="mobileNo" name="mobileNo" type="text" value="">
+                                            </label>
+
+                                            <span class="tips err" id="mobileTips">请输入您在银行柜台预留的手机号码，如检验失败请到银行柜台修改</span>
+                                        </dd>
+                                        <dd>
+                                            <span class="t">手机验证码</span>
+
+                                            <label class="in-label" for="">
+                                                <input class="in-txt" id="verifyCode" name="verifyCode" type="text" value="" placeholder="">
+                                            </label>
+
+                                            <a class="skins-btn get-code" href="javascript:;" id="getValidCode" style="width:120px">获取验证码</a>
+                                            <span class="tips err"></span>
+                                        </dd>
+                                        <dd>
+                                        <span id="xyTips">
+                                            <input id="agreeCheckbox" name="agreeCheckbox" type="checkbox" checked style="margin-bottom:5px">
+                                            请仔细阅读并同意 <a href="http://www.gffunds.com.cn/etrade/fw/jygz/wsjygz/201312/t20131225_33765.htm" target="_blank">《广发基金管理有限公司“一键支付”业务协议》</a>
+                                        </span>
+                                        </dd>
+                                        <!-- 如果是快捷支付换卡，此段需要展示-->
+                                    #end
+                                    <dd>
+                                        <input class="skins-btn in-sub" type="submit" id="subChange" value="下一步" otype="button" otitle="下一步" oarea="换卡提交">
+                                    </dd>
+                                </form>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="cz-help">
+                        <h3><img src="/static/wtgf/img/bindingCard/i1.png" alt="">帮助</h3>
+                        <a href="javascript:void(0);" class="backTop">回到顶部</a>
+                        <dl>
+                            <dt>一、“换卡”注意事项</dt>
+                            <dd>1、工行、农行、中行、建行需开通网银并使用硬件U盾验证。</dd>
+                            <dd>2、中行需先前往<a class="a1" target="_blank" href="https://ebsnew.boc.cn/boc15/login.html">中行网银</a>--电子支付--理财直付，开通“理财直付”功能。</dd>
+                            <dd>3、招行（直连）换卡前需前往<a class="a1" target="_blank" href="https://pbnj.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx">招行网银</a>解约和我公司签订的协议（网上支付—直付通），再继续换卡。</dd>
+                            <dd>4、银联渠道卡需开通银联通功能。</dd>
+                        </dl>
+                        <dl>
+                            <dt>二、为什么换卡时提示我要先解除设置的相关协议？</dt>
+                            <dd>答：因为系统记录定投卡号是您的之前签订协议的卡号，所以换卡之前一定要先解除您设置的定投协议和解约，换卡之后重新签约和设置相关协议，否则会扣款失败。</dd>
+                        </dl>
+                        <dl>
+                            <dt>三、已绑定的银行卡可以更换为什么银行卡？</dt>
+                            <dd>答：目前仅支持更换为同渠道的借记卡，暂不支持存折、贷记卡（信用卡）、准贷记卡。</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 银行卡-END -->
+    </div>
+
+    <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <span id="myModalLabel">温馨提示</span>
+        </div>
+        <div class="modal-body">
+            <div id="showInfoMsg" style="font:12px/1.5em 'Microsoft YaHei'"></div>
+        </div>
+    </div>
+
+    #end
+    #require("wtgf:page/bindingCard/changeBindingCard/changeBindingCard.vm")
+
+#end

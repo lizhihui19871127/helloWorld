@@ -1,0 +1,109 @@
+<div class="pop_main">
+##编辑模式
+#if($editmode == '1')
+<h2>调仓明细<em class="js-pop-close"></em></h2>
+<form action="/main/investadv/editTransPlan" method="post" class="dc_detail_content">
+	<input type="hidden" id="transidipt" name="transid" value="$!transinfo.transid">
+	<input type="hidden" id="advidipt" name="advid" value="$!transinfo.advid">
+	<input type="hidden" name="editmode" value="1">
+	#if(!$errormsg)
+        <div class="operations">
+            <span class="new_add">新增</span>
+            <span class="del">删除</span>
+            <label class="shengxiao">是否生效：
+                <select name="validflag" id="validflag">
+                    <option value="1" #if($transinfo.state == '1') selected="selected" #end>是</option>
+                    <option value="0" #if($transinfo.state == '0') selected="selected" #end>否</option>
+                </select>
+            </label>
+        </div>
+	#end
+    <table class="item_table">
+        <tbody>
+        <tr class="table_head">
+	        <th>选择</th>
+            <th>基金类型</th>
+            <th>基金代码</th>
+            <th>基金名称</th>
+            <th>调整方向</th>
+            <th>旧资产占比</th>
+            <th>可用资产占比</th>
+            <th>新资产占比</th>
+            <th>涉及金额</th>
+        </tr>
+        #if($transdetail && !$errormsg)
+	        #foreach($instr in $transdetail)
+		    #set($fundinfo = $fund_tool.getFundInfo($instr.fundcode))
+            <tr>
+	            <td><input type="checkbox" class="delchk" disabled="disabled"></td>
+                <td>$!fundinfo.fundType.enumItemInfo</td>
+                <td><input type="text" class="trandetail_fundcode curholds" name="fundCode" value="$!fundinfo.fundCode" readonly="readonly"></td>
+                <td>$!fundinfo.fundName</td>
+                <td><label class="opertext">$!enum_tool.getFofTransName($instr.opertype)</label><input type="hidden" name="operType" class="operType" value="$!instr.opertype"></td>
+                <td>$!{number_tool.format('##.#%',$instr.originpercent)}</td>
+                <td>$!{number_tool.format('##.#%',$instr.availpercent)}</td>
+                <td><input type="text" name="newPercent" class="newPercent" value="$!{number_tool.format('##.#',$!{math_tool.mul($instr.newpercent, 100)})}">%</td>
+                <td><input type="text" name="operBalance" class="operBalance" value="$!{number_tool.format('#,###.##',$instr.operbalance)}" readonly="readonly">元</td>
+            </tr>
+	        #end
+	    #else
+	        <tr><td colspan="8">$errormsg</td></tr>
+        #end
+        </tbody></table>
+	#if(!$errormsg)
+        <div class="bottom_btn">
+            <input type="button" class="keep" value="保存">
+            <span class="close editclose">关闭</span>
+##            <a href="javascript:volid(0);" class="zhiling">模拟生成指令</a>
+        </div>
+	#end
+</form>
+#else ##只读模式
+<h2>调仓明细<em class="js-pop-close"></em></h2>
+<div class="dc_detail_content">
+    <table class="item_table">
+        <tbody>
+        <tr class="table_head">
+            <th>基金类型</th>
+            <th>基金代码</th>
+            <th>基金名称</th>
+            <th>调整方向</th>
+            <th>旧资产占比</th>
+            <th>新资产占比</th>
+            <th>涉及金额</th>
+        </tr>
+    #if($transdetail && !$errormsg)
+	    #foreach($instruction in $transdetail)
+		#set($fundinfo = $fund_tool.getFundInfo($instruction.fundcode))
+        <tr>
+            <td>$!fundinfo.fundType.enumItemInfo</td>
+            <td>$!fundinfo.fundCode</td>
+            <td>$!fundinfo.fundName</td>
+            <td>$enum_tool.getFofTransName($instruction.opertype)</td>
+            <td>$!{number_tool.format('##.#%',$instruction.originpercent)}</td>
+            <td>$!{number_tool.format('##.#%',$instruction.newpercent)}</td>
+            <td>$!{number_tool.format('#,###.##',$instruction.operbalance)}元</td>
+        </tr>
+	    #end
+	#else
+	    <tr><td colspan="7">$errormsg</td></tr>
+    #end
+        </tbody>
+    </table>
+    <div class="bottom_btn">
+        <span class="close">关闭</span>
+    </div>
+</div>
+#end
+<div class="zhuyi">
+    <dl>
+        <dt>注意：</dt>
+        <dd>1. 基金代码和新资产占比可用手工修改，其他字段为只读字段。</dd>
+        <dd>2. 通过新旧资产占比的关系，自动填写调整方向。</dd>
+        <dd>3. 持仓中默认有钱袋子基金，且新资产占比不得小于0.4%。</dd>
+        <dd>4. 只能删除旧资产占比为0的基金，新增的基金旧资产占比为0。</dd>
+        <dd>5. 同一个T日内，只能有一个调仓方案生效。</dd>
+        <dd>6. 可用资产占比是指当日可用于交易基金份额的对应资产比例。在卖出及减持的情况下，需要考虑份额是否可用。</dd>
+    </dl>
+</div>
+</div>

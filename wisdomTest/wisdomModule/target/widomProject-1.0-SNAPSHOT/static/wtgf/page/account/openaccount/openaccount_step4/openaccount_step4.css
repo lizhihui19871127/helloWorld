@@ -1,0 +1,50 @@
+@import url("/static/wtgf/css/account/account_common.css");
+form p {
+  font-size: 16px;
+}
+.khnr2012 {
+  width: 792px;
+  height: auto;
+  zoom: 1;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.khnr2012 .Select_card {
+  width: 100%;
+  height: auto;
+  zoom: 1;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  float: left;
+  _left: -10px;
+}
+.khnr2012 .Select_card .Single {
+  width: 180px;
+  width: 180px \9;
+  *width: 180px;
+  _width: 180px;
+  _width: 177px;
+  height: 55px;
+  float: left;
+  _margin: 0 8px 0 9px;
+  margin: 5px 9px 0 9px;
+}
+.khnr2012 .Select_card .Single input {
+  float: left;
+  margin: 15px 0 0 -15px;
+}
+.khnr2012 .Select_card .Single label {
+  float: left;
+  width: 176px;
+  height: 55px;
+  background-repeat: no-repeat;
+  background-position: 30px 10px;
+  cursor: pointer;
+}
+.khnr2012 #nextbtn {
+  margin-left: 50px;
+}

@@ -1,0 +1,38 @@
+#extends("wtgf:page/layout/newlayoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="重置登录密码！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+#block("content_main")
+#widget("wtgf:widget/modal/modal.vm")
+<div class="pwReset_content">
+    <div class="pwReset_content_center">
+        <div class="pwReset_box">
+            <div class="pwReset1">
+                <h3>请输入您需要重置登录密码的账户名</h3>
+                <form action="/main/resetPwd/checkUserName" name="frm" id="frm" method="POST">
+                    <label for="" class="clearfix">
+                        <span>账户名</span>
+                        <div>
+                            <input type="text" placeholder="输入账户名" name="userName" id="userName"/>
+                        </div>
+                    </label>
+                    <label for="" class="clearfix">
+                        <span>验证码</span>
+                        <div>
+                            <input type="text" placeholder="填写右侧验证码" name="verifyCode" id="verifyCode"/>
+                            <span style="width:140px">#widget("common:widget/verifyCode/verifyCode.vm")</span>
+                        </div>
+                    </label>
+                    <div class="next_btn">
+                        <input type="submit" value="下一步" name="nextbtn" id="nextbtn"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+#require("wtgf:page/personalCenter/resetLoginPwd/step1/step1.vm")
+#end

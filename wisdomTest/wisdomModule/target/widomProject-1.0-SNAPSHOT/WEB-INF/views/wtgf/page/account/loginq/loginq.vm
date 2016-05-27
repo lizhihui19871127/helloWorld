@@ -1,0 +1,174 @@
+#extends("wtgf:page/layout/layoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+#block("header_scripts")
+<script type="text/javascript">
+    window.WTjson = {
+        "WT.si_n":"开户流程",
+        "WT.si_x":"填写资料"
+    }
+</script>
+#end
+
+#block("content_main")
+<p class="empty-line"></p>
+<div class="container">
+    <div class="row">
+        <div class="span8 offset2">
+            <p class="gflogo1"></p><p class="gflogo2"></p>
+        </div>
+    </div>
+</div>
+<p class="line linehead"></p>
+<div class="container">
+    <div class="row">
+        <div class="span8 offset2 text-center">
+            <div class="kh-t">
+                <ul>
+                    <li class="z-sel"><span class="l1">身份信息验证</span></li>
+                    <li><span class="l2">手机号码验证</span></li>
+                    <li><span class="l3">完成验证</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="certchecktab">
+        <div class="span8 offset2">
+            <p class="empty-line"/>
+            <p class="text-info text-info-tips text-center"><span>填写身份信息</span>按照法规要求，基金交易必须进行实名认证，请填写真实的身份信息</p>
+            <p class="empty-line"/>
+            <form class="form-horizontal alignform" name="openaccount_step1_form">
+                <div class="control-group">
+                    <label class="control-label" for="identityType">证件类型</label>
+                    <div class="controls">
+                        <select id="identityType" name="identityType" otype="button" otitle="证件类型">
+                            <option value="0">身份证</option>
+                            <option value="1">中国护照</option>
+							<option value="2">军官证</option>
+							<option value="3">士兵证</option>
+                            <option value="4">港澳通行证</option>
+							<option value="6">外国护照</option>
+                            <option value="A">台胞证</option>
+							<option value="5">户口本</option>
+							<option value="7">其它</option>
+							<option value="8">文职证</option>
+							<option value="9">警官证</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="identityNO">证件号码</label>
+                    <div class="controls">
+                        <input type="text" maxlength=25 name="identityNO" id="identityNO" otype="button" otitle="证件号码" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="userName">姓名</label>
+                    <div class="controls">
+                        <input type="text" name="userName" id="userName" maxlength="40" otype="button" otitle="姓名" />
+                    </div>
+                </div>
+                <div class="control-group" id="contphone_cgroup">
+                    <label class="control-label" for="contphone">手机号码</label>
+                    <div class="controls">
+                        <input type="text"  id="contphone" name="contphone" otype="button" otitle="手机号码" >
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label"></label> ##解决IE6兼容问题
+                    <div class="controls">
+                        <button class="btn btn-large btn-warning" id="go2ndbtn" type="submit" otype="button" otitle="下一步" >
+                            &nbsp;&nbsp;下一步&nbsp;&nbsp;
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+	<div class="row form-inline hide" id="mobchecktab">
+        <div class="control-group">
+            <p>已发送验证码至：<strong id="mobsend"></strong></p>
+        </div>
+        <div class="control-group hide" id="smsVFCode__cgroup">
+            <label class="control-label" for="smsVFCode" otype="button"  >校验码</label>
+            <div class="controls">
+                <input type="text" class="span3" maxlength="6" id="smsVFCode" name="smsVFCode" otype="button" otitle="校验码">&nbsp;&nbsp;
+                <button type="button" class="btn" id="smsVFCodeBtn" otype="button" otitle="免费获取" >免费获取校验码</button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label"></label> ##解决IE6兼容问题
+            <div class="controls">
+                <button class="btn btn-large btn-warning" id="go3rdbtn" otype="button" otitle="下一步" >
+                    &nbsp;&nbsp;下一步&nbsp;&nbsp;
+                </button>
+            </div>
+        </div>
+	</div>
+
+	<div class="row hide" id="msgshowtab">
+		<div class="span8 offset2">
+            <p>尊敬的客户，您已通过验证。</p>
+            <p>初始登录/查询密码为开户<font>证件号码后六位数字。</font></p>
+            <small>
+                注：<br/>
+                1.如开户证件号码出现非数字字符用0代替，中文字符用两个0代替，不足6位的在左侧用0补位；<br/>
+                2.2006年9月29号之前开户的客户，初查询密码为基金账号后6位数字；<br/>
+                3.登录后，可在“个人中心-个人信息-查询密码”处修改登录/查询密码。<br/>
+                <a>《首次登录须知》</a>
+            </small>
+		</div>
+		<div class="span8 offset2">
+            <button class="btn btn-large btn-warning disabled" id="loginbtn" otype="button" otitle="立即登录">
+                &nbsp;立即登录&nbsp;
+            </button>
+		</div>
+	</div>
+
+##提示框
+    <div id="myModal" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>温馨提示</h3>
+        </div>
+        <div class="modal-body">
+            <p class="text-fontsize16"><span id="modalMsgSpan">
+                您已经在网站开户，您可以直接登录官网或者重新填写证件信息。
+            </span></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">关闭</a>
+            <a href="/main/index" class="btn btn-warning" id="DRlogin">直接登录</a>
+        </div>
+    </div>
+
+## 遮罩层
+    <div id="shadeDiv" class="shadeDiv"></div>
+    <div id="bankMsgBox" class="aqgj_divbox4">
+        <div class="info_bg" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/account/aqgj_bdsj_tcbg.png');"></div>
+        <div class="info_box">
+            <h1>温馨提示</h1>
+            <div class="txt">
+                <p> <img src="/static/wtgf/img/account/bk-icon-14102001.gif" alt="" class="erroricon"><span style="font-size: 13px;color:#666464;" id='bankmsg'>您已是我司客户，请直接登录，首次登录请查看<a href="http://www.gffunds.com.cn/html/login_tips.html" target="_blank">《首次登录须知》。</a></span></p>
+            </div>
+            <div class="bt3"  id="displaybtn" style="display: block">
+                <a class="gh_bt5"  href="javascript:hideVerifyMsgDiv();"  >关闭</a>
+                <a class="gh_bt2"  href="https://trade.gffunds.com.cn/main/index">我要登录</a>
+            </div>
+            <br/>
+            <div class="bt_close"><a href="javascript:hideVerifyMsgDiv()" class="bt_close_c">关闭</a></div>
+        </div>
+    </div>
+
+</div>
+#end
+#require("wtgf:page/account/openaccount/openaccount_step1/openaccount_step1.vm")
+#end

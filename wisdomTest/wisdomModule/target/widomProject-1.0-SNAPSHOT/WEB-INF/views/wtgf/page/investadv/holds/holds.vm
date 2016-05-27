@@ -1,0 +1,126 @@
+#extends("wtgf:page/layout/layout.vm")
+#block("header_scripts")
+#require("wtgf:static/css/investadv/gftg_account.css")
+#require("wtgf:static/css/investadv/gftg_account.js")
+#end
+#block("page_var")
+#set($currentNav="query")
+#set($currentSubNav="holdsInfo")
+#set($GF_VIEWINFO.mainNav='r9')
+#set($GF_VIEWINFO.subNav='c40')
+#set($GF_VIEWINFO.activityUrl=$activityUrl)
+#set($USE_BOOTSTRAP=0)
+#end
+
+#block("content_main")
+
+
+<!-- 订单支付-START -->
+<div class="container-account">
+    <div class="pageMain">
+
+##        <div class="banner">
+##            <div class="banner-box" style="background-image:url(static/images/banner.jpg);"></div>
+##        </div>
+        <!-- 修改模块 -->
+        <div class="account-main account-cz-main">
+
+            <div class="account_main_tab">
+                <ul class="clearfix">
+                    <li><a href="/main/investadv/advinfo?advid=$!{advid}">基本信息</a></li>
+                    <li><a href="/main/investadv/transinfo?advid=$!{advid}">调仓方案</a></li>
+                    <li><a href="/main/investadv/transinstruction?advid=$!{advid}">调仓指令</a></li>
+                    <li class="current"><a href="/main/investadv/holds?advid=$!{advid}">账户持仓</a></li>
+                    <li><a href="/main/investadv/profinfo?advid=$!{advid}">风险收益</a></li>
+                    <li><a href="javascript:volid(0)">模拟试算</a></li>
+                </ul>
+            </div>
+            <form action="#" method="" class="item_table zhcc_msg">
+                <input>
+                <table>
+                    <tr class="first_tr">
+                        <td colspan="11">
+                            <div>
+                                <label for="qr_data">确认日期：</label>
+                                <input type="text" name="enddate" id="qr_date" value="$!enddate" />
+                            </div>
+                            <div class="select_list">
+                                <label for="ccjj">持仓基金：
+                                    <select name="" id="ccjj">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="right_btn">
+                                <input type="submit" value="查询" />
+                                <input type="reset" value="清空" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="table_head">
+                        <th>确认日期</th>
+                        <th>基金类型</th>
+                        <th>基金代码</th>
+                        <th>基金名称</th>
+                        <th>持有份额</th>
+                        <th>可用份额</th>
+                        <th>最新净值</th>
+                        <th>未结转收益</th>
+                        <th>资产</th>
+                        <th>资产占比</th>
+                        <th>初始资产占比</th>
+                    </tr>
+
+                    #if($allholds)
+                        #foreach($prof in $allholds)
+                            <tr class="selected">
+                                <td>${prof.enndate}</td>
+                                <td>${prof.fundtype}</td>
+                                <td>${prof.fundcode}</td>
+                                <td>${prof.fundname}</td>
+                                <td>${prof.shares}</td>
+                                <td>${prof.useshares}</td>
+                                <td>${prof.netvalue}</td>
+                                <td>${prof.income}</td>
+                                <td>${prof.capital}</td>
+                                <td>${prof.capitalMode}</td>
+                                <td>${prof.dayIncRate}</td>
+                            </tr>
+                        #end
+                    #else
+                        <tr><td colspan="8" align="center">暂无数据！</td></tr>
+                    #end
+
+                    <tr class="hzx">
+                        <td colspan="11">
+                            <h5><span>汇总项</span></h5>
+                            <dl class="clearfix">
+                                <dt>总资产<span class="orange_color">$!{number_tool.format('##.##%',$totalcapital)}</span>元</dt>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt>混合型</dt>
+                                <dd>资产： <span class="orange_color">$!{number_tool.format('##.##%',$totalMixed)}</span>元</dd>
+                                <dd>资产占比： <span class="orange_color">${dayIncRatenowMixed}</span></dd>
+                                <dd>初始资产占比： <span class="orange_color">${dayIncRateMixed}</span></dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt>货币型</dt>
+                                <dd>资产： <span class="orange_color"$!{number_tool.format('##.##%',$totalCurrency)}</span>元</dd>
+                                <dd>资产占比： <span class="orange_color">${dayIncRatenowCurrency}</span></dd>
+                                <dd>初始资产占比： <span class="orange_color">${dayIncRateCurrency}</span></dd>
+                            </dl>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <!-- 修改模块结束 -->
+    </div>
+</div>
+<!-- 订单支付-END -->
+
+#end ##content_main
+
+#require("wtgf:page/investadv/holds/holds.vm")
+#end ##extends

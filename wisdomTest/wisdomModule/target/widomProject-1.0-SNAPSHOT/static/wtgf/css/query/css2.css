@@ -1,0 +1,165 @@
+/* CSS Document */
+
+
+#main-content .main2011{
+	height:auto;
+	margin:12px 0 0 0;
+	font-family:Arial, Helvetica, sans-serif;
+	border: 1px solid #ffffff;
+	width: 99.8%;
+	background-repeat: repeat-x;
+}
+
+#main-content .main2011_1{
+	width:700px;
+	border:1px #EBD4AD solid;
+	margin: 10px auto 0 auto;
+	background-image: url(../images/c_bg.gif);
+	background-repeat: repeat-x;
+	height: 450px;
+	background-color: #FFFFFF;
+}
+
+#main-content .main2011_2{
+	width:700px;
+	border:1px #EBD4AD solid;
+	margin: 10px auto 0 auto;
+	background-image: url(../images/c_bg.gif);
+	background-repeat: repeat-x;
+	height: 350px;
+	background-color: #FFFFFF;
+}
+.main_q_tab2011{
+	width:420px;
+	height:auto;
+	border:1px solid #EBD4AD;
+	margin: 0 0 0 0;
+	font-size: 14px;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+}
+
+.main_q_tab2013{
+	width:620px;
+	height:auto;
+	border:1px solid #EBD4AD;
+	margin: 0 0 0 0;
+	font-size: 14px;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+}
+.main_q_tab2013 .font12{font-size:12px;}
+.main_q_tab2013 .td_bottom{height:40px;}
+.main_q_tab2013 td{height:33px;padding: 2px 0 0 0;}
+.main_q_tab2013 .td1{height:20px;}
+.main_q_tab2013 td .span1{font-weight:bold;}
+.main_q_tab2013 td .span2{color:#FE5907;}
+.main_q_tab2013 td img{margin:10px 0 10px 0;}
+
+.main_q_tab2012{
+	width:420px;
+	height:auto;
+	border:1px solid #EBD4AD;
+	margin: 0 0 0 0;
+	font-size: 12px;
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+	border-bottom: 0;
+}
+.main_q_tab2011 .font12{font-size:12px;}
+.main_q_tab2011 .td_bottom{height:40px;}
+.main_q_tab2011 td{height:33px;padding: 2px 0 0 0;}
+.main_q_tab2011 .td1{height:20px;}
+.main_q_tab2011 td .span1{font-weight:bold;}
+.main_q_tab2011 td .span2{color:#FE5907;}
+.main_q_tab2011 td img{margin:10px 0 10px 0;}
+.main_q_tab2012{
+	width:420px;
+	height:auto;
+	border:1px solid #EBD4AD;
+	margin: 0 0 0 0;
+	font-size: 12px;
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+	border-bottom: 0;
+}
+.main_q_tab2012 td{
+	text-align:center;
+
+}
+.main_q_tab2012 .td1{
+	text-align:center;
+	border-bottom: 1px #EBD4AD solid;
+	color: #CC0033;
+	background-image: url(../images/zxjz_bg.gif);
+}
+.main_q_tab2012 .td2{
+	border-bottom: 1px #EBD4AD solid;
+
+}
+.main2011_left{
+	width:200px;
+	height:320px;
+	float:left;
+	background-image:url(../images/main2011_left_bg.gif);
+	margin: 20px 0 0 10px;
+	border: 1px solid #EBD4AD;
+	background-color: #FEFCF4;
+}
+.main2011_bottom{
+	width:630px;
+	height:10px;
+	border-bottom:1px #E9BF83 dotted;
+	margin: 12px 0 10px 35px;
+	float:left;
+	
+}
+.main2011_1 h1{
+	width:630px;
+	height:44px;
+	border-bottom:1px #E9BF83 dotted;
+	margin: 12px auto 0 auto;
+}
+
+.main2011_2 h1{
+	width:630px;
+	height:44px;
+	border-bottom:1px #E9BF83 dotted;
+	margin: 12px auto 0 auto;
+}
+
+#main-content .tips3{
+	width:700px;
+	height:auto;
+	border:1px #EBD4AD solid;
+	background-color: #FFFDFC;
+	padding: 0 0 20px 0;
+	margin: 20px auto 40px auto;
+}
+
+#main-content .tips3 p{
+	width:600px;
+	height:auto;
+	margin:5px auto 0 auto;
+	background-repeat: no-repeat;
+	padding: 0 0 0 10px;
+	line-height: 1.5;
+}
+.a_in{color:#CC0033; text-decoration:none;}
+.a_in:hover{color:#CC0033; text-decoration:underline;}
+
+
+.stk-dialog-con{padding:0; margin:0 auto;overflow:hidden; border:1px solid #b3b3b3; background-color:#fff; width:500px;}
+   .stk-dialog-con-head{margin:2px;padding:0;height:28px;background:url(/images/dialog.png) repeat-x 0 -53px; position:relative; font-size:14px; line-height:28px; padding-left:10px}
+   .stk-dialog-con-head-bl,.stk-dialog-con-head-br{madding:0;padding:0; position:absolute;display:block; height:28px; width:10px; background:url(/images/dialog.png) no-repeat 0 0}
+   .stk-dialog-con-head-bl{ background-position:0 -24px; top:0; left:0}
+   .stk-dialog-con-head-br{ background-position:-15px -24px; top:0; right:0}
+   .stk-dialog-con-head-close{madding:0;padding:0; position:absolute; top:8px; right:10px; background:url(/images/dialog.png) no-repeat -39px -32px; width:10px; height:10px; display:block; overflow:hidden; line-height:0; font-size:0; cursor:pointer}
+   .stk-dialog-con-text{ font-size:13px; padding:15px 15px; line-height:18px;}
+   .stk-dialog-con-opt{ border-top:1px solid #b3b3b3; text-align:right; padding:8px 8px}
+   .stk-dialog-con-opt-close{ padding:0; margin:0; width:78px; height:23px; border:0; cursor:pointer; background:url(/images/dialog.png) no-repeat 0 0; margin-left:8px;}
+

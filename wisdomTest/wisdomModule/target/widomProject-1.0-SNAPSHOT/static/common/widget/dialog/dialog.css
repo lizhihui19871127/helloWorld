@@ -1,0 +1,33 @@
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1023;
+}
+.dialog {
+  position: absolute;
+  z-index: 1024;
+  background-color: white;
+  border: 1px solid #b3b3b3;
+  padding: 2px;
+  _width: 300px;
+}
+.dialog h2.title {
+  font-size: 14px;
+  padding: 0 10px;
+  height: 35px;
+  line-height: 35px;
+  background: #efefef;
+  font-weight: bold;
+}
+.dialog p.content {
+  padding: 15px 10px;
+}
+.dialog a.close {
+  position: absolute;
+  top: 14px;
+  right: 9px;
+  background: url("/static/common/img/icons.png") no-repeat 0 -124px;
+  width: 9px;
+  height: 9px;
+}

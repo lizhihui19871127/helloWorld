@@ -1,0 +1,24 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+    #block("page_var")
+    #set($GF_VIEWINFO.subNav='c11')
+    #end
+    #block("content_main")
+
+    <div class="content-main">
+        <!-- 银行卡-START -->
+        <div class="container-bank wrap" style="margin-left: 0px;">
+            <div class="pageMain" style="padding:0 0 0 0;padding-bottom:2px">
+                <div class="bank-main bank-success-main">
+                    <div class="success-info">
+                        <p><img src="/static/wtgf/img/bindingCard/i11.gif" alt="">&nbsp;&nbsp;$!{returnmsg}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 银行卡-END -->
+    </div>
+
+    #end
+    #require("wtgf:page/success/success.vm")
+
+#end

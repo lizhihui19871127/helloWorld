@@ -1,0 +1,161 @@
+#extends("wtgf:page/layout/layoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+#block("header_scripts")
+#end
+
+#block("content_main")
+<p class="empty-line"></p>
+<input type="hidden" name="startDate" id="startDate" value="$startDate"/>
+<input type="hidden" name="endDate" id="endDate" value="$endDate"/>
+<div class="container">
+    <div style="text-align:center;">
+        <img src="/static/wtgf/img/banner02_Atunit.jpg" alt="" />
+        <div style="width:800px;margin:auto;">
+            <p  class="h201102" style="padding-top:20px;width: 96%;text-align:left;color:#000;">客户姓名：$custName</p>
+            <p  class="h201102" style="padding-top:20px;width: 96%;text-align:left;color:#000;">基金账号：$fundAccountNo</p>
+            <p class="h201102" style="width: 96%;text-align:left;">您的投资组合</p>
+
+            <p class="h201102" style="width: 96%;text-align:left;color:#000;">截止日期：
+                <span id="uptodate"></span>
+            </p>
+            <table class="table-style-1" cellpadding="0" cellspacing="0" style="margin:8px 0 0px 22px;width:96%;"
+                   id="ejiaA1">
+                <tr>
+                    <th>基金名称</th>
+                    <th >期末份额净值（元）</th>
+                    <th >基金余额（份）</th>
+                    <th >期末市值（元）</th>
+                    <th >分红方式</th>
+                    <th >收费方式</th>
+                    <th >销售渠道</th>
+                </tr>
+                #foreach($shareInfo in $shareList)
+                    #if($shareInfo.fundName=="合计")
+
+                        <tr >
+                            <th align="center">$shareInfo.fundName</th>
+                            <th align="center">$shareInfo.fundNet</th>
+                            <th align="center">$shareInfo.fundShare</th>
+                            <th align="center">$shareInfo.totalValue</th>
+                            <th align="center">$shareInfo.dividendMethodShow</th>
+                            <th align="center">$shareInfo.shareTypeShow</th>
+                            <th align="center">$shareInfo.salenet</th>
+                        </tr>
+
+                    #else
+                        <tr>
+                            <td align="center">$shareInfo.fundName</td>
+                            <td align="center">$shareInfo.fundNet</td>
+                            <td align="center">$shareInfo.fundShare</td>
+                            <td align="center">$shareInfo.totalValue</td>
+                            <td align="center">$shareInfo.dividendMethodShow</td>
+                            <td align="center">$shareInfo.shareTypeShow</td>
+                            <td align="center">$shareInfo.salenet</td>
+                        </tr>
+                    #end
+                #end
+                #foreach($shareInfo in $usdshareList)
+                    #if($shareInfo.fundName=="合计")
+
+                        <tr >
+                            <th align="center">$shareInfo.fundName</th>
+                            <th align="center">$shareInfo.fundNet</th>
+                            <th align="center">$shareInfo.fundShare</th>
+                            <th align="center">$shareInfo.totalValue</th>
+                            <th align="center">$shareInfo.dividendMethodShow</th>
+                            <th align="center">$shareInfo.shareTypeShow</th>
+                            <th align="center">$shareInfo.salenet</th>
+                        </tr>
+
+                    #else
+                        <tr>
+                            <td align="center">$shareInfo.fundName</td>
+                            <td align="center">$shareInfo.fundNet</td>
+                            <td align="center">$shareInfo.fundShare</td>
+                            <td align="center">$shareInfo.totalValue</td>
+                            <td align="center">$shareInfo.dividendMethodShow</td>
+                            <td align="center">$shareInfo.shareTypeShow</td>
+                            <td align="center">$shareInfo.salenet</td>
+                        </tr>
+                    #end
+                #end
+            </table>
+        </div>
+        <div style="margin:20px 0px 0px 0px;width:800px;margin:auto;">
+            <p class="h201102" style="padding-top:20px;width: 96%;text-align:left;color:#ea5504;">您本期的基金交易明细</p>
+            <p class="h201102" style="width: 96%;text-align:left;color:#000;">
+                交易日期：
+                <span id="tradeDate"></span>
+
+            </p>
+            <table class="table-style-1" cellpadding="0" cellspacing="0" style="margin:8px 0 0px 22px;width:96%;"
+                   id="ejiaA2">
+                <tr>
+                    <th >申请日期</th>
+                    <th >交易类型</th>
+                    <th >基金名称</th>
+                    <th >成交份额(份)</th>
+                    <th >成交净值(元)</th>
+                    <th >成交金额(元)</th>
+                    <th >手续费 </th>
+                    <th >收费方式</th>
+                    <th >销售渠道</th>
+                </tr>
+                #foreach($stateinfo in $resultList)
+                    <tr>
+                        <td align="center">$stateinfo.confirmDate</td>
+                        <td align="center">$stateinfo.businCodeShow</td>
+                        <td align="center" >$stateinfo.fundName</td>
+                        <td align="center">$stateinfo.confirmShare</td>
+                        <td align="center">$stateinfo.dayNav</td>
+                        <td align="center">$stateinfo.confirmBalance</td>
+                        <td align="center">$stateinfo.fare</td>
+                        <td align="center">$stateinfo.shareTypeShow</td>
+                        <td align="center">$stateinfo.netNo</td>
+                    </tr>
+                #end
+            </table>
+        </div>
+        <div style="margin:20px 0px 0px 0px;width:800px;margin:auto;">
+            <p class="h201102" style="padding-top:20px;width: 96%;text-align:left;color:#ea5504;">分红明细表</p>
+            <p class="h201102" style="width: 96%;text-align:left;color:#000;">
+
+                截止日期
+                <span id="redDate"></span>
+
+            </p>
+            <table class="table-style-1" cellpadding="0" cellspacing="0" style="margin:8px 0 0px 22px;width:96%;"
+                   id="ejiaA2">
+                <tr>
+                    <th>基金名称</th>
+                    <th>分红方式</th>
+                    <th>现金分红</th>
+                    <th>红利再投资份额</th>
+                    <th>分红发放日</th>
+                    <th>销售渠道</th>
+                </tr>
+                #foreach($divideninfo in $dividendList)
+                    <tr>
+                        <td align="center">$divideninfo.fundName</td>
+                        <td align="center">$divideninfo.dividendmethodShow</td>
+                        <td align="center">$divideninfo.realBalance</td>
+                        <td align="center">$divideninfo.reInvestBalance</td>
+                        <td align="center">$divideninfo.dividenddate</td>
+                        <td align="center">$divideninfo.netno</td>
+                    </tr>
+                #end
+            </table>
+        </div>
+    </div>
+    <div style="height: 40px"></div>
+
+
+
+</div>
+#end
+#require("wtgf:page/query/billreport/billreport.vm")
+#end

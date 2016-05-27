@@ -1,0 +1,32 @@
+@import url("/static/wtgf/css/trade/trade.css");
+.colorTransition {
+  -moz-transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+  -ms-transition: color 0.2s linear;
+  transition: color 0.2s linear;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 400;
+  margin-top: 0px;
+}
+.container-bank .bank-main dd {
+  position: relative;
+  padding: 5px 0 0px 165px;
+  line-height: 48px;
+  margin-left: 10px;
+}
+.fundProduct {
+  margin-left: 178px;
+  background: url(/static/wtgf/img/trade/wx2_pic04.png) no-repeat;
+  background-position: 5px 7px;
+}
+.sortkey {
+  cursor: pointer;
+}

@@ -1,0 +1,159 @@
+@import url("/static/wtgf/css/form/form.css");
+.pwReset_content {
+  height: 680px;
+  background: url(/static/wtgf/img/personalCenter/register_bg.png) repeat-x;
+}
+.pwReset_content .pwReset_content_center {
+  width: 990px;
+  height: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+.pwReset_content .top_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.pwReset_content .top_bg img {
+  display: block;
+}
+.pwReset_content .bottom_bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.pwReset_content .bottom_bg img {
+  display: block;
+}
+.pwReset_content .pwReset_box {
+  width: 764px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -382px;
+  margin-top: -234px;
+  z-index: 10;
+}
+.pwReset_content .pwReset6 {
+  height: 270px;
+  background: #fff;
+  padding: 40px 0;
+}
+.pwReset_content .pwReset6 .progress1 {
+  width: 720px;
+  height: 66px;
+  background: url(/static/wtgf/img/personalCenter/first_bg_01.png) no-repeat center 36px;
+  margin: 0 auto;
+  position: relative;
+}
+.pwReset_content .pwReset6 .progress1 span {
+  display: inline-block;
+  width: 110px;
+  height: 66px;
+  font-size: 12px;
+  text-align: center;
+  color: #999999;
+  position: absolute;
+  top: 0;
+}
+.pwReset_content .pwReset6 .progress1 span.current {
+  color: #eb5406;
+}
+.pwReset_content .pwReset6 .progress1 span.one {
+  background: url(/static/wtgf/img/personalCenter/1.png) no-repeat center 24px;
+  left: 0;
+}
+.pwReset_content .pwReset6 .progress1 span.two {
+  background: url(/static/wtgf/img/personalCenter/2.png) no-repeat center 24px;
+  left: 35%;
+  margin-left: -53px;
+}
+.pwReset_content .pwReset6 .progress1 span.three {
+  background: url(/static/wtgf/img/personalCenter/3.png) no-repeat center 24px;
+  right: 35%;
+  margin-right: -53px;
+}
+.pwReset_content .pwReset6 .progress1 span.four {
+  background: url(/static/wtgf/img/personalCenter/4.png) no-repeat center 24px;
+  right: 0;
+}
+.pwReset_content .pwReset6 form {
+  padding: 28px 0 16px 70px;
+}
+.pwReset_content .pwReset6 form label {
+  display: block;
+  margin-bottom: 28px;
+}
+.pwReset6 form label > span {
+  display: inline-block;
+  font-size: 14px;
+  width: 160px;
+  margin-right: 24px;
+  line-height: 27px;
+  text-align: right;
+  float: left;
+}
+.pwReset6 form label > div {
+  float: left;
+  position: relative;
+}
+.pwReset6 form label > div.phoneN {
+  font-size: 14px;
+  color: #737373;
+  line-height: 27px;
+}
+.pwReset6 form label > div input {
+  width: 214px;
+  height: 25px;
+  border: 1px solid #e1e1e1;
+  background: #f7f7f7;
+  font-size: 14px;
+  padding: 0 18px;
+  outline: none;
+}
+.pwReset6 form label > div p {
+  width: 252px;
+  padding-left: 20px;
+  font-size: 12px;
+  position: absolute;
+  right: -292px;
+  top: 4px;
+}
+.pwReset6 form label > div p.warning {
+  background: url(/static/wtgf/img/personalCenter/register_icon05.png) no-repeat left center;
+  color: #828282;
+}
+.pwReset6 form label > div p.error {
+  background: url(/static/wtgf/img/personalCenter/register_icon04.png) no-repeat left center;
+  color: #eb5406;
+}
+.pwReset6 form .next_btn {
+  padding-left: 184px;
+}
+.pwReset6 form .next_btn input[type="submit"] {
+  display: inline-block;
+  width: 88px;
+  height: 30px;
+  font-size: 14px;
+  color: #fff;
+  background: #eb5406;
+  border-radius: 3px;
+  text-align: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.pwReset6 form .next_btn a {
+  color: #3384d6;
+  font-size: 12px;
+  text-decoration: none;
+  padding-left: 20px;
+}
+._all_form_style .next_btn {
+  margin-top: 20px;
+}
+.pwReset_content .pwReset6 form label {
+  margin-bottom: 10px;
+}

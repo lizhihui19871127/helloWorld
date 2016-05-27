@@ -1,0 +1,161 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+#block("page_var")
+#set($currentNav="buy")
+#set($GF_VIEWINFO.mainNav='r2')
+#set($GF_VIEWINFO.subNav='c28')
+#set($flag=$!request.getParameter('msg'))
+#end
+#block("content_main")
+<div class="content-main">
+   <div id="wrapper" class="clearfix">
+        <div class="questionReset_box">
+            #if($flag=='success')
+                <div class="changeSuccess">
+                    <h2><i class="my-icon"></i><span class="my-title">恭喜您，修改手机号码成功!</title></h2>
+                    <a href="#">返回个人中心</a>
+                </div>
+            #else
+                <div class="#if($flag=='card')progress2#elseif($flag=='step3')progress2 progress3 #end progress1">
+                    #if($flag=='card'|| $flag=='step3')
+                        <span class="current one">验证身份</span>
+                        <span class="current two">验证银行卡</span>
+                        <span class="current three">设置新手机号码</span>
+                        <span class="four">设置成功</span>
+                    #else
+                        <span class="current one">#if($flag=='phone')验证原手机号#elseif($flag=='question')验证密保问题#else验证交易密码#end</span>
+                        <span class="current two">#if($flag=='phone'||$flag=='question')设置新手机号#else修改密保问题#end</span>
+                        <span class="three">#if($flag=='phone'||$flag=='question')设置成功#else修改成功#end</span>
+                    #end
+                </div>
+                #if($flag=='card')
+                    <div class="choose_card">
+                        <h4>通过以下哪张卡验证</h4>
+                        <ul>
+                            <li class="current"><img src="/static/wtgf/img/personalCenter/zgny.png" alt="" /></li>
+                            <li><img src="/static/wtgf/img/personalCenter/zgyh.png" alt="" /></li>
+                            <li><img src="/static/wtgf/img/personalCenter/zgny.png" alt="" /></li>
+                        </ul>
+                    </div>
+                #end
+                <form class="#if($flag=='card')resetDiv#end" action="step4.html">
+                    #if($flag=='card')
+                        <label for="" class="clearfix">
+                            <span>姓名</span>
+                            <div class="text">周诗雅</div>
+                        </label>
+                        <label for="" class="clearfix">
+                            <span>证件号码</span>
+                            <div class="text">4401**********3783</div>
+                        </label>
+                        <label for="" class="clearfix">
+                            <span>银行卡号</span>
+                            <div><input type="text" /></div>
+                        </label>
+                        <label for="" class="choose_yzway clearfix">
+                            <span>验证方式</span>
+                            <ul>
+                                <li class="way1 current">
+                                    <img src="/static/wtgf/img/personalCenter/register_icon21.png" alt="" />
+                                    <p>银行预留手机验证</p>
+                                </li>
+                                <li class="way2">
+                                    <img src="/static/wtgf/img/personalCenter/register_icon22.png" alt="" />
+                                    <p>网银验证</p>
+                                    <em>可能需要硬件Key</em>
+                                </li>
+                            </ul>
+                        </label>
+                        <label for="" class="clearfix">
+                            <span>手机号</span>
+                            <div class="phoneN">
+                                <input type="text" placeholder="" />
+                            </div>
+                        </label>
+                        <label for="" class="clearfix">
+                            <span>短信验证码</span>
+                            <div class="resetStyle">
+                                <input type="text" class="inputNum" style="margin:0;vertical-align:middle;" placeholder="填写收到的6位数字" /><span class="yanzm">获取验证码</span>
+                            </div>
+                            <div class="checkWrap"><i class="my-icon"></i><span class="my-title">短信验证码已发送到你的手机上，请及时查收。</title></div>
+                        </label>
+                    #elseif($flag=='phone' ||$flag=='step3'||$flag=='question')
+                        <label for="" class="clearfix">
+                            <span>手机号</span>
+                            <div class="phoneN">
+                                <input type="text" placeholder="" />
+                            </div>
+                        </label>
+                        <label for="" class="clearfix">
+                            <span>短信验证码</span>
+                            <div class="resetStyle">
+                                <input type="text" class="inputNum" style="margin:0;vertical-align:middle;" placeholder="填写收到的6位数字" /><span class="yanzm">获取验证码</span>
+                            </div>
+                            <div class="checkWrap"><i class="my-icon"></i><span class="my-title">短信验证码已发送到你的手机上，请及时查收。</title></div>
+                        </label>
+                    #else
+                        <p class="anquan_remind" style="padding-left: 25px;"><img src="/static/wtgf/img/personalCenter/register_icon17.png" alt="" >安全保护问题将作为重要的身份验证方式，请认真设置！新安保问题及答案将会覆盖原有问题和答案。</p>
+                        <div class="bh_questions">
+                            <div class="_question">
+                                <span>安全保护问题一</span>
+                                <p>
+                                    <select name="" id="">
+                                        <option value="">请选择</option>
+                                        <option value="">我妈妈的生日是</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="answer_question">
+                                <span>答案</span>
+                                <div>
+                                    <input type="text" placeholder="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bh_questions">
+                            <div class="_question">
+                                <span>安全保护问题二</span>
+                                <p>
+                                    <select name="" id="">
+                                        <option value="">请选择</option>
+                                        <option value="">我妈妈的生日是</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="answer_question">
+                                <span>答案</span>
+                                <div>
+                                    <input type="text" placeholder="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bh_questions">
+                            <div class="_question">
+                                <span>安全保护问题三</span>
+                                <p>
+                                    <select name="" id="">
+                                        <option value="">请选择</option>
+                                        <option value="">我妈妈的生日是</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="answer_question">
+                                <span>答案</span>
+                                <div>
+                                    <input type="text" placeholder="" />
+                                </div>
+                            </div>
+                        </div> 
+                    #end
+                    <div class="next_btn">
+                        <input type="submit" value="下一步" />
+                    </div>
+                </form>
+            #end
+        </div>
+    </div>
+</div>
+
+#end
+#require("wtgf:page/personalCenter/checkPwStep2/checkPwStep2.vm")
+
+#end

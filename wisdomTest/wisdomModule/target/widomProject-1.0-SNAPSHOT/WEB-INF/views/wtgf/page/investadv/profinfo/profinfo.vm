@@ -1,0 +1,106 @@
+#extends("wtgf:page/layout/layout.vm")
+#block("header_scripts")
+#require("wtgf:static/css/investadv/gftg_account.css")
+#require("wtgf:static/css/investadv/gftg_account.js")
+#end
+#block("page_var")
+#set($currentNav="query")
+#set($currentSubNav="holdsInfo")
+#set($GF_VIEWINFO.mainNav='r9')
+#set($GF_VIEWINFO.subNav='c40')
+#set($GF_VIEWINFO.activityUrl=$activityUrl)
+#set($USE_BOOTSTRAP=0)
+#end
+
+#block("content_main")
+
+
+<!-- 订单支付-START -->
+<div class="container-account">
+    <div class="pageMain">
+
+##        <div class="banner">
+##            <div class="banner-box" style="background-image:url(static/images/banner.jpg);"></div>
+##        </div>
+        <!-- 修改模块 -->
+        <div class="account-main account-cz-main">
+
+            <div class="account_main_tab">
+                <ul class="clearfix">
+                    <li><a href="/main/investadv/advinfo?advid=$!{advid}">基本信息</a></li>
+                    <li><a href="/main/investadv/transinfo?advid=$!{advid}">调仓方案</a></li>
+                    <li><a href="/main/investadv/transinstruction?advid=$!{advid}">调仓指令</a></li>
+                    <li><a href="/main/investadv/holds?advid=$!{advid}">账户持仓</a></li>
+                    <li class="current"><a href="javascript:void(0);">风险收益</a></li>
+                    <li><a href="javascript:volid(0)">模拟试算</a></li>
+                </ul>
+            </div>
+            <form action="/main/investadv/profinfo" method="post" class="item_table fxsy_msg">
+	            <input type="hidden" id="advid" name="advid" value="$!advid">
+                <table>
+                    <tr class="first_tr">
+                        <td colspan="8">
+                            <div>
+                                <label for="qr_date">确认日期：</label>
+                                <input type="text" name="startdate" id="qr_date" value="$!startdate" readonly="readonly"/>
+                            </div>
+                            <div>
+                                <label for="over_date">结束日期：</label>
+                                <input type="text" name="enddate" id="over_date" value="$!enddate" readonly="readonly"/>
+                            </div>
+                            <div class="shaixuan">
+                                <a href="/main/investadv/profinfo?advid=$!{advid}&periodflag=1">最近一周</a>
+                                <a href="/main/investadv/profinfo?advid=$!{advid}&periodflag=2">最近一月</a>
+                                <a href="/main/investadv/profinfo?advid=$!{advid}&periodflag=3">最近三月</a>
+                                <a href="/main/investadv/profinfo?advid=$!{advid}&periodflag=4">最近半年</a>
+                                <a href="/main/investadv/profinfo?advid=$!{advid}&periodflag=5">今年以来</a>
+                                <a href="/main/investadv/profinfo?advid=$!{advid}&periodflag=6">成立以来</a>
+                            </div>
+                            <div class="right_btn">
+                                <input type="submit" value="查询" />
+                                <input type="reset" value="清空" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="table_head">
+	                    <th>基金代码</th>
+	                    <th>基金名称</th>
+                        <th>初期资产</th>
+                        <th>期末资产</th>
+                        <th>收益</th>
+                        <th>收益率</th>
+                        <th>最高资产</th>
+                        <th>最低资产</th>
+                        <th>最大回撤</th>
+                        <th>波动率</th>
+                    </tr>
+	                #if($allprof)
+		                #foreach($prof in $allprof)
+                            <tr class="selected">
+                                <td>$prof.fundCode</td>
+	                            <td>$prof.fundName</td>
+                                <td>$!{number_tool.format('#,###.##',$prof.startBalance)}元</td>
+                                <td>$!{number_tool.format('#,###.##',$prof.endBalance)}元</td>
+                                <td>$!{number_tool.format('#,###.##',$prof.profitVal)}元</td>
+                                <td>$!{number_tool.format('##.##%',$prof.profitRate)}</td>
+                                <td>$!{number_tool.format('#,###.##',$prof.maxBalance)}元</td>
+                                <td>$!{number_tool.format('#,###.##',$prof.minBalance)}元</td>
+                                <td>-元</td>
+                                <td>-%</td>
+                            </tr>
+		                #end
+		            #else
+		                <tr><td colspan="8" align="center">暂无数据！</td></tr>
+	                #end
+                </table>
+            </form>
+        </div>
+        <!-- 修改模块结束 -->
+    </div>
+</div>
+<!-- 订单支付-END -->
+
+#end ##content_main
+
+#require("wtgf:page/query/profinfo/profinfo.vm")
+#end ##extends

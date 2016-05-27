@@ -1,0 +1,69 @@
+#extends("wtgf:page/layout/newlayoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="欢迎注册！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+#block("header_scripts")
+<script type="text/javascript">
+    window.WTjson = {
+        "WT.si_n":"开户流程",
+        "WT.si_x":"填写资料"
+    }
+</script>
+#end
+
+#block("content_main")
+#widget("wtgf:widget/modal/modal.vm")
+<div class="register_content container-bank">
+    <div class="register_content_center">
+        <div class="zhuce_box">
+            <h2>加入广发基金，开启理财新旅程！</h2>
+            <form action="/main/register/addUser" name="frm" id="frm" method="post">
+                <input type="hidden" name="name" id="name" value="$!{name}" />
+                <input type="hidden" name="identityType" id="identityType" value="$!{identityType}" />
+                <input type="hidden" name="identityNo" id="identityNo" value="$!{identityNo}" />
+                <label for="" class="clearfixNew">
+                    <span>手机号</span>
+                    <div>
+                        <input type="text" name="mobilePhone" id="mobilePhone" placeholder="请输入您的手机号" class="in-txt"/>
+                        <p class="warning" style="height: 14px;width: 120px;right: -160px;" id="telNote">输入手机将作为登录名</p>
+                    </div>
+                </label>
+                <label for="" class="clearfixNew">
+                    <span>短信验证码</span>
+                    <div>
+                        <input type="text" name="verifyCode" id="verifyCode" placeholder="填写收到的6位数字" class="in-txt"/>
+                        <p class="yanzm" id="verifyCodeBtn">获取验证码</p>
+                        <input type="hidden" name="verifyToken" id="verifyToken" />
+                            <span class="msg" id="verifyCodeMsg" style="height: 14px;display: none">短信验证码已发送到你的手机上，请及时查收。</span>
+                    </div>
+                </label>
+                <label for="" class="clearfixNew">
+                    <span>设置登录密码</span>
+                    <div>
+                        <input placeholder="请输入登录密码" id="loginPassWord" name="loginPassWord" type="password" class="in-txt"/>
+                        <p class="warning" id="pwdNote">6-20位数字、字母、符号等组合（分大小写）</p>
+                    </div>
+                </label>
+                <label for="" class="clearfixNew">
+                    <span>确认登录密码</span>
+                    <div>
+                        <input placeholder="再输入一次登录密码" class="in-txt" id="loginPasswdConfirm" name="loginPasswdConfirm" type="password"/>
+                    </div>
+                </label>
+                <div class="tongyi_checkbox">
+                    <input id="agreeCheckbox" name="agreeCheckbox" type="checkbox" style="margin-bottom:5px">
+                    <span id="qyxy">同意<a href="http://www.gffunds.com.cn/143/201207/t20120717_22209.htm" target="_blank">《广发基金服务协议》</a></span>
+                </div>
+                <div class="denglu_btn">
+                    <input type="submit" class="yh" id="J_submitButton" name="J_submitButton" style="font-size: 16px"/>
+                    <a href="https://trade.gffunds.com.cn/main/main">已有账户,直接登录 ></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+#end
+#require("wtgf:page/onePassport/register/register.vm")
+#end

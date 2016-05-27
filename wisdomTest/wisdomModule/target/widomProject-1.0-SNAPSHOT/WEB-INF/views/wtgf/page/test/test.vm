@@ -1,0 +1,34 @@
+#extends("wtgf:page/layout/layoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+#block("header_scripts")
+#end
+
+#block("content_main")
+#widget("wtgf:widget/modal/modal.vm")
+<div class="_three_steps_pro">
+    <h5 class="doing_kindly_reminder"><img src="/static/wtgf/img/personalCenter/register_icon17.png" alt="" />您正在通过通过短信验证方式修改手机号码！</h5>
+    <div class="_progress_style1 _progress1">
+        <span class="one">验证原手机号码</span>
+        <span class="two">设置新手机号码</span>
+        <span class="three">设置成功</span>
+    </div>
+</div>
+<div class="_four_steps_pro">
+    <h5 class="doing_kindly_reminder"><img src="/static/wtgf/img/personalCenter/register_icon17.png" alt="" />您正在通过通过短信验证方式修改手机号码！</h5>
+    <div class="_progress_style2 _progress3">
+        <span class="one">验证身份</span>
+        <span class="two">验证银行卡</span>
+        <span class="three">设置新手机号码</span>
+        <span class="four">设置成功</span>
+    </div>
+</div>
+<form action="/main/register/addUser" name="frm" id="frm" method="post" class="_all_form_style">
+    #widget("wtgf:widget/sendMsg/sendMsg.vm")
+</form>
+#end
+#require("wtgf:page/test/test.vm")
+#end

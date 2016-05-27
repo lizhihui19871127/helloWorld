@@ -1,0 +1,193 @@
+<!--暂时只支持main.jsp，后续如果有其他页面需要重构再处理-->
+
+<div class="content-nav">
+    <div class="nav-wrap">
+        #if( $GF_VIEWINFO.mainNav == 'r0' )
+            <ul>
+        #else
+            <ul style="display: none">
+        #end
+            <li><a href="/main/main" class="index" id="c01">首页</a>
+            </li>
+            #if($userInfo.custType == '0')
+            <li><a href="/openaccount/createagenceaccount.jsp" class="openaccount">快速开户</a>  </li>
+            #end
+
+            <li><a href="/main/holds/query" class="holdsInfo" id="c02">持仓查询</a>
+            </li>
+            <li><a href="/main/query/queryList" class="shareInfo" id="c021">交易查询</a>
+            </li>
+            <li><a href="/main/query/queryList" class="sub history" id="c042">交易记录查询</a>
+            </li>
+            <li><a href="/query/HistoryBonusQueryAction.do?selectType=1" class="sub historyBonus" id="c043">分红查询</a>
+            </li>
+            <li><a href="/query/FixPlanQueryAction.do?method=query&choosetype=0" class="sub fixPlan" id="c044">定投查询</a>
+            </li>
+            <li><a href="/main/prof/query" class="profitInfo" id="c03">盈亏查询</a>
+            </li>
+            <li>
+               #* <a href="/query/StatementInfoQueryAction.do?list=&year=${yearInfo}&flag=1&businCode=000" class="statementInfo" id="c05">账单查询</a>*#
+                   <a href="/main/bill/billquery?list=&flag=1&businCode=000" class="statementInfo" id="c05">账单查询</a>
+            </li>
+            <li>
+##            <a
+##                #if($userInfo.custType == '0' || $userInfo.custType == '4')
+##                    href="/account/modifyagencyaccountinfo.jsp" id="c61"
+##                #elseif($userInfo.custType == '7')
+##                    href="/account/modifykdaccountinfo.jsp" id="c64"
+##                #else
+##                    href="/account/modifyaccountinfo.jsp" id="c61"
+##                #end
+##            class="usercenter">个人信息</a>
+                <a href="/main/account/accountInfo" class="usercenter" id="r6">个人中心</a>
+            </li>
+        </ul>
+        #if( $GF_VIEWINFO.mainNav == 'r1' )
+            <div class="nav-wallet">
+        #else
+            <div class="nav-wallet" style="display: none">
+        #end
+				<a href="/wallet/WalletDetailAction.do?method=index" id="c13" class="btn orangeBtn walletDetail current">我的钱袋子</a>
+				
+				<div class="walletGroup">
+					<h1>现金管理</h1>
+					<ul>
+						<li><a href="/main/wallet/order/pre" id="c11" class="recharging">充值</a>
+						</li>
+						<li><a href="/wallet/redeem.jsp" id="c12" class="redeem">取现</a>
+						</li>
+						<li><a href="/moneymanager/repayCreditCard.jsp" id="c15" class="redeem4Credit">还信用卡</a>
+						</li>
+					</ul>
+				</div>
+				<div class="walletGroup">
+					<h1>理财管理</h1>
+					<ul>
+						<li><a href="/main/fund/order/pre" id="c29" class="buypre">基金购买</a>
+						</li>
+						<li><a href="/trade/unfixbalatrade.jsp" id="c42" class="unfixbalatrade">定投购买</a>
+						</li>
+					</ul>
+				</div>
+				<div class="walletGroup">
+					<h1>活动兑换</h1>
+					<ul>
+						<li><a href="/market/marketseqinvorke.jsp" id="c90" class="marketseqinvorke">序列号兑换</a>
+						</li>
+						<li><a href="/trade/MarketAction.do?method=queryExCodeDetailList" id="c91">兑换记录查询</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			#if( $GF_VIEWINFO.mainNav == 'r2' )
+                <ul>
+            #else
+                <ul style="display: none">
+            #end
+            <li><a href="/main/tradeMain/index" class="a1" id="c20">首页</a>
+            </li>
+            </li>
+            <li><a href="/trade/myfund.jsp" id="c21">我的基金</a>
+            </li>
+            <li><a href="/trade/buypre_.jsp" id="c28">基金购买</a>
+            </li>
+            <li><a href="/trade/redeem.jsp" id="c22">基金赎回</a>
+            </li>
+            <li><a href="/trade/transferpre.jsp" id="c23">基金转换</a>
+            </li>
+            <li><a href="/main/trade/moddividmethod/modpre" id="c25">修改分红方式</a>
+            </li>
+        </ul>
+        #if( $GF_VIEWINFO.mainNav == 'r5' )
+            <ul>
+        #else
+            <ul style="display: none">
+        #end
+                <li><a href="/main/bankCards/myCards" class="specialIndex" id="c51" otype="button" otitle="我的银行卡" oarea="左栏导航菜单">我的银行卡</a>
+                </li>
+                <li><a href="/main/bindCard" class="shareInfo" id="c50" otype="button" otitle="添加银行卡" oarea="左栏导航菜单">添加银行卡</a>
+                </li>
+            </ul>
+        #if( $GF_VIEWINFO.mainNav == 'r3' )
+            <ul>
+        #else
+            <ul style="display: none">
+        #end
+            <li><a href="/main/special/special" class="specialIndex" id="c31">高端首页</a>
+            </li>
+            <li><a href="/main/myProduct/myProduct" class="shareInfo" id="c32">账户资产</a>
+            </li>
+            <li><a href="/main/myProduct/myProduct" class="sub history" id="c33">我的理财资产</a>
+            </li>
+            <li><a href="/main/special/productJz" class="sub historyBonus" id="c34">持有产品净值</a>
+            </li>
+            <li><a href="/main/orderSearch/orderSearch" class="sub fixPlan" id="c35">产品预约查询</a>
+            </li>
+            <li id="contract"  ><a href="/main/special/contractqury" class="sub profitInfo" id="c40">电子合同查询</a>
+            </li>
+            <li><a href="/main/special/productNews?newsType=1" class="profitInfo" id="c36">产品公告</a>
+            </li>
+            <li><a href="/main/special/productNews?newsType=1" class="sub history" id="c37">产品公开信息</a>
+            </li>
+            <li><a href="/main/special/productNews?newsType=2" class="sub historyBonus" id="c38">产品临时公告</a>
+            </li>
+            <li><a href="/main/special/productNews?newsType=3" class="sub fixPlan" id="c39">产品定期报告</a>
+            </li>
+        </ul>
+	    #if($GF_VIEWINFO.mainNav == 'r9')
+	        #if($INVESTADV_MYPLANS)
+                <ul>
+	                #foreach($myplanmap in $INVESTADV_MYPLANS)
+                        <li #if(${_CURRENTADVID_} == ${myplanmap.id}) class="current"class="current" #end><a href="/main/investadv/advinfo?advid=$!{myplanmap.id}" id="c40">$!{myplanmap.name}</a></li>
+	                #end
+                    <span class="shenq_xzh"><a href="" id="c43">申请新账户</a></span>
+                </ul>
+	        #end
+        #end
+        #if($GF_VIEWINFO.mainNav == 'r6')
+            <ul>
+                <li><a href="/main/personalCenter/index" class="specialIndex" id="c61">个人中心</a>
+                </li>
+                <li><a href="/main/personalCenter/index" class="shareInfo" id="c61">基本信息</a>
+                </li>
+                <li><a href="/main/personalCenter/index" class="sub history" id="c61">个人信息</a>
+                </li>
+                <li><a href="" class="sub historyBonus" id="c62">风险评测</a>
+                </li>
+                <li><a href="/main/personalCenter/toSafeManage" class="shareInfo" id="c63">安全管理</a>
+                </li>
+                <li><a href="" class="shareInfo" id="c64">服务定制</a>
+                </li>
+            </ul>
+        #end
+    </div>
+</div>
+
+#script()
+var util = require("common:widget/util/util.js");
+$(function(){
+
+    if($("#" + "$GF_VIEWINFO.subNav").length > 0){
+        $("#" + "$GF_VIEWINFO.subNav").addClass("current");
+    }
+
+    $(".content-nav a").click(function(){
+        var sid = $(this).attr("id");
+        util.cookie.set("row", "$GF_VIEWINFO.mainNav");
+        util.cookie.set("col", sid);
+    });
+    $.post("/main/special/qrycontractinfo",null,function(result){
+        if(result.errno=="00000"){
+            //加载完成
+            if(result.data.length>0){
+                 $("#contract").show();
+            }else{
+                 $("#contract").hide();
+            }
+        }else{
+            $("#contract").hide();
+        }
+    });
+
+});
+#end

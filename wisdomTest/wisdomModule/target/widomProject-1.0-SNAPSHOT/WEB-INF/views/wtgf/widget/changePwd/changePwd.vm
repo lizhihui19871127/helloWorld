@@ -1,0 +1,45 @@
+<div id="changePwd">
+	<div class="changePwdPanel step1">
+		<h2>为了您的账户安全，请修改初始密码</h2>
+		<p>1.短信验证 >> 2.设置新密码 >> 3.密码修改成功</p>
+		<p>
+			<a href="javascript:void(0)" class="img-btn btn-blue changePwd-beginChange">开始修改</a>
+		</p>
+	</div>
+	<div class="changePwdPanel step2">
+		<h2 class="icon icon-correct">系统已将6位数字验证码发送到您的手机：<span class="changePwd-mobileNum"></span></h2>
+		<p>请填写验证码：<input type="text" class="changePwd-verifyCode" maxlength='8'/></p>
+		<p>
+			<span class="inlineBlockEle changePwd-resendSMSWrap">
+				一分钟内未收到验证码，请重新发送。	
+				<a href="javascript:void(0)" class="changePwd-resendSMS">重新发送</a>
+                <span class="hide resendSMSWrap-changePhoneNum">
+                    无法收到验证码请拨打客服电话<span class="resendSMSWrap-contact">95105828</span>
+                    或者<a href="/account/smsghsj.jsp">更换手机号码</a>
+                </span>
+			</span>
+		</p>
+		<p>
+			<a href="javascript:void(0)" class="img-btn btn-blue changePwd-verifyCodeConfirm">确定</a>
+		</p>
+	</div>
+	<div class="changePwdPanel step3">
+		<h2>请设置新的密码：</h2>
+		<p><span class="red">*</span>设置登录密码：<input type="text" name="firstpwd" class="changePwd-firstpwd"/></p>
+		<p><span class="red">*</span>确认登录密码：<input type="text" name="secondpwd" class="changePwd-secondpwd"/></p>
+		<p>
+			<a href="javascript:void(0)" class="img-btn btn-blue changePwd-confirm">确定</a>
+		</p>
+	</div>
+	<div class="changePwdPanel step4">
+		<h2 class="icon icon-correct">修改密码成功！</h2>
+		<p>
+			<a href="javascript:void(0)" class="img-btn btn-blue changePwd-close">确定</a>
+		</p>
+	</div>
+</div>
+
+#script("/dwr/engine.js")#end
+#script("/dwr/interface/TradeSMSDwrUtil.js")#end
+#script("/dwr/interface/KDAccountModifyDwrUtil.js")#end
+

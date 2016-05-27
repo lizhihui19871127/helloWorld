@@ -1,0 +1,120 @@
+
+html,body{
+    font-family:"Microsoft YaHei";
+}
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box; 
+}
+img {
+    vertical-align:baseline;
+}
+
+label {
+    font-weight:normal;
+}
+dt {
+    font-weight:normal;
+}
+
+/* NumReset6 */
+
+._all_form_style {
+    padding:35px 0 16px 0;
+    width:750px;
+    margin:0 auto;
+}
+._all_form_style label {
+    display:block;
+    margin-bottom:14px;
+}
+._all_form_style label>span.before_txt {
+    display:inline-block;
+    font-size:14px;
+    width:160px;
+    margin-right:24px;
+    line-height:37px;
+    text-align:right;
+    float:left;
+}
+._all_form_style label>div._input_content {
+    float:left;
+    font-size: 14px;
+    line-height: 37px;
+    position:relative;
+}
+._all_form_style label>div._input_content input {
+    width:236px;
+    height:35px;
+    vertical-align: middle;
+    background:#f7f7f7;
+    font-size:14px;
+    padding:0 8px;
+    outline:none;
+}
+
+._all_form_style div._input_content p {
+    font-size:12px;
+}
+
+._all_form_style div._input_content p.yanzm {
+    display: inline-block;
+    position: static;
+    vertical-align: 4px;
+    margin: 0 10px;
+    width:120px;
+    height:28px;
+    line-height:28px;
+    color:#fff;
+    font-size:12px;
+    text-align:center;
+    background:#eb5406;
+    border-radius:2px;
+    cursor: pointer;
+}
+._all_form_style div._input_content p._got {
+    background: #cecece;
+}
+
+._all_form_style div._input_content span.msg {
+    display:block;
+    font-size:12px;
+    color:#828282;
+    padding-left:20px;
+    margin-top:4px;
+    background:url(/static/wtgf/img/onePassport/register_icon02.png) no-repeat left center;
+}
+._all_form_style .next_btn {
+    padding-left:184px;
+    margin-top:40px;
+}
+._all_form_style .next_btn input[type="submit"] {
+    display:inline-block;
+    width:88px;
+    height:30px;
+    font-size:14px;
+    color:#fff;
+    background:#eb5406;
+    border-radius:3px;
+    text-align:center;
+    outline:none;
+    border:none;
+    cursor:pointer;
+}
+._all_form_style .next_btn input[type="submit"]:hover {
+    display:inline-block;
+    width:88px;
+    height:30px;
+    font-size:14px;
+    color:#fff;
+    background:#FF6718;
+    border-radius:3px;
+    text-align:center;
+    outline:none;
+    border:none;
+    cursor:pointer;
+}
+

@@ -1,0 +1,65 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+#block("page_var")
+#set($GF_VIEWINFO.subNav='c11')
+#end
+#block("content_main")
+<div class="content-main">
+    <!-- 订单支付-START -->
+    <div class="container-pay wrap" style="margin-left: 0px;">
+        <div class="pageMain" style="padding:0 0 0 0;padding-bottom:2px">
+            <div class="pay-main pay-over-main" style="min-height: 350px;">
+                <div class="info-back" style="width: 300px;">
+                    <h3 style="padding-left: 30px;margin-bottom: 20px;">您已成功付款,请等待交易确认</h3>
+                    <div class="" style="padding-left: 30px;">
+                        <a href="/main/query/queryList" class="skins-btn">查看交易记录</a>
+                        <a href="/main/tradeMain/index" class="skins-btn btn-back">继续逛逛</a>
+                    </div>
+                </div>
+
+                <div class="cz-item">
+                    <dl>
+                        <dt>订单信息</dt>
+                    </dl>
+                    <div class="item-table">
+                        <table>
+                            <tr>
+                                <th style="width: 320px;padding: 10px 0px;">基金名称
+                                <input type="hidden" name="fundCode" id="fundCode" value="$!{order.fundCode}" />
+                                <input type="hidden" name="fundName" id="fundName" value="$!{order.fundName}" />
+                                </th>
+                                <th style="padding: 10px 0px;">业务名称
+                                    <input type="hidden" name="businName" id="businName" value="$!{order.businName}" />
+                                </th>
+                                <th style="width: 200px;padding: 10px 0px;">订单金额
+                                    <input type="hidden" name="amount" id="amount" value="$!{order.amount}" />
+                                </th>
+                                <th style="padding: 10px 0px;">所属交易日期
+                                    <input type="hidden" name="requestdate" id="requestdate" value="$!{order.requestdate}" />
+                                </th>
+                                <th style="padding: 10px 0px;">支付渠道
+                                    <input type="hidden" name="bankName" id="bankName" value="$!{order.bankName}" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>$!{order.fundCode}│$!{order.fundName}</td>
+                                <td>$!{order.businName}</td>
+                                <td>$!{order.amount}</td>
+                                <td>$!{order.requestdate}</td>
+                                <td>$!{order.bankName}[$!{order.bankAcco}]
+                                    <input type="hidden" name="verifyBusiness" id="verifyBusiness" value="${verifyBusiness}"/>
+                                    <input type="hidden" name="bankAcco" id="bankAcco" value="$!{order.bankAcco}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 订单支付-END -->
+</div>
+
+#end
+#require("wtgf:page/pay/paySuccess/paySuccess.vm")
+
+#end

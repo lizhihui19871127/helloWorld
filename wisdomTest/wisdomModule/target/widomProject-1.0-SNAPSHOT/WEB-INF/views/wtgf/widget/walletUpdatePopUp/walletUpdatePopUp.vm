@@ -1,0 +1,37 @@
+<!-- 钱袋子升级弹出框 start -->
+<div id="q_mask" class="q_mask q_jqdz">
+	<div class="q_cont">
+		<div class="q_cont_t">
+			<p>钱袋子功能升级提醒</p>
+			<a href="javascript:;" class="q_close" onClick="q_mask_close();">关闭</a>
+		</div>
+        <div class="q_cont_c">
+            <div class="dtxt">
+                <div class="sub_bt"><button id="upgradeBtn" onclick="upgradeToNewWallet();">一键升级</button></div>
+                <div class="old_sy">$walletUpdateInfo.oldWalletFundIncomeRatio%</div>
+                <div class="new_sy">$walletUpdateInfo.newWalletFundIncomeRatio%</div>
+            </div>
+            <div class="wxts">
+                <p><span>温馨提示：</span></p>
+                <table border="0">
+                    <tr>
+                        <td>1）</td>
+                        <td>由于互联网货币基金收益更高，体验更好，所以我司专为钱袋子客户精心打造了钱袋子货币基金(000509)。</td>
+                    </tr>
+                    <tr>
+                        <td>2）</td>
+                        <td>升级之后，钱袋子账户所具备的所有功能全部由原来的广发货币基金（270004）升级到钱袋子货币基金(000509)。</td>
+                    </tr>
+                    <tr>
+                        <td>3）</td>
+                        <td>升级过程实质为将您原有的广发货币A份额转换为钱袋子货币基金。<font color="red">升级后，钱袋子份额T+1日即可使用。</font></td>
+                    </tr>
+                </table>
+                <p class="p2">注：钱袋子账户功能：赎回转认/申购、快速赎回、还款转账、还信用卡、钱袋子定投、余额理财。</p>
+            </div>
+        </div>
+		<div class="q_cont_b"></div>
+	</div>
+	<div class="q_bg"></div>
+</div>
+<!-- 钱袋子升级弹出框 end -->

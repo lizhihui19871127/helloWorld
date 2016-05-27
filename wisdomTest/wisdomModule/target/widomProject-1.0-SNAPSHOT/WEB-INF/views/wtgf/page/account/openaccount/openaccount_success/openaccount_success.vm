@@ -1,0 +1,59 @@
+#extends("wtgf:page/layout/layoutNoNav.vm")
+#block("page_var")
+    #set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+    #set($BOOTSTRAP_CONTAINER="")
+    #set($IS_LOGIN=0)
+    #set($GF_VIEWINFO.identityType=$!tradeAccRetBean.identitytype)
+#end
+
+#block("content_main")
+    <p class="empty-line"></p>
+    <div class="container">
+        <div class="row">
+            <div class="span8 offset2">
+                <p class="gflogo1"></p><p class="gflogo2"></p>
+            </div>
+        </div>
+    </div>
+    <p class="line linehead"></p>
+
+    <div class="container">
+        <div class="span8 offset2 text-center infosdiv">
+            <p class="empty-line"/>
+            <p class="empty-line"/>
+            <strong>绑卡成功，您现在可以进入网上交易进行交易下单。</strong>
+            <p class="empty-line"/>
+            <p class="empty-line"/>
+        </div>
+
+        <div class="span4 offset4 infosdiv hide">
+            <p class="text-info">姓名：$!tradeAccRetBean.customName</p>
+            <p class="text-info">证件类型：
+                <span id="identityTypeSelectText"></span>
+            </p>
+            <p class="text-info">证件号码：$!tradeAccRetBean.identityno</p>
+            <p class="text-info">基金账号：$!tradeAccRetBean.fundacco</p>
+            <p class="empty-line"/>
+            <p class="empty-line"/>
+            <select class="span2 hide" id="identityTypeSelect" name="identityTypeSelect">
+                <option value="0" disabled="disabled">身份证</option>
+                <option value="1" disabled="disabled">中国护照</option>
+                <option value="2" disabled="disabled">军官证</option>
+                <option value="3" disabled="disabled">士兵证</option>
+                <option value="4" disabled="disabled">港澳居民来往内地通行证</option>
+                <option value="6" disabled="disabled">外国护照</option>
+                <option value="A" disabled="disabled">台胞证</option>
+            </select>
+         </div>
+         <div class="span4 offset4 infosdiv">
+            <input type="hidden" class="hidden" name="logonType" id="logonType" value="$!loginForm.logonType">
+            <input type="hidden" class="hidden" name="identityType" id="identityType" value="$!loginForm.identityType">
+            <input type="hidden" class="hidden" name="identityNo" id="identityNo" value="$!loginForm.identityNo">
+            <input type="hidden" class="hidden" name="tradePassword" id="tradePassword" value="$!loginForm.tradePassword">
+            <input type="hidden" class="hidden" name="autoLoginFlag" id="autoLoginFlag" value="$!loginForm.autoLoginFlag">
+            <button class="btn btn-warning btn-large" id="logintrade" >进入网上交易</button>
+        </div>
+    </div>
+#end
+#require("wtgf:page/account/openaccount/openaccount_success/openaccount_success.vm")
+#end

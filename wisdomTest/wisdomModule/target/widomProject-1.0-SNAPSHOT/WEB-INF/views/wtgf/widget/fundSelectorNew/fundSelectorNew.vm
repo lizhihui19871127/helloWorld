@@ -1,0 +1,18 @@
+    <input class="in-txt in-founds-txt" id="fundName" name="fundName" type="text" placeholder="请输入基金代码/名称">
+    <div id="searchInBox" style="display: none;">
+        <div class="founds-search-box founds-search-in" style="display: block;">
+            <div class="founds-search-list" id="searchListDiv" style="max-height: 230px;overflow-y: auto;">
+                <ul class="active" id="searchInBoxUl" style="style="max-height: none;overflow-y: hidden;"">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchSelectBox" style="display: none;">
+        <div class="founds-search-box founds-search-btn" style="display: block;">
+            <div class="founds-search-nav" id="navTypeList">
+            </div>
+            <div class="founds-search-list" id="foundsSearchList">
+            </div>
+        </div>
+    </div>

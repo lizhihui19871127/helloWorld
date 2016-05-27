@@ -1,0 +1,7 @@
+@import url("/static/wtgf/css/form/form.css");
+@import url("/static/wtgf/css/personalCenter/personalCenter.css");
+.questionReset_box {
+  min-height: 293px;
+  background: #fff;
+  padding: 40px 0;
+}

@@ -1,0 +1,1773 @@
+.content-wrap .content-main .container-bank{
+	min-height: 350px; 
+	background: #f6f6f6;
+}
+
+.container-bank .pageMain{
+	position: relative; 
+	padding: 20px 30px;
+}
+
+.container-bank .bank-main{
+	background: #fff; 
+	border: 1px solid #c4c4c4;
+}
+.container-bank,
+.container-bank .bank-main,
+.container-bank .bank-main p,
+.container-bank .bank-main a,
+.container-bank .bank-main input,
+.container-bank .bank-main select{font-family:"Microsoft YaHei";}
+
+.clearfix:after,
+.clearfix:before{content:" ";display:table;}
+.clearfix:after{clear:both;}
+
+.container-bank .skins-btn{
+	display: inline-block; 
+	*display: inline; 
+	*zoom: 1; 
+	width: 96px; 
+	height: 28px; 
+	line-height: 28px; 
+	text-align: center; 
+	font-size: 14px; 
+	color: #fff; 
+	text-decoration: none; 
+	background: #eb5406; 
+	border: 1px solid #eb5406; 
+	cursor: pointer;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+}
+
+.skins-btn2{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 96px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    background: #eb5406;
+    border: 1px solid #eb5406;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.pop-bank-fail .btn-cancel{
+    color: #fff;
+    background-color: #a3a3a3;
+    border-color: #a3a3a3;
+}
+
+.pop-bank-fail2 .btn-cancel{
+    color: #fff;
+    background-color: #a3a3a3;
+    border-color: #a3a3a3;
+}
+
+.container-bank .in-txt{
+	padding: 5px 7px; 
+	margin-right: 10px;
+	width: 230px; 
+	height: 16px; 
+	font-size: 12px; 
+	color: #262626; 
+	background: #f7f7f7; 
+	border: 1px solid #dfdfdf; 
+	vertical-align: top;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+-ms-border-radius: 2px;
+-o-border-radius: 2px;
+border-radius: 2px;
+}
+.container-bank .in-txt-zjyxq{
+	background-image: url(/static/wtgf/img/bindingCard/i4.png);
+	background-position: 220px 5px;
+	background-repeat: no-repeat;
+}
+
+.container-bank .in-sub{
+	display: block; 
+	padding: 0;
+	margin: 0 0 0 110px;
+}
+.container-bank .in-label{ 
+	display: inline-block; 
+	*display: inline; 
+	*zoom: 1;
+	font-size: 12px;
+}
+.container-bank .get-code{
+	height: 26px;
+	line-height: 26px;
+	font-size: 12px;
+	color: #4c4c4c;
+	background-color: #f7f7f7;
+	border-color: #dfdfdf;
+}
+.container-bank .in-sel{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding: 0 2px;
+	width: 160px;
+	height: 28px;
+	background-image: url(/static/wtgf/img/bindingCard/i2.png);
+	background-position: 135px 6px;
+	background-repeat: no-repeat;
+}
+.container-bank .in-label{
+	position: relative;
+}
+
+.container-bank .bank-card-num{
+	display: none;
+	position: absolute;
+	top: -26px;
+	left: 2px;
+	width: 242px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	background: #f29a69;
+	overflow: hidden;
+}
+
+.container-bank .bank-main{padding: 20px;}
+.container-bank .bank-main dl{
+	padding: 0 0 15px 0; 
+	margin-bottom: 20px; 
+	border-bottom: 1px solid #c4c4c4;
+}
+.container-bank .bank-main .item-nobr dl{
+	border-bottom: 0;
+}
+.container-bank .bank-main dt{
+	position: relative; 
+	padding-left: 20px; 
+	margin-bottom: 5px; 
+	height: 50px; 
+	line-height: 50px; 
+	font-size: 14px; 
+	font-weight: bold; 
+	color: #000;
+}
+.container-bank .bank-main dt span{
+	font-size: 12px; 
+	color: #848484; 
+	font-weight: normal;
+}
+.container-bank .bank-main dt img{
+	margin-right: 5px;
+	margin-top: -2px;
+	vertical-align: middle;
+}
+
+.container-bank .bank-main dd{
+    position: relative;
+    padding: 5px 0 0px 165px;
+    line-height: 28px;
+    margin-left: 10px;
+}
+
+.container-bank .bank-main dd:after,
+.container-bank .bank-main dd:before{content:" ";display:table;}
+.container-bank .bank-main dd:after{clear:both;}
+.container-bank .bank-main dd.agreen{
+	margin: 0 0 40px 0;
+	padding-left: 60px;
+	font-size: 14px;
+	color: #000;
+}
+.container-bank .bank-main label.agreen{
+	padding-left: 20px;
+	background: url(/static/wtgf/img/bindingCard/check.png) 0 2px no-repeat;
+}
+.container-bank .bank-main label.active{
+	background-image: url(/static/wtgf/img/bindingCard/check-active.png);
+}
+
+.container-bank .bank-main label.agreen input{
+	display: none;
+}
+.container-bank .bank-main label.agreen a{
+	font-size: 14px;
+	color: #000;
+	text-decoration: none;
+}
+
+.container-bank .bank-main dd span.t{
+	position: absolute; 
+	top: 5px; 
+	left: 0; 
+	width: 140px; 
+	text-align: right; 
+	font-size: 14px; 
+	color: #000;
+}
+.container-bank .bank-main dd span.t img{
+	margin-left: 5px; 
+	vertical-align: middle;
+}
+
+.container-bank .bank-main dd .tips{
+	font-size: 12px;
+	color: #848484;
+}
+.container-bank .bank-main dd .tips img{
+	margin-right: 5px; 
+	width: 14px;
+	height: 14px;
+	vertical-align: middle;
+}
+.container-bank .bank-main dd .err{
+	color: #eb5406;
+}
+
+
+.container-bank .bank-sel,
+.container-bank .bank-info,
+.container-bank .bank-list{
+	padding: 0 10px;
+	width: 630px;
+	line-height: 20px;
+	font-size: 12px; 
+	color: #262626; 
+	background: #f7f7f7; 
+	border: 1px solid #ccc; 
+	vertical-align: top;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+-ms-border-radius: 2px;
+-o-border-radius: 2px;
+border-radius: 2px;
+}
+
+.container-bank .bank-sel{
+	padding: 8px;
+	font-size: 12px;
+	color: #000;
+	background-image: url(/static/wtgf/img/bindingCard/i2.png);
+	background-position: 620px 12px;
+	background-repeat: no-repeat;
+
+	cursor: pointer;
+}
+.container-bank .bank-sel .icon{
+	position: absolute;
+	top: 13px;
+	right: 10px;
+	width: 15px;
+	height: 15px;
+	background: url(/static/wtgf/img/bindingCard/i2.png) no-repeat;
+}
+.container-bank .bank-sel img{
+	margin-right: 2px;
+	width: 20px;
+	height: 20px;
+	vertical-align: top;
+}
+.container-bank .bank-sel span{
+	margin-right: 2px;
+	font-size: 14px;
+}
+.container-bank i.kj,
+.container-bank i.wy{padding: 0 6px; font-size: 12px; color: #fff; font-weight: normal; font-style: normal; background: #eb5406;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+-ms-border-radius: 2px;
+-o-border-radius: 2px;
+border-radius: 2px;
+}
+
+.container-bank span.kj,
+.container-bank span.wy{padding: 2px 6px; font-size: 12px; color: #fff; font-weight: normal; font-style: normal; background: #eb5406;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.container-bank i.wy,
+.container-bank span.wy{
+    background-color: #319afd;
+}
+
+.container-bank i.wy{
+	background-color: #319afd;
+}
+
+.container-bank .bank-info{
+	margin-top: 10px;
+}
+.container-bank .bank-info ul{
+	list-style: none;
+	padding: 0;
+}
+.container-bank .bank-info li{
+	position: relative;
+	height: 45px;
+	line-height: 45px;
+
+	font-size: 12px;
+	color: #000;
+}
+.container-bank .bank-info em{
+	font-style: normal;
+	color: #eb5406;
+}
+.container-bank .bank-info a{
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	color: #0061cc;
+	text-decoration: none;
+}
+
+.container-bank .bank-list{
+	display: none;
+	margin-top:5px;
+	top: 50px;
+	left: 0;
+	z-index: 100;
+}
+.container-bank .list-show{
+	/*display: block;*/
+}
+.container-bank .bank-list ul{
+	list-style: none;
+	padding: 0;
+}
+.container-bank .bank-list li{
+	float: left;
+	padding: 14px 10px;
+	margin:8px;
+	width: 166px;
+	height: 20px;
+	font-size: 12px;
+	color: #000;
+	background: #fff;
+	border: 1px solid #e1e1e1;
+
+	cursor: pointer;
+}
+.container-bank .bank-list li:hover,
+.container-bank .bank-list li.active{
+	border-color:#eb5406;
+}
+.container-bank .bank-list img{
+	float: left;
+	margin-right: 2px;
+	width: 20px;
+	height: 20px;
+	vertical-align: top;
+}
+.container-bank .bank-list span{
+	float: left;
+	width: 100px;
+	font-size: 14px;
+	overflow: hidden;
+}
+.container-bank .bank-list i{
+	float: left;
+}
+
+.container-bank .back-sel-active .bank-sel .icon{
+	-webkit-transform:rotate(180deg);
+	transform:rotate(180deg);
+}
+
+.container-bank .back-sel-active .bank-info{
+	display: none;
+}
+.container-bank .back-sel-active .bank-list{
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+.container-bank .phone-tips{
+	display: none;
+	position: absolute;
+	top: 2px;
+	left: 110%;
+	z-index: 100;
+	padding: 10px 15px;
+	width: 120px;
+	line-height: 24px;
+	font-size: 12px;
+	text-align: left;
+	color: #3d3d3d;
+	background-color: #eee;
+	border-color: #e5e5e5;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+/*.container-bank span:hover .phone-tips{
+	display: block;
+}*/
+.container-bank .phone-tips i{
+	position: absolute;
+	top: 6px;
+	left: -8px;
+
+	width: 8px;
+	height: 10px;
+	background: url(/static/wtgf/img/bindingCard/i5-1.png) no-repeat;
+}
+
+
+
+.container-bank .pop{display: none; position: absolute; top: 0; left: 0; z-index: 100; width: 100%; height: 100%; background: url(/static/wtgf/img/bindingCard/black30.png); background: rgba(0,0,0,.3);}
+
+.container-bank .pop-bank-fail{display: none;}
+
+.container-bank .pop-main{position: absolute; top: 50%; left: 50%; margin: -100px 0 0 -255px; width: 510px; height: 200px; max-height: 80%; background: #fff; border: 1px solid #c4c4c4;}
+.container-bank .pop-close{position: absolute; top: 0; right: 5px; width: 32px; height: 32px; text-indent: -9999px; background: url(/static/wtgf/img/bindingCard/pop-close.png) center no-repeat;}
+.container-bank .pop-head{padding: 0 16px; height: 32px; line-height: 32px; font-size: 13px; color: #494949; background: #e2e2e2;}
+.container-bank .pop-content{padding: 20px 40px;}
+
+
+.pop-bank-fail h3,
+.pop-bank-fail p{
+	padding: 0 0 0 100px;
+	margin: 0;
+	line-height: 30px;
+}
+.pop-bank-fail h3{
+	line-height: 40px;
+	font-size: 16px;
+	background: url(/static/wtgf/img/bindingCard/i6.gif) 70px 10px no-repeat;
+}
+
+.pop-bank-fail2 h3{
+    line-height: 40px;
+    font-size: 16px;
+    background: url(/static/wtgf/img/bindingCard/i7.gif) 70px 10px no-repeat;
+}
+
+.pop-bank-fail p{
+	margin-bottom: 20px;
+}
+.pop-bank-fail a{
+	position: relative;
+}
+.pop-bank-fail a span{
+	position: absolute;
+	top: 0;
+	left: 115%;
+	z-index: 100;
+	padding: 0 5px;
+	width: 170px;
+	line-height: 28px;
+	font-size: 12px;
+	text-align: left;
+	color: #3d3d3d;
+	background-color: #eee;
+	border-color: #e5e5e5;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+.pop-bank-fail span i{
+	position: absolute;
+	top: 6px;
+	left: -8px;
+
+	width: 8px;
+	height: 10px;
+	background: url(/static/wtgf/img/bindingCard/i5.png) no-repeat;
+}
+.pop-bank-fail .btn-cancel{
+	color: #fff;
+	background-color: #a3a3a3;
+	border-color: #a3a3a3;
+}
+
+
+.pop-bank-hk h3,
+.pop-bank-hk p{
+	padding-right: 20px;
+}
+.pop-bank-hk p{
+	margin-bottom: 0;
+	line-height: 20px;
+}
+.pop-bank-hk p a{
+	color: #319afd;
+}
+
+.pop-bank-sk h3,
+.pop-bank-sk p{
+	padding-right: 20px;
+}
+.pop-bank-sk p{
+	margin-bottom: 10px;
+	line-height: 20px;
+}
+.pop-bank-sk .skins-btn{
+	margin-right: 20px;
+}
+
+.pop-bank-gbkj h3,
+.pop-bank-gbkj p{
+	padding-right: 20px;
+}
+.pop-bank-gbkj p{
+	margin-bottom: 10px;
+	line-height: 20px;
+}
+.pop-bank-gbkj .skins-btn{
+	margin-right: 20px;
+}
+
+
+.container-bank .pop-bank-tged .pop-main{
+	margin-top: -110px;
+	height: 220px;
+}
+.pop-bank-tged h3,
+.pop-bank-tged p{
+	padding-right: 20px;
+}
+.pop-bank-tged p{
+	margin-bottom: 10px;
+	line-height: 22px;
+}
+.pop-bank-tged .notice{
+	font-size: 12px;
+	color: #b2b2b2;
+}
+.pop-bank-tged .skins-btn{
+	margin-right: 20px;
+}
+
+.pop-bank-yhyz h3{
+	background-image: url(images/i7.gif);
+}
+.pop-bank-yhyz h3,
+.pop-bank-yhyz p{
+	padding-right: 20px;
+}
+.pop-bank-yhyz p{
+	margin-bottom: 20px;
+	line-height: 20px;
+}
+.pop-bank-yhyz .skins-btn{
+	margin-right: 20px;
+}
+
+.pop-bank-xz .pop-main{
+	top: 30%;
+	margin: -200px 0 0 -365px;
+	width: 730px;
+	height: 400px;
+}
+.pop-bank-xz p{
+	margin-bottom: 15px;
+	line-height: 1.4;
+}
+.pop-bank-xz p span{
+	color: #eb5406;
+	font-weight: bold;
+}
+.pop-bank-xz img{
+	display: block;
+	max-width: 100%;
+}
+.pop-bank-xz .p-btn{
+	margin-top: 20px;
+}
+.pop-bank-xz .btn-add{
+	margin-right: 80px;
+	margin-left: 60px;
+	width: 130px;
+}
+
+.pop-bank-ask .pop-main{
+	margin-top: -120px;
+	height: 240px;
+}
+.pop-bank-ask h3,
+.pop-bank-ask p{
+	padding: 0;
+	margin: 0;
+	line-height: 30px;
+	text-align: center;
+}
+.pop-bank-ask h3{
+	line-height: 40px;
+	font-size: 16px;
+	background: url(/static/wtgf/img/bindingCard/i7.gif) 100px 8px no-repeat;
+}
+.pop-bank-ask p.tips{
+	margin-bottom: 25px;
+}
+.pop-bank-ask .skins-btn{
+	position: relative;
+	margin: 0 20px;
+	width: 90px;
+}
+.pop-bank-ask .btn-again{
+	width: 135px;
+	background-color: #f3986a;
+	border-color: #f3986a;
+}
+.pop-bank-ask .skins-btn span{
+	position: absolute;
+	top: 100%;
+	left: -5%;
+	width: 110%;
+	line-height: 25px;
+	text-align: center;
+	font-size: 12px;
+	color: #c9c9c9;
+}
+.pop-bank-ask .cjwt{
+	position: absolute;
+	right: 10px;
+	bottom: 14px;
+
+	font-size: 12px;
+	color: #0061cc;
+	text-decoration: none;
+}
+
+.container-bank .my-bank-main{
+	padding: 0;
+}
+.my-bank-title{
+	padding: 0 55px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	color: #eb5406;
+	background: #eee;
+}
+.my-bank-title span{
+	padding-left: 12px;
+	font-size: 14px;
+	color: #515151;
+}
+
+/* 修改开始 */
+.my-bank-content{
+    padding: 50px;
+    position: relative;
+}
+.new_style>ul>li{
+    border-bottom: 1px solid #e2e2e2;
+}
+.new_style .style_common{
+    padding: 20px 0;
+}
+.new_style .style_common .style_left{
+    float:left;
+    padding: 50px 73px 50px 47px;
+    text-align: center;
+}
+.style_common .style_left img{
+    display: block;
+}
+.style_common .style_left span{
+    display: inline-block;
+    font-size: 16px;
+    color: #000;
+    margin-top: 8px;
+}
+.new_style .style_common .style_right{
+    width: 60%;
+    float: left;
+}
+.style_common .style_right .types li{
+    float: left;
+    font-size: 14px;
+    color: #000;
+    padding: 0 36px;
+    border-right: 2px solid #dbdbdb;
+    cursor: pointer;
+}
+.style_common .style_right .types li:last-of-type{
+    border-right: none;
+}
+.style_common .style_right .types li.current{
+    color: #eb5406;
+}
+.types_content>div{
+    display: none;
+    margin-top: 8px;
+    padding: 12px 28px;
+    border: 1px solid #d2d2d2;
+    border-radius: 2px;
+    position: relative;
+}
+.types_content>div:before{
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 5px;
+    background: url(/static/wtgf/img/bindingCard/jiantou.png) no-repeat;
+    position: absolute;
+}
+.types_content>div.types_content1:before{
+    top: -5px;
+    left: 44px;
+}
+.types_content>div.types_content2:before{
+    top: -5px;
+    left: 146px;
+}
+.types_content>div.types_content3:before{
+    top: -5px;
+    left: 253px;
+}
+.types_content>div.current{
+    display: block;
+}
+.types_content .common_style dl{
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 20px;
+    border: none;
+}
+.types_content .common_style dl dt{
+    float: left;
+    position: static;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #000;
+    width: 142px;
+    height: 20px;
+    line-height: 20px;
+    font-weight: normal;
+
+}
+.types_content .common_style dl dd{
+    float: left;
+    position: static;
+    padding: 0;
+    font-size: 14px;
+    color: #000;
+    height: 20px;
+    line-height: 20px;
+}
+.types_content .common_style dl.time dd span{
+    margin-right: 10px;
+}
+
+.common_style dl.three_btn{
+    height: 52px;
+}
+.common_style dl.three_btn dd span{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    color: #040000;
+    padding: 0 22px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.common_style dl.three_btn dd span:hover{
+    background-color: #ed651e;
+    border-color: #ed651e;
+    color: #fff;
+}
+.types_content .zf_fanshi .tishi .xe-tips{
+    /*display: none;*/
+    top: 10px;
+    left: 180px;
+    width: 410px;
+    height: 30px;
+}
+.types_content .zf_fanshi .tishi:hover .xe-tips{
+    /*display: block;*/
+}
+.types_content .zf_fanshi .tishi2 .xe-tips{
+    top: 16px;
+    left: 180px;
+    width: 410px;
+    height: 30px;
+}
+.types_content .zf_fanshi .tishi1 .xe-tips{
+    top: -56px;
+    left: 10px;
+    width: 410px;
+    height: 30px;
+}
+.types_content .zf_fanshi .kjzf .xe-tips{
+    top: -75px;
+    width: 410px;
+    height: 50px;
+}
+.types_content .zf_fanshi .kjzf2 .xe-tips{
+    top: -10px;
+    left: 300px;
+    width: 410px;
+    height: 50px;
+}
+.types_content .zf_fanshi .wyzf .xe-tips{
+    top: -76px;
+    left: 10px;
+    width: 410px;
+    height: 50px;
+}
+.types_content .zf_fanshi .wyzf2 .xe-tips{
+    top: -10px;
+    left: 180px;
+    width: 410px;
+    height: 50px;
+}
+.types_content .zf_fanshi .kjzf .xe-tips a{
+    display: block;
+    float: right;
+    font-size: 12px;
+    line-height: 28px;
+    color: #8A8A8A;
+    text-align: right;
+}
+.types_content .zf_fanshi .kjzf2 .xe-tips a{
+    display: block;
+    float: right;
+    font-size: 12px;
+    line-height: 28px;
+    color: #8A8A8A;
+    text-align: right;
+}
+.types_content .zf_fanshi .kjzf .xe-tips a:after{
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: url(/static/wtgf/img/bindingCard/i2.png) no-repeat;
+    -webkit-background-size: 13px;
+    background-size: 13px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    vertical-align: -2px;
+    margin-left: 4px;
+}
+.types_content .zf_fanshi .kjzf2 .xe-tips a:after{
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: url(/static/wtgf/img/bindingCard/i2.png) no-repeat;
+    -webkit-background-size: 13px;
+    background-size: 13px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    vertical-align: -2px;
+    margin-left: 4px;
+}
+.types_content .zf_fanshi .tishi .xe-tips em{
+    position: static;
+    float: left;
+    margin-left: -1px;
+    width: 100px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #fff;
+    border:1px solid #e5e5e5;
+    font-style:normal;
+}
+.types_content .zf_fanshi .tishi .xe-tips i{
+    top: 34px;
+    bottom: -71px;
+    left: 40px;
+    width: 20px;
+    height: 134px;
+    background-position: top center;
+    background-position: 6px 36px;
+}
+.style_two .style_two_right .common_style{
+    border: none;
+    margin-top: 0;
+    padding: 0 28px;
+}
+.style_two .style_two_right .common_style:before{
+    display: none;
+}
+.add_yhk{ padding: 24px 50px; text-align: center;}
+.add_yhk a{ display: inline-block; font-size: 16px; color: #040000;}
+.add_yhk a:before{ content: ''; display: inline-block; width: 21px; height: 21px; background: url(/static/wtgf/img/bindingCard/i17.png) no-repeat; -webkit-background-size: 21px;
+    background-size: 21px; vertical-align: -5px; margin-right: 8px;}
+.add_yhk a:hover{
+    color: #ed651e;
+    text-decoration: none;
+}
+/* 修改结束 */
+
+.my-bank-content{
+	padding: 50px;
+	position: relative;
+}
+.my-bank-content .content-table{
+	width: 100%;
+}
+.my-bank-content .list,
+.my-bank-content .info{
+	vertical-align: top;
+}
+.my-bank-content .list{
+	width: 240px;
+}
+.my-bank-content .list ul{
+	height: 495px;
+	overflow: hidden;
+}
+
+/* Scrollbar */
+.scrollbar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0 2px;
+	width: 3px;
+	height: 100%;
+	/*background: #f4f4f4;*/
+	/*border: 1px solid #e4e4e4;*/
+	border-radius: 2px;
+	line-height: 0;
+}
+.scrollbar .handle {
+	width: 100%;
+	height: 100px;
+	background: #c1c1c1;
+	border-radius: 6px;
+	cursor: pointer;
+}
+.scrollbar .handle .mousearea {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+.my-bank-content .list li{
+	display: block;
+	margin-bottom: 25px;
+	padding: 20px;
+	height: 96px;
+	background: #fff;
+	border: 2px solid #cacaca;
+
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	border-radius: 15px;
+}
+.my-bank-content .list li.active,
+.my-bank-content .list li:hover{
+	border-color: #eb5406;
+}
+.my-bank-content .list li a{
+	display: block;
+	text-decoration: none;
+}
+.my-bank-content .list img{
+	max-width: 150px;
+	width: auto;
+	height: 32px;
+}
+.my-bank-content .list .num{
+	clear: both;
+	padding-top: 40px;
+	font-size: 16px;
+	color: #000;
+	text-align: center;
+}
+.my-bank-content .info{
+	padding-left: 45px;
+}
+.container-bank .my-bank-content i.kj,
+.container-bank .my-bank-content i.wy{
+	padding: 4px 6px;
+	font-size: 14px;
+}
+
+.my-bank-content .down{
+	display: block;
+	margin-bottom: 20px;
+	height: 15px;
+	text-indent: -9999px;
+	background: url(/static/wtgf/img/bindingCard/i9.gif) center no-repeat;
+	border-top: 1px solid #fcfcfc;
+}
+
+.my-bank-content .add{
+	display: block;
+	padding: 20px;
+	padding-top: 90px;
+	height: 26px;
+	font-size: 16px;
+	color: #666;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	background: #fff url(/static/wtgf/img/bindingCard/i10.gif) 95px 30px no-repeat;
+	border: 2px solid #cacaca;
+
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	border-radius: 15px;
+}
+
+
+.my-bank-content .info-title{
+	height: 30px;
+	font-size: 14px;
+	color: #000;
+}
+.my-bank-content .info-tab{
+	height: 48px;
+}
+.my-bank-content .info-tab a{
+	float: left;
+	width: 115px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	font-size: 14px;
+	color: #000;
+	text-decoration: none;
+	border: 1px solid #dadada;
+	border-left: none;
+	border-bottom: none;
+}
+.my-bank-content .info-tab a:first-child{
+	border-left: 1px solid #dadada;
+}
+.my-bank-content .info-tab a:hover,
+.my-bank-content .info-tab a.active{
+	color: #fff;
+	background-color: #eb5406;
+}
+.my-bank-content .info-table{
+	margin-top: -1px;
+	padding: 12px;
+	border: 1px solid #dadada;
+}
+.my-bank-content .info-table table{
+	width: 100%;
+}
+.my-bank-content .info-table th{
+	padding: 10px 5px 15px 5px;
+}
+.my-bank-content .info-table th h3{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	color: #000;
+	border-bottom: 1px solid #dadada;
+}
+.my-bank-content .info-table td{
+	padding: 5px 20px;
+	height: 30px;
+	font-size: 14px;
+	color: #000;
+}
+.my-bank-content .info-table td.td-l{
+	width: 100px;
+	text-align: right;
+}
+.my-bank-content .info-table td.td-l img{
+	margin-left: 5px;
+}
+.my-bank-content .info-table a.khzh{
+	padding-left: 35px;
+	color: #0061cc;
+}
+
+.my-bank-content .info-table .tips-box{
+    position: relative;
+}
+.my-bank-content .info-table .tips-box .phone-tips{
+    width: 220px;
+    white-space: normal;
+}
+.my-bank-content .info-table .tips-box:hover .phone-tips{
+    display: block;
+}
+.my-bank-content .info-table .tips-box .phone-tips i{
+    top: 0;
+    left: -29px;
+    width: 30px;
+    height: 20px;
+    background-position: right center;
+}
+
+
+.my-bank-content .info-table .tips-box .xe-tips{
+    /*display: block;*/
+    top: -56px;
+    left: 0px;
+    width: 410px;
+    height: 30px;
+}
+.my-bank-content .info-table .tips-box .xe-tips em{
+    position: static;
+    float: left;
+    margin-left: -1px;
+    width: 100px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #fff;
+    border:1px solid #e5e5e5;
+}
+.my-bank-content .info-table .tips-box .xe-tips i{
+    top: auto;
+    bottom: -8px;
+    left: 30px;
+    width: 20px;
+    height: 10px;
+    background-position: top center;
+
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.my-bank-content .info-table .skins-btn{
+	margin: 0 5px;
+	color: #000;
+	background-color: #fff;
+	border-color: #e8e8e8;
+}
+.my-bank-content .info-table .skins-btn:hover,
+.my-bank-content .info-table .skins-btn.active{
+	color: #fff;
+	background-color: #eb5406;
+	border-color: #eb5406;
+}
+.my-bank-content .info-table .ykt,
+.my-bank-content .info-table .ykt:hover{
+	color: #eb5406;
+	border:none;
+	background: none;
+	cursor: default;
+}
+
+.container-bank .bank-success-main{
+	background: none;
+	border: none;
+}
+
+.bank-success-main .success-info{
+	height: 140px;
+}
+.bank-success-main .success-info p{
+	margin-bottom: 20px;
+	line-height: 30px;
+	font-size: 16px;
+	color: #eb5406;
+	text-align: center;
+}
+.bank-success-main .success-info img{
+	width: 20px;
+	height: 19px;
+}
+.bank-success-main .success-info p.b-i{
+	font-size: 14px;
+	color: #515151;
+}
+
+.bank-success-main .next-info .t{
+	height: 40px;
+	font-size: 14px;
+	color: #515151;
+}
+.bank-success-main .next-info li{
+	position: relative;
+	display: block;
+	padding-left: 95px;
+	margin-bottom: 25px;
+	height: 168px;
+	background: #fff left center no-repeat;
+	border:1px solid #d7d7d7;
+
+	-webkit-border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.bank-success-main .next-info a{
+	display: block;
+	text-decoration: none;
+}
+.bank-success-main .next-info .wdsy{
+	background-image: url(/static/wtgf/img/bindingCard/wdsy.jpg);
+}
+.bank-success-main .next-info .wdsy img{
+	width: 20px;
+	height: 25px;
+}
+.bank-success-main .next-info .bflc{
+	background-image: url(/static/wtgf/img/bindingCard/bflc.jpg);
+}
+.bank-success-main .next-info .bflc img{
+	width: 20px;
+	height: 21px;
+}
+.bank-success-main .next-info .cqtz{
+	background-image: url(/static/wtgf/img/bindingCard/cqtz.jpg);
+}
+.bank-success-main .next-info .cqtz img{
+	width: 20px;
+	height: 19px;
+}
+.bank-success-main .next-info h3{
+	padding: 20px 0 10px 0;
+	line-height: 30px;
+	font-size: 16px;
+	color: #eb5406;
+}
+.bank-success-main .next-info p{
+	line-height: 40px;
+	font-size: 14px;
+	color: #515151;
+}
+.bank-success-main .next-info em{
+	font-size: 16px;
+	color: #eb5406;
+}
+.bank-success-main .next-info p.tips{
+	color: #727272;
+}
+.bank-success-main .next-info .skins-btn{
+	position: absolute;
+	top: 40px;
+	right: 35px;
+
+	width: 115px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.container-bank .bank-main .cz-help{
+    border-top: 1px solid #ededed;
+}
+.container-bank .bank-main .cz-help h3{
+    margin-bottom:5px;
+    height:18px;
+    line-height:18px;
+    font-size:14px;
+    color:#DF5412;
+}
+.container-bank .bank-main .cz-help h3 img{
+    margin-top: -2px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.container-bank .bank-main .cz-help dl{
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+.container-bank .bank-main .cz-help dt,
+.container-bank .bank-main .cz-help dd,
+.container-bank .bank-main .cz-help p{
+    padding: 0;
+    height: auto;
+    line-height:18px;
+    font-size:12px;
+    color:#262626;
+    font-weight: normal;
+}
+.container-bank .bank-main .cz-help dt,
+.container-bank .bank-main .cz-help p{
+    padding-top:10px;
+    color:#000;
+    font-weight: bold;
+}
+.container-bank .bank-main .cz-help p{
+    color:#262626;
+}
+.container-bank .bank-main .cz-help a{
+    color:#195DAB;
+    text-decoration:none;
+}
+.container-bank .bank-main .cz-help a:hover{
+    text-decoration:underline;
+}
+
+
+.container-bank .tsqy-bank-main{
+    padding: 20px 50px;
+}
+.container-bank .tsqy-bank-main .cz-help{
+    padding-left: 0;
+}
+.container-bank .tsqy-bank-main .in-label,
+.container-bank .tsqy-bank-main label.agreen{
+    font-size: 14px;
+}
+.container-bank .tsqy-bank-main label.agreen{
+    background-position: 0 5px;
+}
+.container-bank .tsqy-bank-main .in-sub{
+    margin-left: 0;
+}
+
+
+
+.tsqy-bank-main .tsqy-step{
+    padding-top: 50px;
+    margin-bottom: 20px;
+    height: 50px;
+    border-bottom: 2px solid #f0f0f0;
+}
+.tsqy-bank-main .step-main{
+    position: relative;
+    margin: 0 130px;
+    height: 3px;
+    background: #999;
+}
+.tsqy-bank-main .step-main .step{
+    position: absolute;
+    top: -44px;
+    left: 0;
+    z-index: 2;
+    margin-left: -45px;
+    width: 90px;
+    text-align: center;
+}
+.tsqy-bank-main .step-main .step2{
+    left: 50%;
+}
+.tsqy-bank-main .step-main .step3{
+    left: 100%;
+}
+.tsqy-bank-main .step-main p{
+    height: 20px;
+    font-size: 12px;
+    color: #999;
+}
+.tsqy-bank-main .step-main .active p{
+    color: #df5412;
+}
+.tsqy-bank-main .step-main span{
+    display: block;
+    margin: 0 auto;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+    background: url(/static/wtgf/img/bindingCard/tsqy-step.png) no-repeat;
+}
+.tsqy-bank-main .step-main .step2 span{
+    background-position: -69px 0px;
+}
+
+.tsqy-bank-main .step-main .step2.active span{
+    background-position: -69px -50px;
+}
+.tsqy-bank-main .step-main .step3 span{
+    background-position: -138px 0px;
+}
+.tsqy-bank-main .step-main .step3.active span{
+    background-position: -138px -50px;
+}
+.tsqy-bank-main .step-main .line{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 3px;
+    background: #df5412;
+}
+.tsqy-bank-main .main-step2 .line{
+    width: 75%;
+}
+.tsqy-bank-main .main-step3 .line{
+    width: 100%;
+}
+
+
+.tsqy-bank-main .tsqy-step2 .step-main .step2{
+    left: 100%;
+}
+.tsqy-bank-main .tsqy-step2 .main-step1 .line{
+    width: 50%;
+}
+.tsqy-bank-main .tsqy-step2 .main-step2 .line{
+    width: 100%;
+}
+
+.container-bank .bank-main .cz-help{
+    position: relative;
+    padding: 20px 10px;
+    border-top: 1px solid #ededed;
+}
+.container-bank .bank-main .cz-help h3{
+    margin-bottom:5px;
+    height:18px;
+    line-height:18px;
+    font-size:14px;
+    color:#DF5412;
+}
+.container-bank .bank-main .cz-help h3 img{
+    margin-top: -2px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.container-bank .bank-main .cz-help dl{
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+.container-bank .bank-main .cz-help dt,
+.container-bank .bank-main .cz-help dd,
+.container-bank .bank-main .cz-help p{
+    padding: 0;
+    height: auto;
+    line-height:18px;
+    font-size:12px;
+    color:#262626;
+    font-weight: normal;
+}
+.container-bank .bank-main .cz-help dt,
+.container-bank .bank-main .cz-help p{
+    padding-top:10px;
+    color:#000;
+}
+.container-bank .bank-main .cz-help p{
+    color:#262626;
+}
+.container-bank .bank-main .cz-help a{
+    color:#0061cc;
+    text-decoration:none;
+}
+.container-bank .bank-main .cz-help a:hover{
+    text-decoration:underline;
+}
+.container-bank .bank-main .cz-help a.backTop{
+    position: absolute;
+    top: 40px;
+    right: 0;
+}
+
+
+.pay-over-main{
+    padding: 70px;
+}
+.pay-over-main .info-back{
+    padding-top: 15px;
+    margin: 0 auto;
+    width: 360px;
+    height: 145px;
+    /* align-content: center; */
+}
+.pay-over-main .info-back h3{
+    margin-bottom: 40px;
+    padding-left: 55px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    color: #eb5406;
+    font-weight: normal;
+
+    background: url(/static/wtgf/img/bindingCard/pay-i17.jpg) left center no-repeat;
+    text-align: left;
+}
+.pay-over-main .info-back .btn{
+    padding-left: 55px;
+}
+.pay-over-main .info-back .skins-btn{
+    width: 116px;
+    vertical-align: bottom;
+}
+.pay-over-main .info-back .btn-back{
+    width: 60px;
+    line-height: 42px;
+    font-size: 12px;
+    color: #515151;
+    background: none;
+    border:none;
+    overflow: hidden;
+}
+.pay-over-main .info-back .btn-back:hover{
+    color: #DF5412;
+}
+.pay-over-main .item-table{
+    padding: 0;
+    border:none;
+}
+.pay-over-main .cz-item dt{
+    margin-bottom: 0;
+}
+
+.pay-over-main .fail-info-back{
+    width: 480px;
+}
+.pay-over-main .fail-info-back h3{
+    background-image: url(/static/wtgf/img/bindingCard/pay-i18.jpg);
+}
+.pay-over-main .fail-info-back .fail-ctrl{
+    padding-left: 55px;
+    font-size: 14px;
+    color: #000;
+}
+.pay-over-main .fail-info-back .fail-ctrl a{
+    color: #195dab;
+    text-decoration: none;
+}
+.pay-over-main .fail-info-back .fail-ctrl a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+.pay-main .pop{display: none; position: absolute; top: 0; left: 0; z-index: 100; width: 100%; height: 100%; background: url(images/black30.png); background: rgba(0,0,0,.3);}
+
+.pay-main .pop-main{position: absolute; top: 50%; left: 50%; margin: -100px 0 0 -255px; width: 510px; height: 200px; max-height: 80%; background: #fff; border: 1px solid #c4c4c4;}
+.pay-main .pop-close{position: absolute; top: 0; right: 5px; width: 32px; height: 32px; text-indent: -9999px; background: url(images/pop-close.png) center no-repeat;}
+.pay-main .pop-head{padding: 0 16px; height: 32px; line-height: 32px; font-size: 13px; color: #494949; background: #e2e2e2;}
+.pay-main .pop-content{padding: 20px 40px;}
+
+
+.pop-founds-fail h3,
+.pop-founds-fail .link{
+    padding: 0 0 0 100px;
+    margin: 0;
+    line-height: 30px;
+}
+.pop-founds-fail h3{
+    line-height: 40px;
+    font-size: 16px;
+    background: url(/static/wtgf/img/bindingCard/pay-i7.gif) 70px 10px no-repeat;
+}
+.pop-founds-fail .link{
+    position: relative;
+    float: left;
+    margin-bottom: 20px;
+}
+.pop-founds-fail .link a{
+    color:#195DAB;
+    text-decoration:none;
+}
+.pop-founds-fail .link a:hover{
+    text-decoration:underline;
+}
+.pop-founds-fail .link:hover .sub-tips{
+    display: block;
+}
+.pop-founds-fail .skins-btn{
+    display: block;
+    margin: 0 auto;
+}
+
+
+.pay-order-main .pop-pay-order{
+    /*display: block;*/
+}
+.pay-order-main .pop-pay-order .pop-main{
+    height: 220px;
+}
+.pay-order-main .pop-pay-order h3,
+.pay-order-main .pop-pay-order .link{
+    padding: 0 0 0 120px;
+    margin: 0;
+    line-height: 30px;
+}
+.pay-order-main .pop-pay-order h3{
+    line-height: 40px;
+    font-size: 14px;
+    background: url(/static/wtgf/img/bindingCard/pay-i16.png) 90px 8px no-repeat;
+}
+.pay-order-main .pop-pay-order .link{
+    font-size: 12px;
+    color:#eb5406;
+}
+.pay-order-main .pop-pay-order .btn{
+    padding-top: 30px;
+    text-align: center;
+}
+.pay-order-main .pop-pay-order .skins-btn{
+    margin: 0 10px;
+    width: 100px;
+}
+.pay-order-main .pop-pay-order .btn-fail{
+    width: 180px;
+    background-color: #f3986a;
+    border-color: #f3986a;
+}
+
+.pop-bank-fail h3{
+    line-height: 40px;
+    font-size: 16px;
+    background: url(/static/wtgf/img/bindingCard/i6.gif) 45px 10px no-repeat;
+}
+.pop-bank-fail .skins-btn{
+    width: 98px;
+}
+.pop-bank-fail .btn-cancel{
+    color: #fff;
+    background-color: #a3a3a3;
+    border-color: #a3a3a3;
+}
+
+
+.pop-bank-yhyz h3{
+    background-image: url(/static/wtgf/img/bindingCard/i7.gif);
+}
+.pop-bank-yhyz h3,
+.pop-bank-yhyz p{
+    padding-right: 20px;
+}
+.pop-bank-yhyz p{
+    margin-bottom: 20px;
+    line-height: 20px;
+}
+.pop-bank-yhyz .skins-btn{
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+
+.pop-bank-kjzftx h3{
+    background-image: url(/static/wtgf/img/bindingCard/i7.gif);
+}
+.pay-main .pop-bank-kjzftx .pop-main{
+    margin-left: -320px;
+    width: 640px;
+}
+.pop-bank-kjzftx .skins-btn{
+    margin: 30px 0 0 200px;
+    vertical-align: top;
+}
+
+
+.pop-bank-wyzftx h3{
+    background-image: url(/static/wtgf/img/bindingCard/i7.gif);
+}
+.pay-main .pop-bank-wyzftx .pop-main{
+    margin-left: -320px;
+    width: 640px;
+}
+.pop-bank-wyzftx .tips{
+    padding-left: 35px;
+    font-size: 14px;
+    color: #DF5412;
+}
+.pop-bank-wyzftx .skins-btn{
+    margin: 30px 0 0 200px;
+    vertical-align: top;
+}
+
+
+
+.types_content .common_style dl.zf_fanshi dd span{
+    margin-right: 34px;
+    display: inline-block;
+    min-width: 85px;
+}
+.common_style dl.zf_fanshi dd span{
+    cursor: default;
+}
+.common_style dl.zf_fanshi dd span.wyzf{
+    position: relative;
+}
+.common_style dl.zf_fanshi dd span.kjzf{
+    position: relative;
+    color: #eb5406;
+}
+.specialFont{
+    font-family:"Microsoft YaHei";
+}
+/*.common_style dl.zf_fanshi dd span.wyzf:before{*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*width: 18px;*/
+    /*height: 14px;*/
+    /*background: url(/static/wtgf/img/bindingCard/pay-i21_unselected.png) no-repeat;*/
+    /*-webkit-background-size: 18px;*/
+    /*background-size: 18px;*/
+    /*vertical-align: -3px;*/
+    /*margin-right: 7px;*/
+/*}*/
+/*.common_style dl.zf_fanshi dd span.wyzf2:before{*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*width: 18px;*/
+    /*height: 14px;*/
+    /*background: url(/static/wtgf/img/bindingCard/pay-i21_selected.png) no-repeat;*/
+    /*-webkit-background-size: 18px;*/
+    /*background-size: 18px;*/
+    /*vertical-align: -3px;*/
+    /*margin-right: 7px;*/
+/*}*/
+/*.common_style dl.zf_fanshi dd span.kjzf:before{*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*width: 16px;*/
+    /*height: 16px;*/
+    /*background: url(/static/wtgf/img/bindingCard/pay-i20_unselected.png) no-repeat;*/
+    /*-webkit-background-size: 16px;*/
+    /*background-size: 16px;*/
+    /*vertical-align: -3px;*/
+    /*margin-right: 7px;*/
+/*}*/
+/*.common_style dl.zf_fanshi dd span.kjzf2:before{*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*width: 16px;*/
+    /*height: 16px;*/
+    /*background: url(/static/wtgf/img/bindingCard/pay-i20_selected.png) no-repeat;*/
+    /*-webkit-background-size: 16px;*/
+    /*background-size: 16px;*/
+    /*vertical-align: -3px;*/
+    /*margin-right: 7px;*/
+/*}*/

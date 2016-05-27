@@ -1,0 +1,110 @@
+#extends("common:page/layout/layout.vm")
+	#block("global_var")
+		#set($HEADER_TITLE="欢迎进入广发基金注册系统！")
+        #set($IS_LOGIN=0)
+        #set($USE_BOOTSTRAP=0)
+	#end
+	#block("content")
+		<div class="content-head">
+			<div class="head-wrap">
+				<p class="logo">网站登录</p>	
+			</div>
+		</div>
+		<div class="content-login clearfix">
+			
+			<div class="login-slider">
+				<ul class="slider-list">				
+					<li class="slider slide1">&nbsp;</li>
+				</ul>
+			</div>
+
+			<div class="login-loginForm">
+				<table>
+					<tr>
+						<td class="loginForm-labelCell"><label for="loginType">登录类型：</label></td>
+						<td>
+							<select id="identityType" name="identityType">
+								<option value="0">身份证</option>
+								<option value="B">昵称</option>
+								<option value="FundAcco">基金账号</option>
+								<option value="1">中国护照</option>
+								<option value="6">外国护照</option>
+								<option value="2">军官证</option>
+								<option value="3">士兵证</option>
+								<option value="4">港澳居民来往内地通行证</option>
+								<option value="5">户口本</option>
+								<option value="8">文职证</option>
+								<option value="9">警官证</option>
+								<option value="A">台胞证</option>
+								<option value="7">其它</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr class="loginForm-nickNameRow loginType">
+						<td><label for="nickName">昵称：</label></td>
+						<td><input type="text" class="loginForm-input" id="nickName" tabindex="1"/></td>
+					</tr>
+
+					<tr class="loginForm-fundAccoRow loginType">
+						<td><label for="fundAcco">基金账号：</label></td>
+						<td><input type="text" class="loginForm-input" id="fundAcco" tabindex="1"/></td>
+					</tr>
+
+					<tr class="loginForm-identityNoRow loginType current">
+						<td><label for="identityNo">证件号码：</label></td>
+						<td><input type="text" class="loginForm-input" id="identityNo" tabindex="1"/></td>
+					</tr>
+
+					<tr>
+						<td><label for="tradePassword">密码：</label></td>
+						<td>
+							<input type="password" class="loginForm-input" id="tradePassword" size="18" tabindex="2"/>
+							<a href="javascript:void(0)" id="wjmm"></a>
+							<a href="/password/resetpwdfirst.jsp" target="_blank">忘记密码？</a>
+						</td>
+					</tr>
+					<tr id="verifyCodeWrap" #if('y' != $needVerifyCode && 'Y' != $needVerifyCode)class="hide"#end>
+						<td><label for="verifyCode">验证码：</label></td>
+						<td><input type="text" id="verifyCode" name="verifyCode" class="loginForm-input verifyCode" tabindex="3"/>
+							#widget("common:widget/verifyCode/verifyCode.vm")	
+						</td>
+					</tr>
+					<tr class="loginForm-tinyRow">
+						<td></td>
+						<td>
+							<input type="checkbox" id="autoLoginFlag"/>	
+							<label for="autoLoginFlag" class="inlineEle">下次自动登录</label>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<a href="javascript:void(0)" class="img-btn btn-submitDefault" id="btnLoginSubmit">确定</a>
+							<a href="https://sso.gffunds.com.cn/ids/gfsso/passport2/register_step1.jsp" target="_blank" class="img-btn btn-submitSub btn-yellow">我要开户</a>
+						</td>
+					</tr>
+					<tr class="loginForm-tinyRow">
+						<td></td>	
+						<td>
+						<a href="/fundservice/alipay/alipayresetpwdinputinfo.jsp" class="btn-taobaoLogin">广发基金淘宝店用户登录</a>
+						</td>	
+					</tr>
+                    <tr class="loginForm-tinyRow">
+                        <td></td>
+                        <td>
+                            <a href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/wsjy/khdl/201412/t20141209_41091_help.htm"  target="_blank" class="btn-taobaoLogin">常见问题</a>
+                        </td>
+                    </tr>
+				</table>
+			</div>
+
+		</div>
+	#end
+	#block("bottom_scripts")
+		#widget("wtgf:widget/changePwd/changePwd.vm")	
+        #require("common:widget/softkeyboard/softkeyboard.js")
+	#end
+    #require("wtgf:page/login/login.vm")
+#end
+

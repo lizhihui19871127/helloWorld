@@ -1,0 +1,220 @@
+#extends("wtgf:page/layout/layoutNoNav.vm")
+#block("page_var")
+    #set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+    #set($BOOTSTRAP_CONTAINER="")
+    #set($IS_LOGIN=0)
+
+    #set($GF_VIEWINFO.identityType=$identityType)
+    #set($GF_VIEWINFO.verifyMode=$selectedCardInfo.verifyMethod)
+#end
+#block("header_scripts")
+<script type="text/javascript">
+    window.WTjson = {
+        "WT.si_n":"银行卡绑定",
+        "WT.si_x":"验证信息"
+    }
+</script>
+#end
+#block("content_main")
+    <p class="empty-line"></p>
+    <div class="container">
+        <div class="row">
+            <div class="span8 offset2">
+                <p class="gflogo1"></p><p class="gflogo2Text">添加银行卡</p>
+            </div>
+        </div>
+    </div>
+    <p class="line linehead"></p>
+
+    <div class="container">
+        <div class="row">
+            <div class="span10 offset1">
+            <form class="form-horizontal" method="post" name="openaccount_step5_form" action="openaccount_step6">
+                <div class="control-group ">
+                    <label class="control-label" for="selectedBankImg">所选银行</label>
+                    <div class="controls">
+                        <img id="selectedBankImg" src="$selectedCardInfo.selectedBankImg">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn" id="selectedCardBtn">更换银行卡</button>
+                        <input type="hidden" class="hidden" name="userid" id="userid" value="$!userid">
+                        <input type="hidden" class="hidden" name="email" id="email" value="$!email">
+                        <input type="hidden" class="hidden" name="bankNo" id="bankNo" value="$!selectedCardInfo.bankNo">
+                        <input type="hidden" class="hidden" name="childBankNo" id="childBankNo" value="$!selectedCardInfo.childBankNo">
+                        <input type="hidden" class="hidden" name="capitalMode" id="capitalMode" value="$!selectedCardInfo.capitalMode">
+						<input type="hidden" class="hidden" name="bankShowKey" id="bankShowKey" value="$!selectedCardInfo.bankShowKey">
+                    </div>
+                </div>
+                <p class="line"></p>
+                <p class="tips-row text-info"><img src="/static/wtgf/img/account/bk-icon-14102001.gif">
+                    请填写以下银行卡信息
+                </p>
+                <div class="control-group" id="verifyMethod_cgroup">
+                    <label class="control-label" for="verifyMethodDT">验证方式</label>
+                    <div class="controls">
+                        <label class="radio inline" id="verifyMethodDT_label">
+                            <input type="radio" name="verifyMethod" id="verifyMethodDT" value="DATAFLOW" otype="button" otitle="银行柜台预留手机验证" checked>
+                            银行柜台预留手机验证
+                        </label>
+                        <label class="radio inline" id="verifyMethodWEB_label">
+                            <input type="radio" name="verifyMethod" id="verifyMethodWEB" otype="button" otitle="网银验证" value="WEB">
+                            网银验证
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">姓名</label>
+                    <div class="controls">
+                        <input class="span3" type="text" name="userName" id="userName" otype="button" otitle="姓名" value="$!userName">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="identityType">证件号码</label>
+                    <div class="controls">
+                        <select class="span2" style="width: 100px"  id="identityType" name="identityType" otype="button" otitle="证件号码" >
+                            <option value="0" disabled="disabled">身份证</option>
+                            <option value="1" disabled="disabled">中国护照</option>
+                        ##  <option value="2" disabled="disabled">军官证</option>
+                        ##  <option value="3" disabled="disabled">士兵证</option>
+                            <option value="4" disabled="disabled">港澳通行证</option>
+                        ##  <option value="6" disabled="disabled">外国护照</option>
+                         <option value="A" disabled="disabled">台胞证</option>
+                        </select>
+                        <input type="text" class="span3" id="identityNo" name="identityNo" value="$!identityNo">
+                    </div>
+                </div>
+                <div class="control-group IDNOLen hide">
+                    <label class="control-label" for="IDNO18">身份证类别</label>
+                    <div class="controls">
+                        <label class="radio inline" id="IDNO18">
+                            <input type="radio" name="identityNoMode" id="identityNoMode18" value="18" otype="button" otitle="18位身份证" checked>
+                            18位身份证
+                        </label>
+                        <label class="radio inline" id="IDNO15">
+                            <input type="radio" name="identityNoMode" id="identityNoMode15" otype="button" otitle="15位身份证" value="15">
+                            15位身份证
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="expiredate">证件有限期</label>
+                    <div class="controls">
+                        <input type="text" class="span3 inline" id="expiredate" style="background-color:white" name="expiredate" otype="button" otitle="证件有限期" >&nbsp;&nbsp;
+                        <label class="checkbox  inline" id="noExpiretimeChkbox">
+                            <input type="checkbox" id="timeUnLimited" otype="button" otitle="永久有效" >永久有效
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group" id="bankCard_cgroup">
+                    <label class="control-label" for="bankCard">银行卡号</label>
+                    <div class="controls">
+                        <input type="text" class="span4" id="bankCard" name="bankCard" otype="button" otitle="银行卡号" >
+                    </div>
+                </div>
+                <div class="control-group" id="mobileInBank_cgroup">
+                    <label class="control-label" for="mobileInBank">银行预留手机号码</label>
+                    <div class="controls">
+                        <input type="text" class="span4" id="mobileInBank" name="mobileInBank" otype="button" otitle="银行预留手机号码" value="$!mobileInBank">
+                    </div>
+                </div>
+                <div class="control-group" id="smsVFCode__cgroup">
+                    <label class="control-label" for="smsVFCode" otype="button"  >短信校验码</label>
+                    <div class="controls">
+                        <input type="text" class="span3" maxlength="6" id="smsVFCode" name="smsVFCode" otype="button" otitle="短信校验码">&nbsp;&nbsp;
+                        <button type="button" class="btn" id="smsVFCodeBtn" otype="button" otitle="免费获取" >免费获取</button>
+                    </div>
+                </div>
+                <p class="tips-row text-info"><img src="/static/wtgf/img/account/bk-icon-14102001.gif">
+                        为了您的账号安全，广发基金使用双重密码保护，请设置交易密码，在交易确认下单时使用
+                </p>
+                <div class="control-group">
+                    <label class="control-label" for="tradePasswd">交易密码</label>
+                    <div class="controls">
+                        <input type="password" class="span3" id="tradePasswd" name="tradePasswd" otype="button" otitle="交易密码">&nbsp;&nbsp;
+                        <span id="passwdTipsSpan">(6-8位字母、数字或下划线组合)</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="tradePasswdConfirm">确认密码</label>
+                    <div class="controls">
+                        <input type="password" class="span3" id="tradePasswdConfirm"  name="tradePasswdConfirm" otype="button" otitle="确认密码">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox  inline" >
+                            <input type="checkbox" id="agreeCheckbox" otype="button" otitle="阅读并同意" >阅读并同意
+                            <a href="http://www.gffunds.com.cn/etrade/fw/jygz/wsjygz/201312/t20131225_33765.htm" target="_blank" id="agreeA">《广发基金快捷支付协议》</a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" id="nextStepBtn" class="btn btn-large btn-warning" otype="button" otitle="下一步" >&nbsp;&nbsp;下一步&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+
+        ##提示框
+        <div id="myModal" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>温馨提示</h3>
+            </div>
+            <div class="modal-body">
+                <p class="text-info text-fontsize16"><span id="modalMsgSpan">
+                抱歉，添加银行卡失败，请稍后再试。
+            </span></p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">关闭</a>
+            </div>
+        </div>
+
+        ## 遮罩层
+        <div id="shadeDiv" class="shadeDiv"></div>
+        <div id="verifyMsgDiv" class="aqgj_divbox4">
+            <div class="info_bg" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/wtgf/img/account/aqgj_bdsj_tcbg.png');"></div>
+            <div class="info_box">
+                <h1>请您在新打开的网上银行页面上验证银行卡</h1>
+                <div class="txt">
+                    <p id="showtips">
+                        如果未打开网上银行页面，请取消浏览器拦截设置。<br>
+                        验证银行卡完成前请不要关闭此窗口,<br>
+                        验证完成后请根据您的情况点击下面的按钮：
+                    </p>
+                </div>
+                <div class="bt3" id="displaybtn" style="display: block">
+                    <a class="gh_bt2" id="verifyMsgDivOK" >验证成功</a>
+                    <a class="gh_bt5" id="verifyMsgDivErr">验证遇到问题</a>
+                </div>
+                <div class="bt_close"><a id="verifyMsgDivClose" class="bt_close_c">关闭</a></div>
+            </div>
+        </div>
+
+        <div id="bankMsgBox" class="aqgj_divbox5">
+            <div class="info_bg" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/wtgf/img/account/aqgj_bdsj_tcbg.png');"></div>
+            <div class="info_box">
+                <h1>网上交易提示信息</h1>
+                <img src="/static/wtgf/img/account/icon_error.png" alt="" class="erroricon"><span class="bankmsg" id='bankErrMsg'>银行验证异常！</span>
+                <div class="q_ctxt m50" id='checkMobileTip'></div>
+                <div class="m50 mt10"><span class="ftxt">您可以关闭此对话框重新输入信息或选择：</span>
+                    <a class="gh_bt2" id="webverifyA">银行网银验证</a>
+                </div><br>
+                <div class="fr m50">注：银行网银验证开户需插入U盾校验</div>
+                <div class="bt_close"><a href="#" id="bankMsgBoxClose" class="bt_close_c">关闭</a></div>
+            </div>
+        </div>
+
+        <form class="hide" target="_blank" id="goweb" method="post"
+              action="/main/account/openaccount/bindCardsSendWeb">
+            <button type="submit" ></button>
+        </form>
+
+
+    </div>
+#end
+#require("wtgf:page/account/openaccount/openaccount_step5/openaccount_step5.vm")
+#end

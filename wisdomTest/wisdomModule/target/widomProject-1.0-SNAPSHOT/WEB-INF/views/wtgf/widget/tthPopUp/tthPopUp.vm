@@ -1,0 +1,69 @@
+
+<div id="q_mask" class="q_mask">
+    <div class="q_cont">
+        <div class="q_cont_t">
+            <p>广发钱袋子一键转入</p>
+            <a href="javascript:;" class="q_close" onClick="q_mask_close_tth();">关闭</a>
+        </div>
+        <div class="q_cont_c">
+            <div class="yemx-table">
+                <table>
+                    <tr>
+                        <th width="20"></th>
+                        <th width="180">基金简称</th>
+                        <th width="30"></th>
+                        <th width="170"><span>每万份收益</span><span>（7日年化）</span></th>
+                        <th width="30"></th>
+                        <th width="150" class="center">操作</th>
+                        <th width="20"></th>
+                    </tr>
+                    <tr class="onetd oneinfo">
+                        <td></td>
+                        <td colspan="5">
+                            <img src="/static/wtgf/widget/tthPopUp/yemx-table-i2.gif" alt="">
+                            <span>钱袋子快速取现最快1分钟即可到账，还支持免费跨行转账、还信用卡/房贷哦！</span></td>
+                        <td></td>
+                    </tr>
+                    <tr class="onetd">
+                        <td></td>
+                        <td>
+                            <a href="#">广发钱袋子</a><br />
+                            <span>000509</span>
+                        </td>
+                        <td></td>
+                        <td>
+                            <em>${tthTransInfo.walletFundIncomeUnit}(${tthTransInfo.walletFundIncomeRatio}%)</em><br />
+                            <span>日期：$tthTransInfo.tthFundDate</span>
+                        </td>
+                        <td></td>
+                        <td class="tcenter"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#">广发天天红</a><br />
+                            <span>000389</span>
+                        </td>
+                        <td></td>
+                        <td>
+                            <em>${tthTransInfo.tthFundIncomeUnit}(${tthTransInfo.tthFundIncomeRatio}%)</em><br />
+                            <span>日期：$tthTransInfo.tthFundDate</span>
+                        </td>
+                        <td></td>
+                        <td class="tcenter">
+                            <a class="btlink" href="/trade/TransferAction.do?method=preTransfer&fundCode=000389&shareType=A&isFullTrans=1&targetFundCode=000509&bankCardNo=$tthTransInfo.bankCardNo">
+                                转入钱袋子</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+                <p class="info"><a href="http://www.gffunds.com.cn/html/qdz/qdzsj.html" target="_blank">什么是钱袋子？</a>
+                <span style="margin-left: 240px;color: #B6BBBB;">注：转入损失一天收益，但资金流动性会大幅提升哦~</span>
+                </p>
+            </div>
+        </div>
+        <div class="q_cont_b"></div>
+    </div>
+    <div class="q_bg"></div>
+</div>

@@ -1,0 +1,18 @@
+@import url("/static/wtgf/css/bindingCard/bindingCard.css");
+.colorTransition {
+  -moz-transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+  -ms-transition: color 0.2s linear;
+  transition: color 0.2s linear;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 400;
+  margin-top: 0px;
+}

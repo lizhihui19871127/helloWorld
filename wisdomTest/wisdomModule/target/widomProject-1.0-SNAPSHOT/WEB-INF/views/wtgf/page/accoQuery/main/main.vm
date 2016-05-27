@@ -1,0 +1,498 @@
+#extends("wtgf:page/layout/layout.vm")
+    #block("header_scripts")
+	#require("wtgf:static/css/zhcx/zhcx.css")
+        <script type="text/javascript">
+            //记录登陆时间
+
+            var arr,
+                name = 'loginBeginTime',
+                reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+
+            if(arr=document.cookie.match(reg)){
+                var loginBeginTime = unescape(arr[2]);
+
+                if(loginBeginTime && loginBeginTime != ""){
+
+                    var loginTime = (new Date()).getTime() - parseInt(loginBeginTime);
+
+                    if(document.readyState!="complete"){
+                        document.onreadystatechange = function(){
+                            if(document.readyState=="complete"){
+                                if (typeof(dcsPageTrack)=="function"){
+                                    dcsPageTrack("WT.login_time",loginTime,true,"WT.si_n","登录",true,"WT.si_x","登录成功",true);
+                                }
+                            }
+                        }
+                    }
+                    document.cookie = "loginBeginTime=''";
+                }
+            }
+        </script>
+        #foreach($queryUrl in $queryUrls)
+            #if($queryUrl)
+            <script type="text/javascript" src="$queryUrl"></script>
+            #end
+        #end
+            
+        #if($goUrl)
+            <script type="text/javascript">
+                setTimeout(function(){
+                    document.getElementById("wrapper").style.display = 'none';
+                    var goUrl = "$goUrl",
+                        url = "";
+
+                    if(goUrl.indexOf("http") != -1){
+                        url = goUrl;
+                    }else{
+                        if(goUrl.charAt(0) != '/'){
+                            goUrl = '/' + goUrl;
+                        } 
+                        url = location.protocol + "//" + location.host + goUrl;
+                    }
+
+                    window.location.href = url;
+                },200);
+            </script>
+       #end
+    #end
+
+    #block("page_var")
+        #set($currentNav="query")
+        #set($currentSubNav="index")
+        #set($GF_VIEWINFO.activityUrl=$activityUrl)
+        #set($USE_BOOTSTRAP=0)
+        #set($userLevelMap={
+            #'黄' : '3',
+            #'白' : '4',
+            #'钻' : '5',
+            #'普' : '2'
+        #})
+        #set($GF_VIEWINFO.goUrl=$goUrl)
+        #set($GF_VIEWINFO.showLeavl=$userLevelMap[$userInfo.level])
+        #set($GF_VIEWINFO.userWalletFundCode=$userInfo.walletFundCode)
+        #set($GF_VIEWINFO.custno=$userInfo.custno)
+        #set($GF_VIEWINFO.phoneno=$userInfo.phoneno)
+        #set($GF_VIEWINFO.limtFlag=$limtFlag)
+        #set($GF_VIEWINFO.walletFlag=$walletFlag)
+
+    #end
+
+    #block("content_main")
+	#if($userInfo.custType == '0')
+	<div class="announce">
+	    <p>欢迎进入账户查询：</p>
+	    <p>您可以在这里查询到您的所有广发基金相关信息，但无法在本栏目下进行交易</p>
+		#if(!$userInfo.openHeap && $checkopenheap == '0' && false)
+			#if($userInfo.identityType == '0' || $userInfo.identityType == '1' || $userInfo.identityType == '2' || $userInfo.identityType == '3')
+	            <p>*如果想在网上进行基金交易，您可以立即在此<a href="">免费开通网上交易权限</a></p>
+			#end
+		#end
+	    <p>
+	        <img src="/static/wtgf/img/indexhome_3.gif"/>&nbsp;&nbsp;&nbsp;
+	        <img src="/static/wtgf/img/indexhome_4.gif"/>
+	    </p>
+	</div>
+	#end
+	#if(!$userInfo.welcomeWord)
+	<div class="announce">
+		#if($userInfo.custType != '4' && $userInfo.custType != '0' && !$userInfo.openHeap && $checkopenheap == '0')
+	        <p>您还没有升级一站通，<a href="/account/riskinfo.jsp">立即升级</a></p>
+		#end
+	    您的预留信息未设置，为了防止“钓鱼网站”非法骗取您的账户信息，请点击
+		#if($userinfo.custTye == '7')
+	        <a href="/account/modifykdaccountinfo.jsp">这里</a>
+		#else
+	        <a href="/account/modifyaccountinfo.jsp">这里</a>
+		#end
+	    立即设置
+	</div>
+	#else
+	<div class="pageMain-remainInfo announce">
+		#if($userInfo.custType != '4' && !$userInfo.openHeap && $userInfo.custType != '0' && $checkopenheap == '0')
+	        <p>您还没有升级一站通，<a href="/account/riskinfo.jsp">立即升级</a></p>
+		#end
+	    您的预留验证信息为:$userInfo.welcomeWord &nbsp;如发现此信息与您预留的不一致，请立即停止交易，并拨打 95105828 寻求帮助。
+	</div>
+	#end
+	<div id="banner" class="pageMain-banner">
+	</div>
+	<!-- 账户查询-START -->
+	<div class="container-vip">
+##	<div class="pageMain">
+	<div class="zhcx-meg hide">
+	    <a class="info" href="">您有<span class="ordelenum">0</span>条新消息<img src="/static/wtgf/img/zhcx/gdlc-icon14.gif" alt="查看详情"></a>
+
+	    <div class="zhcx-meg-list">
+	        <div class="meg-list-title">
+	            <span>在途交易消息</span>
+	            <a href="/main/query/queryList">全部&gt;</a>
+	        </div>
+	        <div class="meg-list-main">
+	            <ul></ul>
+	        </div>
+	        <div class="meg-list-btn">
+	            <a href=""><img src="/static/wtgf/img/zhcx/gdlc-icon21.gif" alt=""> 收起</a>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="zhcx-index-total">
+	    <div class="total-item item1">
+	        <dl>
+	            <dt>
+	                <em>我的总资产</em>：
+	            </dt>
+	            <dd>
+	                <div class="money"><em class="orange totalval">--</em>元</div>
+	                <i style="font-style: normal;">|</i>
+	                <div class="yd">
+	                    <span>最近一天收益：</span>
+	                    <span><em class="green lastprof">--</em>元</span>
+	                    <span style="padding-left: 10px;" class="profdate"></span>
+	                </div>
+	            </dd>
+	        </dl>
+
+	        <dl class="usdassetdl hide">
+	            <dt>美元资产：</dt>
+	            <dd>
+	                <div class="money"><em class="orange usdval">--</em>美元</div>
+	                <i>|</i>
+	                <div class="yd">
+	                    <span>最近一天收益：</span>
+	                    <span><em class="orange usdlastprof">--</em>元</span>
+	                    <span class="usdprofdate"></span>
+	                </div>
+	            </dd>
+	        </dl>
+	    </div>
+	    <div class="total-item item2">
+	        <dl>
+	            <dt><em>钱袋子资产：</em></dt>
+	            <dd>
+	                <div class="money"><em class="walletval">--</em>元</div>
+	                <div class="btn">
+	                    <a href="/wallet/recharging.jsp" class="skins-btn">充值</a>
+	                    <a href="/wallet/redeem.jsp" class="skins-btn skins-btn-fff">取现</a>
+	                </div>
+	            </dd>
+	        </dl>
+
+	        <dl>
+	            <dt>其他基金资产：</dt>
+	            <dd>
+	                <div class="money"><em class="normalval">--</em>元</div>
+	                <div class="btn">
+	                    <a href="/trade/buypre_.jsp" class="skins-btn">申购</a>
+	                    <a href="/trade/unfixbalatrade.jsp" class="skins-btn skins-btn-fff">定投</a>
+	                    <a href="/trade/redeem.jsp" class="skins-btn skins-btn-fff">赎回</a>
+	                </div>
+	            </dd>
+	        </dl>
+	    </div>
+	    <div class="total-item item3 hide" id="financialassets">
+	       <dl class="specialassetdl">
+	            <dt>高端理财资产：</dt>
+	            <dd>
+	                <div class="money"><em class="specialval">--</em>元</div>
+	                <div class="btn">
+	                    <a href="/main/myProduct/myProduct" class="skins-btn">我的理财产品</a>
+	                    <a href="/main/special/special" class="skins-btn skins-btn-fff">在售产品<img src="/static/wtgf/img/zhcx/gdlc-icon16.gif" alt=""></a>
+	                </div>
+	            </dd>
+	        </dl>
+	    </div>
+	</div>
+
+	<div class="zhcx-index-news clearfix">
+	    <div class="news-left">
+	        <div class="news-head">
+	            <h3>广发资讯</h3>
+	            <a href="/trade/BulletinInfoQueryAction.do?method=getAllInfo&type=2&showLeavl=#if(${userLevelMap[$userInfo.level]})${userLevelMap[$userInfo.level]} #else 1 #end" class="more">更多</a>
+	        </div>
+	        <ul class="news-list">
+	        </ul>
+	    </div>
+	    <div class="news-right">
+	        <div class="news-head">
+	            <h3>活动速递</h3>
+	            <a href="/trade/BulletinInfoQueryAction.do?method=getAllInfo&type=3&showLeavl=#if(${userLevelMap[$userInfo.level]})${userLevelMap[$userInfo.level]} #else 1 #end" class="more">更多</a>
+	        </div>
+            <ul class="news-list"></ul>
+	    </div>
+	</div>
+
+	<div class="zhcx-index-founds">
+	    <h2><a href="/main/holds/query" style="color:#262626" >我的持有基金</a></h2>
+
+	    <div class="vip-zc-main walletholdsdetail">
+	        <div class="zc-item">
+	            <div class="zc-item-head">
+	                <h3>持有钱袋子明细</h3>
+	            </div>
+	            <div class="zc-item-table">
+	                <table>
+	                    <tr>
+	                        <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>基金名称</th>
+	                        <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">可用份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>最新净值</th>
+	                        <th>未结转收益</th>
+	                        <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                    </tr>
+	                </table>
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="vip-zc-main normalholdsdetail">
+	        <div class="zc-item">
+	            <div class="zc-item-head">
+	                <h3>持有基金明细</h3>
+	            </div>
+	            <div class="zc-item-table">
+	                <table>
+	                    <tr>
+	                        <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png" style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>基金名称</th>
+	                        <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">可用份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>最新净值</th>
+	                        <th>未结转收益</th>
+	                        <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                    </tr>
+	                </table>
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="vip-zc-main shortholdsdetail hide">
+	        <div class="zc-item">
+	            <div class="zc-item-head">
+	                <h3>持有理财产品明细</h3>
+	            </div>
+	            <div class="zc-item-table">
+	                <table>
+	                    <tr>
+	                        <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>基金名称</th>
+	                        <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>申请日期</th>
+	                        <th>运作到期日</th>
+	                        <th>未结转收益</th>
+	                        <th>单位净值</th>
+	                        <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                    </tr>
+	                </table>
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="vip-zc-main specialholdsdetail hide">
+	        <div class="zc-item">
+	            <div class="zc-item-head">
+	                <h3>持有高端理财明细</h3>
+	            </div>
+	            <div class="zc-item-table">
+	                <table>
+	                    <tr>
+	                        <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>基金名称</th>
+	                        <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">可用份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>最新净值</th>
+	                        <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                    </tr>
+	                </table>
+	            </div>
+	        </div>
+	    </div>
+
+        <div class="vip-zc-main" style="margin-top: -25px;">
+            <div class="zc-item">
+                <div class="zc-item-table">
+                    <p class="total">该账户人民币资产总市值：<span class="totalcnyval">--</span>元</p>
+                </div>
+            </div>
+        </div>
+
+	    <div class="vip-zc-main usdholdsdetail hide">
+	        <div class="zc-item">
+	            <div class="zc-item-head">
+	                <h3>持有美元资产明细</h3>
+	            </div>
+	            <div class="zc-item-table">
+	                <table>
+	                    <tr>
+	                        <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>基金名称</th>
+	                        <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th class="sortkey" dtype="F">可用份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                        <th>最新净值</th>
+	                        <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                    </tr>
+	                </table>
+                    <p class="total">该账户美元资产总市值：<span class="totalusdval">--</span>元</p>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+##	</div>
+	</div>
+
+    <!-- 新加弹窗开始-->
+    <div class="container-bank">
+        <div class="bank-main">
+        <!-- 纯直销客户开通一账通 -->
+        <div class="pop ktyzt" id="modal1_1" style="display:none;">
+            <div class="pop-main" style="min-height: 327px;margin-left: -374.5px;">
+                <div class="pop-head">设置登录密码</div>
+                <div class="pop-content">
+                    <div class="bank-item item3">
+                        <dl class="clearfix">
+                            <dt><span><img src="/static/wtgf/img/onePassport/i7.gif" alt="">为保证账户安全，广发基金网站已启用双重密码保护</span>
+                            <p>请设置新的登录密码，<span>原密码将继续作为交易密码使用</span></p></dt>
+                            <dd>
+                                <span class="t">新登录密码</span>
+
+                                <label class="in-label" for="">
+                                    <input class="in-txt" placeholder="请输入登录密码" id="loginPwd" name="loginPwd" type="password" value="">
+                                </label>
+
+                                <span class="tips">6-20位数字、字母、符号等组合（分大小写）</span>
+                            </dd>
+                            <dd>
+                                <span class="t">确认登录密码</span>
+
+                                <label class="in-label" for="">
+                                    <input class="in-txt" placeholder="请确认登录密码" onpaste="return false" id="loginPwdAgain" name="loginPwdAgain" type="password" maxlength="20" value="">
+                                </label>
+                                <div id="errorTips" style="color: red;position: absolute;margin-top: 5px;display: none">开通一账通失败！</div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <p>
+                        <a class="skins-btn queRen" href="javascript:;" id="openAccount" name="openAccount">确认</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pop ktyzt ktyzt_succeed" id="modal1_2" style="display:none;">
+            <div class="pop-main">
+                <a href="javascript:void(0);" class="pop-close js-pop-close">关闭</a>
+                <div class="pop-head">设置登录密码</div>
+                <div class="pop-content">
+                    <div class="bank-item item3">
+                        <dl class="clearfix">
+                            <dt><span><img src="/static/wtgf/img/onePassport/i11.png" alt="">恭喜您，登录密码设置成功！</span><p><span>您还可以绑定手机号，提升账户安全等级，绑定后可用手机号登录。</span></p></dt>
+                        </dl>
+                    </div>
+                    <p>
+                        <a class="skins-btn zbbd bdNumber" id="notGoBindMobile" href="javascript:;">暂不绑定</a>
+                        <a class="skins-btn bdNumber" id="goBindMobile" href="javascript:;">去绑定</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 开通手机账户名 -->
+        <input type="hidden" name="openAccountValue" id="openAccountValue" value="$!{openAccount}" />
+        <input type="hidden" name="addMobileNoValue" id="addMobileNoValue" value="$!{addMobileNo}" />
+        <input type="hidden" name="nameValue" id="nameValue" value="$!{name}" />
+        <input type="hidden" name="genderValue" id="genderValue" value="$!{gender}" />
+        <div class="pop zhaqtx" style="display:none;" id="modal2_1">
+            <div class="pop-main" style="margin-left: -294px;">
+                <a href="javascript:void(0);" class="pop-close js-pop-close">关闭</a>
+                <div class="pop-head">账户安全提醒</div>
+                <div class="pop-content">
+                    <h3><span id="nameView"></span> <span id="gender"></span>，为提升您的账户安全等级，提供更优质服务，<em>建议立即验证手机</em></h3>
+                    <form action="#" method="post" class="changeDo">
+                        <label for="phoneNumber"><span>手机号码</span>
+                            <input type="text" placeholder="请输入手机号码" id="mobilePhone" name="mobilePhone"/><em class="phone_icon">
+                            <img src="/static/wtgf/img/onePassport/phone.png" alt="" style="margin-top:10px" /></em>
+                            <em class="tishi">*输入的手机将作为登录名</em></label>
+                        <label for="duanxin_yanzm">
+                            <span>短信验证码</span><input type="text" placeholder="请输入手机验证码" id="verifyCodeView" name="verifyCodeView" maxlength="6"/>
+                            <em class="get_yanzm" id="verifyCodeBtn">获取验证码</em>
+                            <p id="verifyCodeMsg" style="display: none">短信验证码已发送到您的手机上，请及时查收</p>
+                            <input type="hidden" name="verifyToken" id="verifyToken" />
+                        </label>
+                        <div id="errorTips2" style="color: red;margin-left: 159px;margin-top: -18px;display: none"></div>
+                        <div class="tijiao_btn">
+                            <span id="addMobileNoBtn">确认</span>
+                            <span id="closeTips" style="margin-left: 10px;background-color: grey;">暂不提醒</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="pop anquan_tx addCard_remind" id="modal2_2" style="display: none;">
+            <div class="pop-main">
+                <a href="javascript:void(0);" class="pop-close js-pop-close">关闭</a>
+                <div class="pop-head">账户安全提醒</div>
+                <div class="pop-content">
+                    <h3>恭喜您，手机号码验证成功！</h3>
+                    <p class="other_color">以后可使用<span id="mobilePhoneView"></span>登录交易系统。</p>
+                    <p class="wanc_tbn">
+                        <a class="skins-btn" id="addAccountMobileSuccess" name="addAccountMobileSuccess" href="javascript:;">完成</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+            <!--弹出错误信息-->
+##            <div class="pop zhaqtx" style="display:none;background: rgba(0,0,0,0.6);" id="modal">
+##                <div class="pop-main" style="margin-left: -294px;top: 30%;margin-top: -68px;">
+##                    <a href="javascript:void(0);" class="pop-close js-pop-close">关闭</a>
+##                    <div class="pop-head">温馨提示</div>
+##                    <div class="pop-content">
+##                        测试样本，请勿参照!!!
+##                    </div>
+##                </div>
+##            </div>
+
+        </div>
+        <!-- 新加弹窗结束 -->
+    </div>
+	<!-- 账户查询-END -->
+#end
+
+    #block("bottom_scripts")
+        #script("/dwr/engine.js")#end
+        #if($walletUpdateInfo)
+            #widget("wtgf:widget/walletUpdatePopUp/walletUpdatePopUp.vm")
+            #script("/dwr/interface/WalletProcessDwrUtil.js")#end
+            #script()
+                require("wtgf:widget/walletUpdatePopUp/walletUpdatePopUp.js");
+                $(function(){
+
+                });
+            #end
+        #end
+		
+        #widget("wtgf:widget/maindiv/maindiv.vm")
+        #script()
+                require("wtgf:widget/maindiv/maindiv.js");
+        #end
+
+        #script("/dwr/interface/CustomerHelpDwrUtil.js")#end
+        #script()
+            //检查客户库用户份额数据导入状态
+            CustomerHelpDwrUtil.getInportAccountFundStat(function(result){
+                if("" != result){
+                    $(".pageMain-shareState").html(result).show();
+                }
+            });
+        #end
+    #end
+
+    #require("wtgf:page/accoQuery/main/main.vm")    
+
+#end

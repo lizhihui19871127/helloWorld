@@ -1,0 +1,55 @@
+#extends("wtgf:page/layout/newlayoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+#block("header_scripts")
+<script type="text/javascript">
+    window.WTjson = {
+        "WT.si_n":"开户流程",
+        "WT.si_x":"填写资料"
+    }
+</script>
+#end
+
+#block("content_main")
+<div class="succeed_content">
+    <div class="succeed_content_center">
+        <div class="zhuce_box">
+            <div class="box_top">
+                <h2>恭喜，您已成功开通广发基金账户!</h2>
+                <p>登录名：<span>$!{mobilePhone}</span></p>
+            </div>
+            <div class="box_middle">
+                <ul>
+                    <li>
+                        <span class="add_card">还差<em>1</em>步，就可以开始基金交易...</span>
+                        <div class="right_btn add_card_btn">
+                            <a href="/main/account/openaccount/bindCard/pre?id=${id}" target="_blank">马上添加银行卡</a>
+                            <p>奖励领取通知
+                                <span>您有<em>1,000元</em>奖励绑卡后领取</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="sbgg">不急，我先随便逛逛</span>
+                        <div class="right_btn sbgg_btn">
+                            <a href="http://www.gffunds.com.cn/jjkt/xssl/lcgb/" target="_blank">新手指引</a>
+                            <a href="http://www.gffunds.com.cn/funds/gf/open/" target="_blank">关注基金</a>
+                            <a href="http://bbs.gffunds.com.cn/dx2/portal.php" target="_blank">广发论坛</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box_bottom">
+                <img src="/static/wtgf/img/onePassport/gf_erweima.png" alt="" />
+                <span>广发基金APP</span>
+                <p>扫一扫，查账户、买基金 一手掌握</p>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+#require("wtgf:page/onePassport/registerSuccess/registerSuccess.vm")
+#end

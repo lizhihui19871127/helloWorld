@@ -1,0 +1,36 @@
+#changePwd {
+  display: none;
+  padding: 0 35px;
+}
+#changePwd .changePwdPanel {
+  display: none;
+  text-align: center;
+}
+#changePwd .changePwdPanel input {
+  height: 20px;
+  line-height: 20px;
+}
+#changePwd .changePwdPanel.step1 {
+  display: block;
+}
+#changePwd .changePwdPanel.step2 input.changePwd-verifyCode {
+  width: 60px;
+}
+#changePwd .changePwdPanel.step2 p span.changePwd-resendSMSWrap {
+  background-color: #efefef;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 15px;
+}
+#changePwd .changePwdPanel.step2 p span.changePwd-resendSMSWrap span.resendSMSWrap-contact {
+  font-weight: bold;
+}
+#changePwd .changePwdPanel h2 {
+  font-weight: bold;
+  line-height: 25px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+#changePwd .changePwdPanel p {
+  margin-bottom: 15px;
+}

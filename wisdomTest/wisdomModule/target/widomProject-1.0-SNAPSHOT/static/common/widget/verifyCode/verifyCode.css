@@ -1,0 +1,11 @@
+.verifyCodePanel {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+.verifyCodePanel.hide {
+  display: none;
+}
+.verifyCodePanel a {
+  display: inline;
+}

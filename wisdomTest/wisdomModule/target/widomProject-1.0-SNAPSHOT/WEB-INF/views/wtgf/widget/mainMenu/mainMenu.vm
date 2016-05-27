@@ -1,0 +1,137 @@
+<div class="head-info">
+    <div class="wrap">
+    <div class="head-nav clearfix $currentNav">
+        <ul class="inline">
+            <li><a href="/main/main" class="query" id="r0">账户查询
+            </a>
+            </li>
+	        #set($walletIncomRatio = $!{fund_tool.getFundInfo($!_LOGONBEAN_.walletFundCode).fundIncomeRatio})
+            <li><a href="/wallet/WalletDetailAction.do?method=index" class="wallet" id="r1">钱袋子[+$!walletIncomRatio%]</a>
+            </li>
+            <li><a href="/main/tradeMain/index" class="buy" id="r2">基金交易</a>
+            </li>
+            <li>
+                <a 
+                #if($userInfo.custType == '0')
+                    href="/promision/promisionmain.jsp"
+                #else
+                    href="/promision/prompresub.jsp"
+                #end
+                class="promision" id="r3">约定交易</a>
+            </li>
+            <li>
+                <a 
+                #if($userInfo.custType == '0')
+                    href="/trade/fixmain.jsp"
+                #else
+                    href="/trade/unfixbalatrade.jsp"
+                #end
+                class="trendbalancetrade" id="r4">赢定投</a>
+            </li>
+            <li><a href="/main/special/special" class="specialshare" id="r8">高端理财</a>
+            </li>
+	        #foreach($investAdvAcco in $_LOGONBEAN_.investAdvAccounts)
+		        #if($investAdvAcco.accoType == "1")
+			        #set($isInvestAdvisor = true)
+		        #end
+	        #end
+	        #if($isInvestAdvisor)
+                <li><a href="/main/investadv/myadvplans" class="investadv" id="r9">投顾业务</a></li>
+	        #end
+            <li><a href="/main/bankCards/myCards" class="account" id="r5" otype="button" otitle="支付银行卡" oarea="上栏导航菜单">支付银行卡</a>
+            </li>
+            <li><a href="/main/personalCenter/index" class="usercenter" id="r6">个人中心</a>
+            </li>
+        </ul>
+    </div>
+    <div class="head-userInfo">
+	    #set($custType = $!_LOGONBEAN_.custType.enumItemValue)
+        <table>
+            <tr>
+                <td rowspan="2">
+                    <p class="userInfo-welcome">欢迎您！
+                    #if($userInfo.level)
+                        #if($userInfo.level == '黄')
+                        黄金客户 
+                        #elseif($userInfo.level == '白')
+                        白金客户
+                        #elseif($userInfo.level == '钻')
+                        钻石客户
+                        #elseif($userInfo.level == '普')
+                        普通客户
+                        #end
+                    #end
+                    $!_LOGONBEAN_.name
+                    #if($!custType != '4')
+                        #if($!_LOGONBEAN_.gender == 1)
+                            先生
+                        #elseif($!_LOGONBEAN_.gender == 2)
+                            女士
+                        #end
+                    #end
+                        <a href="/include/include_exit.jsp" class="gfbtn gray">退 出</a>
+                    </p>
+                </td>
+                <td style="width:23%">
+                #if($!custType == '0' || $!custType == '4' || $!custType == '7')
+                    电子直销：暂未开通
+                #else
+                    电子直销：已开通 
+                #end
+                </td>
+                #if($!custType != '7')
+                <td>您的基金账号：
+                    #foreach($!fundAcc in $!_LOGONBEAN_.fundAccountInfos)
+                        #if($!fundAcc.taCode == '27')$!fundAcc.fundAccount#end
+                    #end
+                    #foreach($!fundAcc in $!_LOGONBEAN_.fundAccountInfos)
+                        #if($!fundAcc.taCode == '98')/$!fundAcc.fundAccount#end
+                    #end
+                </td>
+                #end
+                <td>官方短信通道：106980005828</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+	            #set($riskLevel = $_LOGONBEAN_.custSaleInfo.riskLevelShow)
+                    #if($!custType != '7')
+                       风险测试结果： #if($riskLevel)$riskLevel#else<a href="/account/showsubject.jsp">尚未风险评测</a>#end
+                    #end
+                </td>
+                <td style="width:27%">快捷菜单：<a href="/main/query/queryList">交易记录查询</a></td>
+                <td>上次登录：$!date_tool.format("yyyy-MM-dd HH:mm:ss", $!_LOGONBEAN_.logonInfo.lastLogonDate)</td>
+                <td>
+                    #if($!custType == '7')
+                    直销账户：<a class="a1" href="/openaccount/createkdaccount.jsp">立即升级</a>
+                    #end
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+
+#script()
+    function checkWidth(){
+        if($(window).width() <= 1093){
+            $(".head-nav").addClass("minWidth");
+        }else{
+            $(".head-nav").removeClass("minWidth");
+        }
+    }
+    checkWidth();
+    $(window).on("resize",function(){
+        checkWidth();
+    });
+
+    //兼容旧系统的tab切换机制
+    var util = require("common:widget/util/util.js");
+    $(function(){
+        $(".head-nav a").click(function(){
+            var sid = $(this).attr("id");
+            util.cookie.set("row", sid);
+            util.cookie.set("col", "c" + sid.substring(sid.length - 1) + "0");
+        });        
+    });
+#end

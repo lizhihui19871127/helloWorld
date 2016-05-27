@@ -1,0 +1,129 @@
+.pwReset_content {
+  height: 680px;
+  background: url(/static/wtgf/img/personalCenter/register_bg.png) repeat-x;
+}
+.pwReset_content .pwReset_content_center {
+  width: 990px;
+  height: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+.pwReset_content .top_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.pwReset_content .top_bg img {
+  display: block;
+}
+.pwReset_content .bottom_bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.pwReset_content .bottom_bg img {
+  display: block;
+}
+.pwReset_content .pwReset_box {
+  width: 764px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -382px;
+  margin-top: -234px;
+  z-index: 10;
+}
+.pwReset_content .pwReset1 {
+  height: 288px;
+  background: #fff;
+  padding: 40px 0 0 90px;
+}
+.pwReset_content .pwReset1 h3 {
+  font-size: 12px;
+  color: #828282;
+  padding-left: 22px;
+  background: url(/static/wtgf/img/personalCenter/register_icon17.png) no-repeat left center;
+}
+.pwReset_content .pwReset1 form {
+  padding: 28px 0 16px;
+}
+.pwReset_content .pwReset1 form label {
+  margin-bottom: 28px;
+  display: block;
+  height: 31px;
+}
+.pwReset1 form label > span {
+  display: inline-block;
+  width: 66px;
+  margin-right: 24px;
+  line-height: 30px;
+  text-align: right;
+  float: left;
+  font-size: 14px;
+}
+.pwReset1 form label > div {
+  float: left;
+  position: relative;
+}
+.pwReset1 form label > div input {
+  width: 214px;
+  height: 25px;
+  border: 1px solid #e1e1e1;
+  background: #f7f7f7;
+  font-size: 14px;
+  padding: 2px 6px;
+  outline: none;
+}
+.pwReset1 form label > div p {
+  width: 252px;
+  padding-left: 20px;
+  font-size: 12px;
+  position: absolute;
+  right: -292px;
+  top: 6px;
+}
+.pwReset1 form label > div p.warning {
+  background: url(/static/wtgf/img/personalCenter/register_icon05.png) no-repeat left center;
+  color: #828282;
+}
+.pwReset1 form label > div p.error {
+  background: url(/static/wtgf/img/personalCenter/register_icon04.png) no-repeat left center;
+  color: #eb5406;
+}
+.pwReset1 form label > div span.yanzm {
+  display: inline-block;
+  width: 81px;
+  height: 37px;
+  line-height: 37px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 2px;
+  border: 1px solid #e2e2e2;
+  position: absolute;
+  right: -101px;
+  top: -6px;
+  padding: 0;
+}
+.pwReset1 form label > div p.yanzm_error {
+  background: url(/static/wtgf/img/personalCenter/register_icon04.png) no-repeat left center;
+  color: #eb5406;
+  right: -384px;
+}
+.pwReset1 form .next_btn {
+  padding-left: 90px;
+}
+.pwReset1 form .next_btn input[type="submit"] {
+  display: inline-block;
+  width: 88px;
+  height: 30px;
+  font-size: 14px;
+  color: #fff;
+  background: #eb5406;
+  border-radius: 3px;
+  text-align: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

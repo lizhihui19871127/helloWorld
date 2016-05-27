@@ -1,0 +1,53 @@
+#extends("wtgf:page/layout/layoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+
+#block("content_main")
+<p class="empty-line"></p>
+<div class="container">
+    <div class="row">
+        <div class="span8 offset2">
+            <p class="gflogo1"></p>
+
+            <p class="gflogo2Text">账号登录</p>
+        </div>
+    </div>
+</div>
+<p class="line"></p>
+
+<div class="container">
+    <div class="span8 offset2 text-center">
+        <p class="empty-line"></p>
+
+        <p class="text-error text-fail">
+            <img src="/static/wtgf/img/account/kh-icon-14102001.gif"/>
+            $MsgTip
+        </p>
+
+        <p class="empty-line"></p>
+
+        #if($BtnSelect == 1)
+            <a href="/main/index">
+                <button type="button" class="btn btn-large btn-warning">
+                    登录网上交易
+                </button>
+            </a>
+        #else
+            <a href="/main/account/openaccount/bindCard/pre">
+                <button type="button" class="btn btn-large btn-warning" onclick="this.parentNode.click()">
+                    立即添加银行卡
+                </button>
+            </a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/main/index">更换账号登录网上交易</a>
+        #end
+
+    </div>
+
+</div>
+<p class="empty-line"></p>
+#end
+#require("wtgf:page/account/openaccount/notBindCard/notBindCard.vm")
+#end

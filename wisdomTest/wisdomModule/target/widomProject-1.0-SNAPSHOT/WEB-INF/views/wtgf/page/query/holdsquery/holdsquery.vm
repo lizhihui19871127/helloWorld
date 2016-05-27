@@ -1,0 +1,198 @@
+#extends("wtgf:page/layout/layout.vm")
+#block("header_scripts")
+#require("wtgf:static/css/zhcx/zhcx.css")
+#end
+#block("page_var")
+#set($currentNav="query")
+#set($currentSubNav="holdsInfo")
+#set($GF_VIEWINFO.mainNav='r0')
+#set($GF_VIEWINFO.subNav='c02')
+#set($GF_VIEWINFO.activityUrl=$activityUrl)
+#set($USE_BOOTSTRAP=0)
+#end
+
+#block("content_main")
+<!-- 账户查询-START -->
+<div class="container-vip">
+##<div class="pageMain">
+
+##<div class="zhcx-title">持仓查询</div>
+<div class="vip-jz-head zhcx-head">
+    <form action="">
+        <label for="">
+            基金名称：
+            <input class="in-txt" type="text" readonly="readonly" value="全部">
+	        <input class="hide fundCodeIpt in-val" type="text">
+            <div class="in-txt-sub fundslt">
+                <ul>
+                    <li>
+                        <span class="n hide">all</span>
+                        <span class="t">全部</span>
+                    </li>
+                </ul>
+            </div>
+        </label>
+
+        <label for="">
+            销售渠道：
+            <input class="in-txt" type="text" readonly="readonly" value="全部">
+	        <input class="hide agencyNameIpt in-val" type="text">
+            <div class="in-txt-sub agencyslt">
+                <ul>
+                    <li>
+                        <span class="n hide">all</span>
+                        <span class="t">全部</span>
+                    </li>
+                </ul>
+            </div>
+
+        </label>
+
+        <label for="">
+            <input type="button" class="skins-btn in-sub qbtn" value="查询">
+        </label>
+    </form>
+</div>
+
+<div class="vip-zc-main walletholdsdetail">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>持有钱袋子明细</h3>
+        </div>
+        <div class="zc-item-table">
+            <table>
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+	                <th class="sortkey" dtype="S">银行渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>收费方式</th>
+                    <th>分红方式</th>
+                    <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th class="sortkey" dtype="F">可用份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png" style="width: 10px;height: 15px" alt="" /></th>
+                    <th>最新净值</th>
+                    <th>未结转收益</th>
+                    <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="vip-zc-main normalholdsdetail">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>持有基金明细</h3>
+        </div>
+        <div class="zc-item-table">
+            <table>
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png" style="width: 10px;height: 15px" alt="" /></th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th class="sortkey" dtype="S">银行渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png" style="width: 10px;height: 15px" alt="" /></th>
+                    <th>收费方式</th>
+                    <th>分红方式</th>
+                    <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th class="sortkey" dtype="F">可用份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>最新净值</th>
+                    <th>未结转收益</th>
+                    <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px"alt="" /></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="vip-zc-main shortholdsdetail hide">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>持有理财产品明细</h3>
+        </div>
+        <div class="zc-item-table">
+            <table>
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png" style="width: 10px;height: 15px" alt="" /></th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th class="sortkey" dtype="S">银行渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>收费方式</th>
+                    <th>分红方式</th>
+                    <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>申请日期</th>
+                    <th>运作到期日</th>
+                    <th>未结转收益</th>
+                    <th>单位净值</th>
+                    <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="vip-zc-main specialholdsdetail hide">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>持有高端理财明细</h3>
+        </div>
+        <div class="zc-item-table">
+            <table>
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png" style="width: 10px;height: 15px"  alt="" /></th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th class="sortkey" dtype="S">银行渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>收费方式</th>
+                    <th>分红方式</th>
+                    <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th class="sortkey" dtype="F">可用份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>最新净值</th>
+                    <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="vip-zc-main" style="margin-top: -25px;">
+    <div class="zc-item">
+        <div class="zc-item-table">
+            <p class="total">该账户人民币资产总市值：<span class="totalcnyval">0.00</span>元</p>
+        </div>
+    </div>
+</div>
+
+<div class="vip-zc-main usdholdsdetail hide">
+    <div class="zc-item">
+        <div class="zc-item-head">
+            <h3>持有美元资产明细</h3>
+        </div>
+        <div class="zc-item-table">
+            <table>
+                <tr>
+                    <th class="sortkey" dtype="S">基金代码<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>基金名称</th>
+                    <th class="sortkey" dtype="S">销售渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th class="sortkey" dtype="S">银行渠道<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>收费方式</th>
+                    <th>分红方式</th>
+                    <th class="sortkey" dtype="F">持有份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th class="sortkey" dtype="F">可用份额<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                    <th>最新净值</th>
+                    <th class="sortkey" dtype="F">参考市值<span style="width: 3px">&nbsp;</span><img src="/static/wtgf/img/disorderly.png"  style="width: 10px;height: 15px" alt="" /></th>
+                </tr>
+            </table>
+
+            <p class="total">该账户美元资产总市值：<span class="totalusdval">0.00</span>元</p>
+        </div>
+    </div>
+</div>
+
+##</div>
+</div>
+<!-- 账户查询-END -->
+#end ##content_main
+
+#require("wtgf:page/query/holdsquery/holdsquery.vm")
+
+#end ##extends

@@ -1,0 +1,206 @@
+#extends("wtgf:page/layout/layoutSpecial.vm")
+    #block("page_var")
+    #set($currentNav="specialshare")
+    #set($currentSubNav="index")
+    #set($GF_VIEWINFO.subNav='c33')
+    #end
+    #block("content_main")
+
+    <div class="content-main">
+        <!-- 高端理财-START -->
+        <div class="container-vip wrap" style="margin-left: 0px;">
+            <div class="pageMain" style="padding:0 0 0 0;padding-bottom:2px">
+                <div class="vip-zc-main">
+                    #if(!$willSellInfo && !$noavailablewillSellInfo)
+                        <div class="zc-item-table">
+                            <table>
+                                <tr>
+                                    <th style="text-align:center">
+                                        您尚未持有高端理财产品!
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                    #end
+                    #foreach($willSellInfo in $willSellInfo)
+                        <div class="zc-item">
+                            <div class="zc-item-head">
+                                <h3>${willSellInfo.fundName}&nbsp;|&nbsp;${willSellInfo.fundCode}</h3>
+                            </div>
+                            <div class="zc-item-table">
+                                <table>
+                                    <tr>
+                                        <th>最新净值</th>
+                                        <th>可用份额</th>
+                                        <th>最新市值</th>
+                                        <th>分红方式</th>
+                                        <th>参与日期</th>
+                                        <th>退出日期</th>
+                                        <th>银行卡</th>
+                                        <th>交易申请</th>
+                                    </tr>
+                                    <tr>
+                                        <td>${willSellInfo.nav}<br><span>${willSellInfo.navDate}</span></td>
+                                        <td>${willSellInfo.availableShare}</td>
+                                        <td>${willSellInfo.sz}</td>
+                                        <td>${willSellInfo.dividendMethod}</td>
+                                        <td>
+                                            #if($willSellInfo.joinBeginDate == "")
+                                                -
+                                            #else
+                                                ${willSellInfo.joinBeginDate} - ${willSellInfo.joinEndDate}
+                                            #end
+                                        </td>
+                                        <td>
+                                            #if($willSellInfo.redeemBeginDate == "")
+                                                -
+                                            #else
+                                                ${willSellInfo.redeemBeginDate} - ${willSellInfo.redeemEndDate}
+                                            #end
+                                        </td>
+                                        <td>${willSellInfo.bankInfo}</td>
+                                        <td>
+                                            #if(${willSellInfo.allowReedom})
+                                                <input type="hidden" value="${willSellInfo.fundCode}" />
+                                                <input type="hidden" value="${willSellInfo.shareType}" />
+                                                <input type="hidden" value="${willSellInfo.tradeAccount}" />
+                                                <input type="hidden" value="${willSellInfo.bankCardNo}" />
+                                                <input type="hidden" value="${willSellInfo.capitalMode}" />
+                                                <a class="zc-btn btn1 redeemBtn" id="redeem" href="javascript:void(0)">赎回</a>
+                                            #else
+                                                <a class="zc-btn btn1" style="background: grey;" href="javascript:void(0)" id="redeem" disabled="disabled">赎回</a>
+                                            #end
+                                            #if(${willSellInfo.allowBuy})
+                                                <input type="hidden" value="${willSellInfo.fundCode}" />
+                                                <a class="zc-btn btn2 addBuy" href="javascript:void(0)">购买</a>
+                                            #else
+                                                <a class="zc-btn btn2" style="background: grey;" href="javascript:void(0)" disabled="disabled">购买</a>
+                                            #end
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    #end
+                    #if($noavailablewillSellInfo)
+                        <div class="zc-item-table">
+                            <table>
+                                <tr>
+                                    <th style="text-align:left"><img src="/static/wtgf/img/special/gdlc-icon8.png" style="margin-bottom: 3px;margin-right: 3px;"/>
+                                        <a href="javascript:void(0)" id="showJJ">显示持有份额为0的基金</a>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                    #end
+
+                    <div id="showNoAaviable" style="display: none">
+                    #foreach($willSellInfo in $noavailablewillSellInfo)
+                        <div class="zc-item">
+                            <div class="zc-item-head">
+                                <h3>${willSellInfo.fundName}&nbsp;|&nbsp;${willSellInfo.fundCode}</h3>
+                            </div>
+                            <div class="zc-item-table">
+                                <table>
+                                    <tr>
+                                        <th>最新净值</th>
+                                        <th>可用份额</th>
+                                        <th>最新市值</th>
+                                        <th>分红方式</th>
+                                        <th>参与日期</th>
+                                        <th>退出日期</th>
+                                        <th>银行卡</th>
+                                        <th>交易申请</th>
+                                    </tr>
+                                    <tr>
+                                        <td>${willSellInfo.nav}<br><span>${willSellInfo.navDate}</span></td>
+                                        <td>${willSellInfo.availableShare}</td>
+                                        <td>${willSellInfo.sz}</td>
+                                        <td>${willSellInfo.dividendMethod}</td>
+                                        <td>
+                                            #if($willSellInfo.joinBeginDate == "")
+                                                -
+                                            #else
+                                                ${willSellInfo.joinBeginDate} - ${willSellInfo.joinEndDate}
+                                            #end
+                                        </td>
+                                        <td>
+                                            #if($willSellInfo.redeemBeginDate == "")
+                                                -
+                                            #else
+                                                ${willSellInfo.redeemBeginDate} - ${willSellInfo.redeemEndDate}
+                                            #end
+                                        </td>
+                                        <td>${willSellInfo.bankInfo}</td>
+                                        <td>
+                                            #if(${willSellInfo.allowBuy})
+                                                <input type="hidden" value="${willSellInfo.fundCode}" />
+                                                <a class="zc-btn btn2 addBuy" data-toggle="modal" href="javascript:void(0)">购买</a>
+                                            #else
+                                                <a class="zc-btn btn2" style="background: grey;" href="javascript:void(0)" disabled="disabled">购买</a>
+                                            #end
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    #end
+                    </div>
+                    <div class="zc-tips">
+                        <a class="backTop" href="javascript:scrollTo(0,0);"><img src="/static/wtgf/img/special/gdlc-icon7.png" alt="">返回顶部</a>
+                        <dl>
+                            <dt><img src="/static/wtgf/img/special/cyz1.png" alt="">帮助</dt>
+                            <dd>
+                                <p>1.如何查询我的高端理财交易？</p>
+                                <p>答：您可前往<a href="/main/query/queryList">交易记录查询</a>查询高端理财交易。</p>
+                            </dd>
+                            <dd>
+                                <p>2.高端理财交易如何撤单？</p>
+                                <p>答：您可前往<a href="/main/query/queryList">交易记录查询</a>进行撤单。</p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 高端理财-END -->
+    </div>
+
+    <form name="redeemForm" id="redeemForm" action="/main/specialRedeem/redeemPre" method="POST">
+        <input name="shareType" id="shareType" style="display:none"/>
+        <input name="fundCode" id="fundCode" style="display:none"/>
+        <input name="tradeAcco" id="tradeAcco" style="display:none"/>
+        <input name="bankCardNo" id="bankCardNo" style="display:none"/>
+    </form>
+
+    <form name="buyForm" id="buyForm" action="/main/specialBuy/buyPre" method="POST">
+        <input name="buyFundCode" id="buyFundCode" style="display:none" value=""/>
+        <input name="buyBusinCode" id="buyBusinCode" style="display:none" value="022"/>
+    </form>
+
+    <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;font-family:微软雅黑">
+        <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+            <span   style="cursor: pointer;float: right;font-size: 20px;  font-weight: bold;  line-height: 20px;  text-shadow: 0 1px 0 #ffffff;" data-dismiss="modal" aria-hidden="true">×</span>
+
+            #*<button type="button" class="close"  style="float: right;font-size: 20px;  font-weight: bold;  line-height: 20px;  text-shadow: 0 1px 0 #ffffff;   opacity: 0.2;   filter: alpha(opacity=20);" data-dismiss="modal" aria-hidden="true">×</button>
+            *#<span id="myModalLabel">广发基金特定多个用户资产管理计划认购参与须知</span>
+        </div>
+        <div class="modal-body" style="font:12px/1.5em 'Microsoft YaHei'">
+            <p>感谢您通过网上交易系统认购/参与我司特定多个客户资产管理计划（以下简称“资产管理计划”），请您仔细阅读以下条款：</p>
+            <p>1、特定多个客户资产管理计划，是指为资产委托人的利益，将特定多个资产委托人交付的资金或证券进行集中管理、运用或处分，进行证券投资活动的集合资产管理安排。</p>
+            <p>2、资产委托人，是指委托投资单个资产管理计划初始金额不低于100万元人民币，且能够识别、判断和承担相应投资风险的自然人、法人、依法成立的组织或中国证监会认可的其他特定客户。</p>
+            <p>3、资产委托人保证委托财产的来源及用途合法，并已充分理解《资产管理合同》全文，了解相关权利、义务，了解有关法律法规及所投资资产管理计划的风险收益特征，愿意承担相应的投资风险，本委托事项符合其决策程序的要求；承诺其向资产管理人提供的有关投资目的、投资偏好、投资限制和风险承受能力等基本情况真实、准确、完整、合法，不存在任何重大遗漏或误导，前述信息资料如发生任何实质性变更，应当及时书面告知资产管理人。</p>
+            <p>4、在认购/参与资产管理计划前，请您仔细阅读《投资说明书》和《资产管理合同》，并充分理解其内容。您通过网上交易系统提交认购/参与业务申请，即表示同意接受上述文件条款的所有法律约束。</p>
+            <p>5、您已阅读《广发基金管理有限公司特定多个客户资产管理计划网上远程交易服务协议 》，并充分理解其内容，同意接受这些文件条款的所有法律约束。</p>
+            <p>6、您已阅读《广发基金管理有限公司电子交易业务规则》《广发基金管理有限公司网上交易风险揭示书》并了解网上交易的业务规则和风险，同意承担网上交易可能带来的损失。</p>
+            <p>7、在完成电子交易流程后，我司会将纸质版产品合同寄送给您，届时，您需要签署纸质合同并回寄合同至我司。</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true" id="toBuy">确认</button>
+        </div>
+    </div>
+	
+    #end
+    #require("wtgf:page/special/myProduct/myProduct.vm")
+
+#end

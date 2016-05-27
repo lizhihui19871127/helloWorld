@@ -1,0 +1,214 @@
+#extends("wtgf:page/layout/layoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="欢迎进入广发基金网上开户注册系统！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#end
+#block("header_scripts")
+    <script type="text/javascript">
+        window.WTjson = {
+            "WT.si_n":"开户流程",
+            "WT.si_x":"填写资料"
+        }
+    </script>
+#end
+
+#block("content_main")
+<p class="empty-line"></p>
+<div class="container">
+    <div class="row">
+        <div class="span8 offset2">
+            <p class="gflogo1"></p><p class="gflogo2"></p>
+        </div>
+    </div>
+</div>
+<p class="line linehead"></p>
+<div class="container">
+    <div class="row">
+        <div class="span8 offset2 text-center">
+            <div class="kh-t">
+                <ul>
+                    <li class="z-sel"><span class="l1">填写资料</span></li>
+                    <li><span class="l2">设置密码</span></li>
+                    <li><span class="l3">开户成功</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span8 offset2">
+            <p class="empty-line"/>
+            <p class="text-info text-info-tips text-center"><span>填写身份信息</span>按照法规要求，基金交易必须进行实名认证，请填写真实的身份信息</p>
+            <p class="empty-line"/>
+            <form class="form-horizontal alignform" name="openaccount_step1_form"
+                  method="post" action="openaccount_step2">
+                <div class="control-group">
+                    <label class="control-label" for="identityType">证件类型</label>
+                    <div class="controls">
+                        <select id="identityType" name="identityType" otype="button" otitle="证件类型">
+                            <option value="0">身份证</option>
+                            <option value="1">中国护照</option>
+                            ##<option value="2">军官证</option>
+                            ##<option value="3">士兵证</option>
+                            <option value="4">港澳通行证</option>
+                            ## <option value="6">外国护照</option>
+                            <option value="A">台胞证</option>
+                            ##<option value="5">户口本</option>
+                            ##<option value="7">其它</option>
+                            ##<option value="8">文职证</option>
+                            ##<option value="9">警官证</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="identityNO">证件号码</label>
+                    <div class="controls">
+                        <input type="text" maxlength=25 name="identityNO" id="identityNO" otype="button" otitle="证件号码" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="userName">姓名</label>
+                    <div class="controls">
+                        <input type="text" name="userName" id="userName" maxlength="40" otype="button" otitle="姓名" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="gender">性别</label>
+                    <div class="controls">
+                        <select id="gender" name="gender" value="" otype="button" otitle="性别">
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="vocation">职业</label>
+                    <div class="controls">
+                        <select id="vocation" name="vocation" value=""  otype="button" otitle="职业">
+                            <option value="01">党政机关、事业单位</option>
+                            <option value="02">企业单位</option>
+                            <option value="03">自由业主</option>
+                            <option value="04">学生</option>
+                            <option value="05">军人</option>
+                            <option value="06" selected="selected">其他</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="line hide" id="line_p"></p>
+                <p class="tips-row text-info text-center hide" id="title_p">
+                  按照法规要求，超过70周岁开户，需登记账户实际操作人信息
+                </p>
+                <div class="control-group hide" id="contact_cgroup">
+                    <label class="control-label" for="contact">实际操作人名称</label>
+                    <div class="controls">
+                        <input type="text" name="contact" id="contact" maxlength="40" otype="button" otitle="实际操作人名称" />
+                    </div>
+                </div>
+                <div class="control-group hide" id="conttype_cgroup">
+                    <label class="control-label" for="conttype">证件类型</label>
+                    <div class="controls">
+                        <select id="conttype" name="conttype" otype="button" otitle="证件类型">
+                            <option value="0" selected="selected">身份证</option>
+                            <option value="1">中国护照</option>
+                        ##<option value="2">军官证</option>
+                        ##<option value="3">士兵证</option>
+                            <option value="4">港澳通行证</option>
+                        ##<option value="6">外国护照</option>
+                            <option value="A">台胞证</option>
+                        ##<option value="5">户口本</option>
+                        ##<option value="7">其它</option>
+                        ##<option value="8">文职证</option>
+                        ##<option value="9">警官证</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group hide" id="contno_cgroup">
+                    <label class="control-label" for="contno">证件号码</label>
+                    <div class="controls">
+                        <input type="text" maxlength=25 name="contno" id="contno" otype="button" otitle="证件号码" />
+                    </div>
+                </div>
+                <div class="control-group hide" id="contacttimelimited_cgroup">
+                    <label class="control-label" for="contacttimelimited">证件有限期</label>
+                    <div class="controls">
+                        <input type="text" class="span3 inline" id="contacttimelimited" name="contacttimelimited" style="background-color:white" otype="button" otitle="证件有限期" >&nbsp;&nbsp;
+                        <label class="checkbox  inline" id="noTimeLimitChkbox">
+                            <input type="checkbox" id="contacttimeUnlimited" otype="button"  otitle="永久有效">永久有效
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group hide" id="relationship_cgroup">
+                    <label class="control-label" for="relationship">与账户持有人关系</label>
+                    <div class="controls">
+                        <input type="text" name="relationship" id="relationship" onkeyup="keyUpShip()" maxlength="20" otype="button" otitle="与账户持有人关系"  placeholder='亲属、客户经理或其他' />
+                    </div>
+                </div>
+
+                <div class="control-group hide" id="contphone_cgroup">
+                    <label class="control-label" for="contphone">手机号码</label>
+                    <div class="controls">
+                        <input type="text"  id="contphone" name="contphone" otype="button" otitle="手机号码" >
+                    </div>
+                </div>
+                <div class="control-group hide" id="smsVFCode__cgroup">
+                    <label class="control-label" for="smsVFCode" otype="button"  >校验码</label>
+                    <div class="controls">
+                        <input type="text" class="span3" maxlength="6" id="smsVFCode" name="smsVFCode" otype="button" otitle="校验码">&nbsp;&nbsp;
+                        <button type="button" class="btn" id="smsVFCodeBtn" otype="button" otitle="免费获取" >免费获取校验码</button>
+                    </div>
+                </div>
+
+
+                <div class="control-group">
+                    <label class="control-label"></label> ##解决IE6兼容问题
+                    <div class="controls">
+                        <button class="btn btn-large btn-warning" id="nextbtn" type="submit" otype="button" otitle="下一步" >
+                        &nbsp;&nbsp;下一步&nbsp;&nbsp;
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    ##提示框
+    <div id="myModal" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>温馨提示</h3>
+        </div>
+        <div class="modal-body">
+            <p class="text-fontsize16"><span id="modalMsgSpan">
+                您已经在网站开户，您可以直接登录官网或者重新填写证件信息。
+            </span></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">关闭</a>
+            <a href="/main/index" class="btn btn-warning" id="DRlogin">直接登录</a>
+        </div>
+    </div>
+
+## 遮罩层
+    <div id="shadeDiv" class="shadeDiv"></div>
+    <div id="bankMsgBox" class="aqgj_divbox4">
+        <div class="info_bg" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/account/aqgj_bdsj_tcbg.png');"></div>
+        <div class="info_box">
+            <h1>温馨提示</h1>
+            <div class="txt">
+                <p> <img src="/static/wtgf/img/account/bk-icon-14102001.gif" alt="" class="erroricon"><span style="font-size: 13px;color:#666464;" id='bankmsg'>您已是我司客户，请直接登录，首次登录请查看<a href="http://www.gffunds.com.cn/html/login_tips.html" target="_blank">《首次登录须知》。</a></span></p>
+            </div>
+            <div class="bt3"  id="displaybtn" style="display: block">
+                <a class="gh_bt5"  href="javascript:hideVerifyMsgDiv();"  >关闭</a>
+                <a class="gh_bt2"  href="https://trade.gffunds.com.cn/main/index">我要登录</a>
+            </div>
+            <br/>
+            <div class="bt_close"><a href="javascript:hideVerifyMsgDiv()" class="bt_close_c">关闭</a></div>
+        </div>
+    </div>
+
+</div>
+#end
+#require("wtgf:page/account/openaccount/openaccount_step1/openaccount_step1.vm")
+#end

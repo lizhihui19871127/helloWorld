@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+#html("common:static/js/mod.js")
+
+#set($HEADER_TITLE="欢迎进入广发基金网上交易系统！")
+#set($PAGE_TITLE="广发基金管理有限公司")
+#set($IS_LOGIN=1)
+#set($GF_VIEWINFO={})
+#set($USE_BOOTSTRAP=1)
+
+#block("global_var")
+#end
+
+#head()
+	<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+	<meta content="广发基金管理有限公司" name="description">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>$PAGE_TITLE</title>
+
+    #if($USE_BOOTSTRAP==1)
+        <link type="text/css" rel="stylesheet" href="/static/common/bootstrap/css/bootstrap.css"/>
+        <!--[if lte IE 6]>
+            <link rel="stylesheet" type="text/css" href="/static/common/bootstrap/css/bootstrap-ie6.css">
+        <![endif]-->
+
+        <!--[if lte IE 7]>
+            <link rel="stylesheet" type="text/css" href="/static/common/bootstrap/css/bootstrap/ie.css">
+        <![endif]-->
+        #require("common:static/css/gfBootstrap.less")
+    #else
+        #require("common:static/css/cssreset.css")
+    #end
+
+	#require("common:static/css/gfbase.css")
+	#require("common:static/css/btn.less")
+	#require("common:static/css/icon.less")
+
+    <script type="text/javascript" src="/static/common/js/jquery.js"></script>
+    <script type="text/javascript">
+        //expose the template data to the js
+        //the data in the $GF_VIEWINFO can't be an Array or Object,only accept number,string,boolean
+        window.GF_VIEWINFO = {
+            #foreach($key in $GF_VIEWINFO.keySet())
+                "$key" : "$GF_VIEWINFO.get($key)",
+            #end
+            "isLogin" : "$IS_LOGIN"
+        };
+
+        //记录页面的开始时间，用来统计页面加载时间
+        window.GF_VIEWINFO.pageInitTime = (new Date()).getTime();
+
+        //ga
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3795228-1']);
+        _gaq.push(['_addOrganic', 'soso', 'w']);
+        _gaq.push(['_addOrganic', 'yodao', 'q']);
+        _gaq.push(['_addOrganic', 'sogou', 'query']);
+        _gaq.push(['_setDomainName', 'gffunds.com.cn']);
+        _gaq.push(['_setAllowHash', false]);
+        _gaq.push(['_trackPageview']);
+        _gaq.push(['_trackPageLoadTime']);
+        (function() {
+             var ga = document.createElement('script');
+             ga.type = 'text/javascript';
+             ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0];
+             s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+    <script type="text/javascript" src="/scripts/webtrends.js"></script>
+    <script type="text/javascript">
+        if (typeof(_tag) != "undefined") {
+        if(document.readyState!="complete"){
+            document.onreadystatechange = function(){
+                if(document.readyState=="complete") _tag.dcsCollect()
+            }
+        }
+        else {
+            _tag.dcsCollect()
+        }
+    }
+    </script>
+    #block("header_scripts")
+    #end
+#end
+
+#body()
+
+	<div id="wrapper">
+
+        <div id="pageHeader">
+            #block("header")
+            <div class="head_nav">
+                <h1 class="logo">
+                    <a href="http://www.gffunds.com.cn/"><img src="/static/common/img/gf_logo.png" alt="" /></a>
+                    <span>$HEADER_TITLE</span>
+                </h1>
+                <ul class="right_nav">
+                    <li><a href="http://www.gffunds.com.cn/" target="_blank">网站首页</a></li>
+                    <li><a href="http://live800.gffunds.com.cn/live800/chatClient/chatbox.jsp?companyID=203&configID=78270" target="_blank"><img src="/static/common/img/register_icon01.png" alt="" />在线客服</a></li>
+                    <li class="last"><a href="#">广发基金APP</a></li>
+                </ul>
+            </div>
+            #end
+        </div>
+
+        <div id="pageContent">
+            #block("content")
+            #end
+        </div>
+
+        <div id="pageFooter">
+            #block("footer")
+            <div class="footer_content">
+                <p>广发基金管理有限公司    版权所有    All Rights Reserved.    [ICP 备案登记证编号:粤ICP备12020109号]</p>
+                <p> 地址：广州市海珠区琶洲大道东1号保利国际广场南塔31-33楼         邮编：510308        客服热线：95105828        客服邮箱：services@gffunds.com.cn</p>
+            </div>
+            #end
+        </div>
+
+	</div>
+
+
+	#block("bottom_scripts")
+	#end
+
+    #if($USE_BOOTSTRAP==1)
+    <script type="text/javascript" src="/static/common/bootstrap/js/bootstrap.js"></script>
+    <!--[if lte IE 6]>
+        <script type="text/javascript" src="/static/common/bootstrap/js/bootstrap-ie.js"></script>
+    <![endif]-->
+    #end
+
+#end
+
+#require("common:page/newLayout/newLayout.vm")
+
+#end

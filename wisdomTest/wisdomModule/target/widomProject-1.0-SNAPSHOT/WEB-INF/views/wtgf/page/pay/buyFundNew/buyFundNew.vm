@@ -1,0 +1,169 @@
+#extends("wtgf:page/layout/layoutBind.vm")
+#block("page_var")
+#set($currentNav="buy")
+#set($GF_VIEWINFO.mainNav='r2')
+#set($GF_VIEWINFO.subNav='c28')
+#end
+#block("content_main")
+<div class="content-main">
+    <!-- 订单支付-START -->
+    <div class="container-pay wrap" style="margin-left: 0px;">
+        <div class="pageMain" style="padding:0 0 0 0;padding-bottom:2px">
+            <div class="pay-main pay-cz-main">
+                #if($webShowInfo.content)
+                    <div class="nanwu-alert">
+                        $!{webShowInfo.content}
+                    </div>
+                #end
+                <div class="cz-main">
+                    <div class="cz-item">
+                        <form name="frm" id="frm">
+                            <dl style="margin-top:20px">
+                                <dt style="padding-left: 20px;"><span>1</span>选择购买基金</dt>
+                                <dd>
+                                    <span class="t" style="top: 2px;">基金名称</span>
+                                    <label class="in-label in-founds-choose" for="foundsName">
+                                        <input type="hidden" id="fundCode" name="fundCode" value="$!{order.fundCode}" />
+                                        <input type="hidden" id="fundNameNew" name="fundNameNew" value="$!{order.fundName}" />
+                                        <input type="hidden" id="riskLevel" name="riskLevel" value="$!{userInfo.riskLevel}" />
+                                        <input type="hidden" id="riskLevelInt" name="riskLevelInt" value="$!{userInfo.riskLevelInt}" />
+                                        #widget("wtgf:widget/fundSelectorNew/fundSelectorNew.vm")
+                                        #script()
+                                            require("wtgf:widget/fundSelectorNew/fundSelectorNew.js");
+                                        #end
+                                    </label>
+                                    <span class="in-radio sub-box" style="top: 2px;color: rgb(153, 153, 153);width: 100px;border: 0px;padding: 0;display: none" id="_qdzTip" >查看赎回日期
+                                        <div class="sub-tips" style="padding: 0;">
+                                            <i></i>
+                                            <table class="table-fe" border="0">
+                                                <tbody><tr>
+                                                    <td class="middle" align="center"><span style="color: #999;font-size: 12px">预计下单日</span></td>
+                                                    <td class="middle" align="center"><span style="color: #999;font-size: 12px">预计可赎回日</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="middle" align="center"><span style="color: #000000;font-size: 12px;font-weight:bold;" id="orderTime">2016.01.12</span></td>
+                                                    <td class="middle" align="center"><span style="color: #000000;font-size: 12px;font-weight:bold;" id="redeemTime">2016.01.19</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="middle" align="center"><span style="color: #999;font-size: 10px">注：若赎回日逢节假日，顺延至下个工作日</span></td>
+                                                </tr>
+                                                </tbody></table>
+                                        </div>
+                                    </span>
+                                </dd>
+                                <dd>
+                                    <span class="t" style="line-height: 18px;">收费方式</span>
+                                    #if($order.shareType == "A")
+                                        <label class="in-label in-radio active" for="payType1" id="payType1Label">
+                                            <input id="payType1" class="payType" name="payType" type="radio" value="A" checked="checked">
+                                            前收费
+                                        </label>
+                                    #else
+                                        <label class="in-label in-radio" for="payType1" id="payType1Label">
+                                            <input id="payType1" class="payType" name="payType" type="radio" value="A">
+                                            前收费
+                                        </label>
+                                    #end
+
+                                    #if($order.shareType == "B")
+                                        <label class="in-label in-radio active" for="payType2" id="payType2Label">
+                                            <input id="payType2" class="payType" name="payType" type="radio" value="B" checked="checked">
+                                            后收费
+                                        </label>
+                                    #else
+                                        <label class="in-label in-radio" for="payType2" id="payType2Label">
+                                            <input id="payType2" class="payType" name="payType" type="radio" value="B">
+                                            后收费
+                                        </label>
+                                    #end
+
+                                    #if($order.shareType == "C")
+                                        <label class="in-label in-radio sub-box active" for="payType3" id="payType3Label">
+                                            <input id="payType3" class="payType" name="payType" type="radio" value="C" checked="checked">
+                                    #else
+                                        <label class="in-label in-radio sub-box" for="payType3" id="payType3Label">
+                                            <input id="payType3" class="payType" name="payType" type="radio" value="C">
+                                    #end
+                                            C类收费
+                                            <img src="/static/wtgf/img/pay/pay-i2.png" alt="">
+                                            <div class="sub-tips">
+                                                <i></i>
+                                                <p>
+                                                    C类收费是指申购股票类基金时，申购费率为0，基金持有时间超过30日以上赎回费率
+                                                    为0（指数基金不受持有时间限制），同时收取基金的销售服务费。销售服务费是由本公司注册
+                                                    登记系统针对每个客户的C类资产逐日计提并记录在每个客户帐户，在客户赎回或转换时从客户
+                                                    的赎回或转换款项中扣除。一般主动管理的股票基金的销售服务费按0.6%/年收取，被动管理基金
+                                                    按0.4%/年收取。建议短期持有基金（18个月以内）的投资者可参考选择C类收费。
+                                                </p>
+                                            </div>
+                                        </label>
+                                        <span class="tips" id="shareTypeC">C类收费免申购费,适合短期投资,成本最低</span>
+                                    &nbsp;
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt style="padding-left: 20px;"><span>2</span>填写购买金额</dt>
+                                <dd>
+                                    <span class="t">购买金额</span>
+                                    <label class="in-label how-money" for="howMoney">
+                                        <input class="in-txt" id="amount" name="amount" type="text" value="$!{order.amount}" onkeyup="value=value.replace(/[^\d|.]/g,'')";>
+                                        <span id="checkTips"></span>
+                                    </label>
+                                    <p class="note" style="margin-top: -20px;"><span id="limitShow">购买金额不低于<em><span id="minValue"></span></em>元</span><span id="dayLimitShow">，日累计限额<em><span id="maxValueByDay"></span></em>万元</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <span class="t">大写金额</span>
+                                    <div style="padding-top: 5px;">&nbsp;<span id="bigMoney" name="bigMoney" style="font-size: 14px;"></span></div>
+                                </dd>
+                                <dd id="showLever" style="display:none">
+                                    <p id="lever"></p>
+                                    <input type="checkbox" name="leverCheckBox" id="leverCheckBox" style="margin-right: 5px;margin-top: -2px;"/>确认，并知晓该风险。
+                                </dd>
+                                <dd>
+                                    <input class="skins-btn in-sub" type="button" onclick="submitFrm()" id="toPay" name="toPay" value="去支付" otype="button" otitle="去支付" oarea="基金认申购">
+                                </dd>
+                            </dl>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="cz-help">
+                    <h3><img src="/static/wtgf/img/pay/pay-i2.png" alt="">帮助</h3>
+                    <dl>
+                        <dt>1. 什么是基金交易日？</dt>
+                        <dd>答：T日即为基金交易日，周末和节假日不属于T日（交易日），T日以股市收市时间为界，每天15：00后提交的交易属于下一个交易日，比如星期五15：00之后提交的交易申请将视为下星期一的交易，该申请的T日为下星期一。</dd>
+
+                        <dt>2. 基金交易以什么价格成交呢？</dt>
+                        <dd>答：基金交易均遵循“未知价”交易原则，即您申购（包括定投）、赎回、转换基金时都按提交业务申请当天（T日）的净值计算，而每个交易日的净值是在交易结束后计算出来的，也就是说您在提交申请时不知道成交的价格。</dd>
+
+                        <dt>3. 申购基金需要几天确认成功？成交份额是按申购时的净值算，还是确认成功日呢？</dt>
+                        <dd>答：基金的成交份额是按T日净值计算的，一般需要T+1日交易确认（海外型基金T+2日交易确认），T+2日您可以在账户中查询份额（海外型基金T+3日可查）（T日为申购时所属交易日）。</dd>
+                    </dl>
+                    <p>&gt;&nbsp;查看<a href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/ywbl/jjrsg/index_helpty.htm" target="_blank">更多问题</a></p>
+                </div>
+
+##                #widget("wtgf:widget/fundSelectorNew/fundSelectorNew.vm")
+
+                <!-- 所有错误信息，共用这一个弹出框 -->
+                <div id="modal0" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-header" style="height:20px;background-color:#e2e2e2;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span id="myModalLabel">温馨提示</span>
+                    </div>
+                    <div class="modal-body">
+                        <div id="showInfoMsg" style="font:12px/1.5em 'Microsoft YaHei'"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- 订单支付-END -->
+</div>
+
+#end
+#require("wtgf:page/pay/buyFundNew/buyFundNew.vm")
+
+#end

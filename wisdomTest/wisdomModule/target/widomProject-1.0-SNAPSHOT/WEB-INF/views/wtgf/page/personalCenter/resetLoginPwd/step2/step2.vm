@@ -1,0 +1,53 @@
+#extends("wtgf:page/layout/newlayoutNoNav.vm")
+#block("page_var")
+#set($HEADER_TITLE="重置登录密码！")
+#set($BOOTSTRAP_CONTAINER="")
+#set($IS_LOGIN=0)
+#set($USE_BOOTSTRAP=0)
+#end
+#block("content_main")
+#widget("wtgf:widget/modal/modal.vm")
+<div class="pwReset_content">
+    <div class="pwReset_content_center">
+        <div class="pwReset_box">
+            <div class="pwReset2">
+                <h3>您正在为账户$!{userName}重置登录密码，请选择重置方式：</h3>
+                <dl>
+                    <dt><img style="margin-top: 33px;" src="/static/wtgf/img/personalCenter/register_icon18.png" alt="" /></dt>
+                    <dd>
+                        <p class="way">通过短信验证方式找回</p>
+                        #if($mobileNoAvailable)
+                            <p class="msg">我的<em>$!{mobileNoShow}</em>手机还在正常使用</p>
+                            <a href="/main/resetPwd/mobileNoValidate/pre" class="reset">重置</a>
+                        #else
+                            <p class="msg">您还没有开通手机账户名 请先><a href="/main/register/index">开通</a></p>
+                        #end
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><img style="margin-top: 33px;" src="/static/wtgf/img/personalCenter/register_icon19.png" alt="" /></dt>
+                    <dd>
+                        <p class="way">通过银行卡验证方式找回</p>
+                        #if($bankAvaliable)
+                            <p class="msg">我的手机无法使用，但已关联银行卡</p>
+                            <a href="/main/resetLoginPwd/toBankVerify" class="reset">重置</a>
+                        #else
+                            <p class="msg">您还没有绑定银行卡，请选择其他验证方式</p>
+                        #end
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><img style="margin-top: 33px;" src="/static/wtgf/img/personalCenter/register_icon20.png" alt="" /></dt>
+                    <dd>
+                        <p class="way">通过人工服务</p>
+                        <p class="msg">我什么都不记得了</p>
+                        <span class="rgfw">请拨打我司客服热线<em>95105828</em>寻求帮助</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+#require("wtgf:page/personalCenter/resetLoginPwd/step2/step2.vm")
+#end

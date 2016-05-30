@@ -1,4 +1,0 @@
-<div class="verifyCodePanel hide">
-	<img class="verifyCodeImg" alt="验证码">
-	<a class="reloadBtn" href="javascript:void(0);">换一张</a>
-</div>
